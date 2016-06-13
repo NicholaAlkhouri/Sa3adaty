@@ -1,0 +1,448 @@
+﻿@using Sa3adaty.Core.ViewModels.Videos
+@using Sa3adaty.Core.ViewModels.Account
+@model VideoViewModel
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.MetaDescription = Model.MetaDescription;
+       
+    SimpleUserViewModel current_user = null;
+    if (WebSecurity.IsAuthenticated)
+    {
+        current_user = (SimpleUserViewModel)ViewBag.CurrentUser;
+    }
+    
+}
+
+
+@section MetaData{
+    <!-- Schema.org markup for Google+ -->
+  @*  <meta itemprop="name" content="@Model.MetaTitle">
+    <meta itemprop="description" content="@Model.MetaDescription">
+    <meta itemprop="image" content="@Html.AbsoluteArabicURL(Url.Content("~/" + Model.ImageURL))">*@
+
+    <!-- Open Graph data -->
+    <meta property="fb:app_id" content="@System.Configuration.ConfigurationManager.AppSettings["FacebookAppId"]" /> 
+    <meta property="og:type" content="video.other" /> 
+    <meta property="og:site_name" content="sa3adaty.com" /> 
+    <meta property="og:url" content="@Html.AbsoluteArabicURL(Url.Action("Video","Video", new { id = Model.URL }))" /> 
+    <meta property="og:title" content="@Model.MetaTitle" /> 
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="684" />
+    <meta property="og:image:height" content="353" />
+    <meta property="og:description" content="@Model.MetaDescription" /> 
+    <meta property="og:image" content="@Html.AbsoluteURL(Url.Content("~/" + Server.UrlEncode(Model.ImageURL)))" /> 
+  
+     <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@("@Sa3adatyME")">
+    <meta name="twitter:creator" content="@("@Sa3adatyME")">
+    <meta name="twitter:title" content="@Model.MetaTitle">
+    <meta name="twitter:description" content="@Model.MetaDescription">
+    <meta name="twitter:image" content="@Html.AbsoluteURL(Url.Content("~/" + Server.UrlEncode(Model.ImageURL)))">
+
+    <link rel="canonical" href="@Html.AbsoluteArabicURL(Url.Action("Video","Video", new { id = Model.URL }))" />
+}
+
+@section Snippets
+{
+    <script type="application/ld+json">
+        {
+      "@@context": "http://schema.org",
+      "@@type": "VideoObject",
+      "name": "@Model.MetaTitle",
+      "description": "@Model.MetaDescription",
+      "thumbnailUrl": "@Html.AbsoluteArabicURL(Url.Content("~/" + Model.ImageURL))",
+      "uploadDate": "@Model.PublishDate.ToString("s")",
+      "duration": "PT@((int)((Model.Duration ?? 0) / 60)==0 ?"":((int)((Model.Duration ?? 0) / 60)).ToString()+"M")@((int)((Model.Duration ?? 0) % 60)==0 ?"":((int)((Model.Duration ?? 0) % 60)).ToString()+"S")",
+      "embedUrl": "https://www.youtube.com/embed/@Model.YoutubeId",
+      "interactionCount": "@Model.Views"
+    }
+</script>
+}
+
+@*<div class="top-list hidden-sm hidden-xs hidden-md">
+    <div class="container">
+        @Html.Partial("_RelatedTopList", (List<ListArticleViewModel>)(ViewBag.RelatedArticlesTop))
+    </div>
+</div>*@
+<div class="container top-banner-wrapper" >
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Top Responsive -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1771671286404648"
+         data-ad-slot="1247373392"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+<div class="container">
+    <div class="row" >
+        @*Right Sectinon*@
+        <div class="col-xs-32 col-lg-22 main-section">
+            <div class="shadow-box article-wrapper" style="float:right;width:100%">
+                <div class="white-background bread-crumb-wrapper col-xs-32">@Html.Partial("_BreadCrumb", (Sa3adaty.Core.ViewModels.BreadCrumbViewModel)ViewBag.BreadCrumb)</div>
+
+                <article>
+                    <header>
+                        <div class="col-xs-32 article-box s-box" style="margin-bottom: 0px;">
+                            <div class="col-xs-32 article-title">
+                                <h1>@Model.Title</h1>
+                                @if(!Model.Author.FullName.Contains("سعادتي"))
+                                {
+                                    @Html.Partial("_AuthorInfo",Model.Author)
+                                }
+                                <div class="article-title-side" style="padding:0px;">
+                                    @*<div class="article-info">
+                                        <div class="info-like">
+                                            @Html.FormatNumbers(Model.LikesCount.ToString())
+                                        </div>
+                                        <div class="three-dot-separator"></div>
+                                        <div class="info-comment">
+                                            @Html.FormatNumbers(Model.CommentsCount.ToString())
+                                        </div>
+                                    </div>*@
+                                    <div class="article-date" style="float:right;padding:0px">@Html.FormatDate(Model.PublishDate)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="embed-responsive embed-responsive-16by9" style="clear:both;">
+                      <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/@(Model.YoutubeId)?rel=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    @*<div class="col-xs-32 article-image">
+                        <iframe class="video-frame" src="https://www.youtube.com/embed/@Model.YoutubeId" frameborder="0" allowfullscreen></iframe>
+                    </div>*@
+                    <div class="col-xs-32 article-box">
+                
+                       @* <div class="col-xs-32 col-sm-16 article-like-wrapper">
+                            @if (Model.IsLikedByCurrentUser)
+                            {
+                                <input type="submit" class="action-btn liked-btn" value="أعجبني" style="margin-top:20px" disabled="disabled" />
+                            }
+                            else
+                            {
+                                if (WebSecurity.IsAuthenticated)
+                                {
+                                    using (Ajax.BeginForm("_likeArticle", "Article", new { article_id = Model.ArticleId }, new AjaxOptions() { OnSuccess = "like_article_success" }, new { novalidate = "novalidate" }))
+                                    {
+                                        <input type="submit" class="action-btn like-btn" value="أعجبني" style="margin-top:20px" id="like-btn" />
+                                    }
+                                }
+                                else
+                                {
+                                    <a class="action-btn like-btn" style="margin-top:20px" href="@Html.AbsoluteArabicURL(Url.Action("Login", "Account", new { returnUrl = Request.RawUrl }))" >أعجبني</a>
+                                }
+                            }
+                        </div>*@
+                      
+                       <div class="clearfix"></div>
+                
+                        <div class="article-text">
+                            @if (Model.Description!= null && Model.Description.Trim() != "")
+                            { 
+                            <br />
+                            @Html.Raw(Html.ReplaceHashTags(Model.Description))
+                            }
+                           @* <section>
+                                <h2 class="more_articles">اقرأ أيضا:</h2>
+                                <ul class="more_articles_list">
+                                @foreach (ListArticleViewModel art in ((List<ListArticleViewModel>)(ViewBag.RelatedArticlesBottom)).Take(3).ToList())
+                                {
+                                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = art.URL}))">@art.Title </a></li>
+                                }
+                                    </ul>
+                            </section>*@
+                        </div>
+
+                        <div class="col-xs-32" style="padding:0px;margin-top: 10px;text-align:center;margin-bottom:10px;">
+
+                            <div class="social-share-wrapper">
+                               <div class="fb-like" data-href="@Html.AbsoluteArabicURL(Request.RawUrl.Contains("?")?Request.RawUrl.Substring(0, Request.RawUrl.IndexOf("?")):Request.RawUrl)" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                            </div>
+                            <div class="social-share-wrapper">
+                                <div class="fb-share-button" data-href="@Html.AbsoluteArabicURL(Request.RawUrl.Contains("?")?Request.RawUrl.Substring(0, Request.RawUrl.IndexOf("?")):Request.RawUrl)" data-layout="box_count"></div>
+                            </div>
+                            <div class="social-share-wrapper">
+                                <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
+                            </div>
+                            <div class="social-share-wrapper">
+                                <div class="g-plusone" data-size="tall"></div>
+                            </div>
+                            <div class="social-share-wrapper">
+                                <a href="https://twitter.com/share" data-count="vertical" class="twitter-share-button" data-via="Sa3adatyME" data-lang="en">Tweet</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            </div>
+                        </div>
+                        <hr />
+                       <div class="col-xs-32" style="padding:0px">
+                            @foreach(string tag in Model.Tags )
+                            {
+                                <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag","Category", new { id = tag.Replace("_","-")}))" class="tag-box">@tag</a>
+                            }
+                        </div>
+
+                        <hr style="float: right;  width: 100%;"/>
+                        @*Comments*@
+
+                        <div class="col-xs-32 article-comments">
+                            <div class="row">
+                                <div class="article-comments-title col-xs-32">
+                                    <div class="continues-dot-separator"><span>تعليقات</span>
+
+                                    </div></div>
+                            </div>
+                
+                            <div id="comments-container">
+                                @if (Model.Comments.Count() > 0)
+                                {
+                                    @Html.Partial("~/Views/Article/_CommentsList.cshtml", Model.Comments)
+                    
+                                }
+                                else
+                                {
+                                    <div>لا يوجد أي تعليقات بعد، كن أول من يعلق</div>
+                                }
+
+                            </div>
+
+                            <hr />
+                            @if (WebSecurity.IsAuthenticated)
+                            {
+                                using (Ajax.BeginForm("_commentVideo", "Video", new { video_id = Model.VideoId }, new AjaxOptions() { OnSuccess = "comment_video_success", OnFailure = "comment_video_failure", OnBegin = "comment_video_start", LoadingElementId = "loading-img" }, new { novalidate = "novalidate" }))
+                                {
+                                    <div class="row article-reply-wrapper" >
+                                        <div class="col-lg-3 col-xs-3 comment-img">
+                                            @if (current_user != null && ((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl != null)
+                                            {
+                                                <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + current_user.ImageUrl))" alt="@current_user.Name" title="@current_user.Name" width="45" height="45" />
+                                            }
+                                            else
+                                            {
+                                                <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" alt="صورة المستخدم" width="45" height="45" />
+                                            }
+                                        </div>
+                                        <div class="col-lg-29">
+                                            <textarea class="article-comment-area" name="text" id="comment-text"></textarea>
+                           
+                                        </div>
+                                        <div class="col-lg-32 text-right"><input type="submit" class="action-btn" value="أضف تعليق" id="add-comment-btn" onclick="return checkIfNotBlank('#comment-text');" /></div>
+                                        <img id="loading-img" class="ajax-loader" src="/Content/images/loading.gif" style="display:none;" />
+                                    </div>
+                                }
+                    
+                                <input type="hidden" id="reply_comment_id" />
+                    
+                                <div class="row article-reply-wrapper" id="reply_form" style="display:none;">
+                                    <div class="col-lg-3 col-xs-3 comment-img">
+                                        @if (current_user != null && ((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl != null)
+                                        {
+                                                <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + current_user.ImageUrl))" alt="@current_user.Name" title="@current_user.Name" width="45" height="45" />
+                                        }
+                                        else
+                                        {
+                                                <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" alt="صورة المستخدم" width="45" height="45" />
+                                        }    
+                                
+                                    </div>
+                                    <div class="col-lg-29">
+                                        <textarea class="article-comment-area" name="text" id="comment-reply-text"></textarea>
+                                    </div>
+                                    <div class="col-lg-32 text-right"><input type="button" class="action-btn" value="أضف رد" id="add-reply-btn" onclick="return addReply();" /></div>
+                                    <img class="ajax-loader" id="reply-loader" src="/Content/images/loading.gif" style="display:none;" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row" style="padding: 0px 30px;position:relative;">
+                                    <div class="col-lg-3 col-xs-3 comment-img">
+                                        @if (current_user != null && ((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl != null)
+                                        {
+                                            <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + current_user.ImageUrl))" alt="@current_user.Name" title="@current_user.Name" width="45" height="45" />
+                                        }
+                                        else
+                                        {
+                                            <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" alt="صورة المستخدم" width="45" height="45" />
+                                        }
+                                    </div>
+                                    <div class="col-lg-29">
+                                        <textarea class="article-comment-area" name="text" disabled="disabled"></textarea>
+                           
+                                    </div>
+                                    <div class="col-lg-32 text-right">
+                                        <a class="action-btn" style="margin-top:20px" href="@Html.AbsoluteArabicURL(Url.Action("Login", "Account", new { returnUrl = Request.RawUrl }))" >سجل دخولك لإضافة تعليق</a>
+                                    </div>
+                           
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div  class="s-box"></div>
+
+            <section>
+                <div id="articles_list" class="horizontal-list horizontal-video-list white-background shadow-box" style="padding-top:20px;">
+                    @foreach (ListVideoViewModel vid in (List<ListVideoViewModel>)ViewBag.RelatedVideos)
+                    {
+                        @Html.Partial("_RelatedVideos", vid)
+                    }
+
+                </div>
+            </section>
+                
+            <div class="s-box"></div>
+
+            <section>
+                @Html.Partial("_RelatedBottomList", ((List<Sa3adaty.Core.ViewModels.Articles.ListArticleViewModel>)(ViewBag.RelatedArticlesBottom)).Skip(3).ToList())
+            </section>
+
+            <div class="hidden-sm hidden-xs hidden-md">
+                @Html.Partial("~/Views/Newsletter/_SubscribeBig.cshtml")
+            </div>
+</div>
+
+        @*Left Sectinon*@
+        <div class="col-xs-32 col-lg-10 left-section">
+            <aside>
+                @Html.Partial("~/Views/Newsletter/_SubscribeSmall.cshtml")
+
+                <div class="s-box" style="float:right;width:100%;height:250px;text-align:center;">
+               
+                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Test1For Approve -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1771671286404648"
+                         data-ad-slot="5969584599"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <section>
+                 @Html.Partial("_LeftListWide", (List<Sa3adaty.Core.ViewModels.Articles.ListArticleViewModel>)(ViewBag.LatestArticlesLeft))
+                </section>
+              
+                <section class="col-xs-32 " style="padding:0px;margin-bottom:20px">
+                   @Html.Action("_DailyPoll","Home")
+                </section>
+              
+            </aside>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        function like_article_success(data) {
+
+            if(data.success == true)
+            {
+                $("#like-btn").removeClass("like-btn");
+                $("#like-btn").addClass("liked-btn");
+                $("#like-btn").prop('disabled', true);
+            }
+            else
+            {
+            }
+        }
+
+        function comment_video_start() {
+            $("#add-comment-btn").addClass("action-btn-disabled");
+            $("#add-comment-btn").prop('disabled', true);
+            $("#comment-text").prop('disabled', true);
+        }
+
+        function comment_video_success(data) {
+            $("#add-comment-btn").removeClass("action-btn-disabled");
+            $("#add-comment-btn").prop('disabled', false);
+            $("#comment-text").prop('disabled', false);
+            $("#comment-text").val('');
+
+            $.post("@Url.Action("_getComment", "Video")", { comment_id: data.comment_id })
+              .done(function (data) {
+                     $(data).hide().appendTo("#comments-container").fadeIn(1000);
+              })
+              .fail(function () {
+              })
+              .always(function () {
+                 
+              });
+        }
+        function comment_video_failure()
+        {
+            $("#add-comment-btn").removeClass("action-btn-disabled");
+            $("#add-comment-btn").prop('disabled', false);
+            $("#comment-text").prop('disabled', false);
+        }
+
+        function open_replay_comment(id) {
+
+            $("#reply_comment_id").val(id);
+            $("#comment-reply-text").removeClass("required");
+            $("#comment-reply-text").val('');
+            $("#reply_form").appendTo($("#comment_reply_"+id));
+            $("#reply_form").hide().fadeIn(1000);
+            
+        }
+
+        function addReply() {
+            if(checkIfNotBlank("#comment-reply-text"))
+            {
+                $("#comment-reply-text").removeClass("required");
+                $("#add-reply-btn").addClass("action-btn-disabled");
+                $("#add-reply-btn").prop('disabled', true);
+                $("#reply-loader").show();
+                $("#comment-reply-text").prop('disabled', true);
+
+                var text = $("#comment-reply-text").val();
+                var parent_id = $("#reply_comment_id").val();
+
+                $.post("@Url.Action("_commentVideo", "Video")", { video_id: @Model.VideoId , text : text,parent_id : parent_id})
+                  .done(function (data) {
+                      if(data.success == true)
+                      {
+                          reply_comment_success(data.comment_id,parent_id);
+                          $("#comment-reply-text").val('');
+                      }
+                  })
+                  .fail(function () {
+                  })
+                  .always(function () {
+                      $("#add-reply-btn").removeClass("action-btn-disabled");
+                      $("#add-reply-btn").prop('disabled', false);
+                      $("#reply-loader").hide();
+                      $("#comment-reply-text").prop('disabled', false);
+
+                  });
+            }
+            else
+            {
+                $("#comment-reply-text").addClass("required");
+            }
+        }
+
+        function reply_comment_success(comment_id,parent_id)
+        {
+            $.post("@Url.Action("_getComment", "Video")", { comment_id: comment_id })
+              .done(function (data) {
+                  $(data).hide().appendTo("#comment_replies_"+parent_id).fadeIn(1000);
+                  $("#reply_form").hide();
+                  $("html, body").animate({
+                      scrollTop: $('#comment_'+ comment_id).offset().top - 100
+                  }, 1000);
+              })
+              .fail(function () {
+              })
+              .always(function () {
+                 
+              });
+        }
+    </script>
+}

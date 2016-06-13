@@ -1,0 +1,81 @@
+﻿@model Sa3adaty.Core.ViewModels.Admin.Quotes.QuoteViewModel  
+
+@{
+    ViewBag.Title = "New Daily Quote";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <link href="@Url.Content("~/Content/bootstrap/bootstrap-datetimepicker.min.css")" rel="stylesheet" />
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add New Quote</h1>
+    </div>
+</div>
+ @using (Html.BeginForm("New", "AdminQuote", FormMethod.Post))
+ {
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quote Info
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Quote )
+                    @Html.TextBoxFor(m=> m.Quote,new { @class="form-control",required="required"})
+                </div>
+                
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Author)
+                    @Html.TextBoxFor(m=> m.Author,new { @class="form-control"})
+                </div>
+               
+                <div class="form-group">
+                    @Html.LabelFor(m=> m.DayDate )
+                    <div class='input-group date' id='datetimepickerday'>
+                        @Html.TextBoxFor(m=> m.DayDate,new { @class="form-control"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                 </div>
+               
+               
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="col-lg-4">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+                Save Changes
+            </div>
+            <div class="panel-body">
+                <input type="submit" class="btn btn-primary" value="Save Changes"  />
+            </div>
+        </div>
+
+       
+    </div>
+</div>
+}
+
+
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/bootstrap/moment.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/bootstrap-datetimepicker.min.js")"></script>
+    
+
+    <script >
+        $(function () {
+            $('#datetimepickerday').datetimepicker();
+        });
+    </script>
+}
+   

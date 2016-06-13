@@ -1,0 +1,34 @@
+﻿@using Sa3adaty.Core.ViewModels.Account
+@using Sa3adaty.Core.ViewModels.Articles
+<div class="footer shadow-box">
+    <div class="container">
+        <div  class="pull-right footer-social" >
+            <a href="https://plus.google.com/+Sa3adaty" style="padding-left:20px;" class="gplus-link-wrapper">
+                <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/gplus-footer.png"))" alt="سعادتي على فيسبوك"/>
+                @*<div class="g-page-wrapper"  style="display:none;position:relative;">
+                    <div class="g-page" data-layout="landscape" data-showtagline="false" data-showcoverphoto="false" data-href="https://plus.google.com/+Sa3adaty"></div>
+                </div>*@
+            </a>
+            <a href="https://www.facebook.com/Sa3adatyCommunity"  style="padding-left:0px;" >
+                <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/facebook-footer.png"))" alt="سعادتي على جوجل بلس"/>
+                
+            </a>
+           
+        </div>
+        <div class="footer-top">
+             <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-عائلية"  }))">الحياة العائلية</a>
+             <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="سعادة-زوجية"  }))">السعادة الزوجية</a>
+            <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-شخصية"  }))">الصحة الشخصية</a>
+            <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-نفسية" }))">الصحة النفسية</a>
+            <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-اجتماعية"  }))">الحياة الاجتماعية</a>
+
+        </div>
+        <div class="footer-bottom col-xs-32 col-md-21">
+            <a href="@Url.Action("About","Home")" >عن سعادتي</a>
+            <a href="@Url.Action("Terms","Home")" >شروط الاستخدام</a>
+            <a href="@Url.Action("Contact","Home")" >اتصل بنا</a>
+            <a href="@Url.Action("Advertise","Home")" >أعلن معنا</a>
+        </div>
+        <div class="copywrite col-xs-32 col-md-11" style="float:left;padding-left:0px;font-size: 13px;">جميع الحقوق محفوظة 2015&copy; سعادتي</div>
+    </div>
+</div>

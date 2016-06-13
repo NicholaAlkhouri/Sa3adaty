@@ -1,0 +1,64 @@
+﻿@using Sa3adaty.Core.ViewModels.Videos
+
+@model List<ListVideoViewModel>
+
+<div class="feature-videos-wrapper">
+
+    <div class="horizontal-list-item horizontal-video-list-item big-video">
+        <div class="col-xs-32 horizontal-list-image horizontal-list-video">
+            <a href="@Html.AbsoluteArabicURL(Url.Action("video", "Video", new { id = Model[0].URL }))"> <img class="article-img" src="@Html.AbsoluteImagePath(Url.Content("~/" + Model[0].ImageURL))" alt="@Model[0].Title" title="@Model[0].Title" width="214" height="185" /></a>
+            <span class="video-time">@Model[0].DurationMinutes:@Model[0].DurationSeconds </span>
+            <div class="video-thumb-overlay"></div>
+            <img class="video-overlay-image" src="@Url.Content("~/Content/images/video-play-overlay.png")" />
+        </div>
+        <div class="horizontal-list-details col-xs-32" style="border:0px;">
+            @* <div class="article-info">
+                    <div class="info-like">
+                        @Html.FormatNumbers(Model.LikesCount.ToString())
+                    </div>
+                    <div class="three-dot-separator"></div>
+                    <div class="info-comment">
+                        @Html.FormatNumbers(Model.CommentsCount.ToString())
+                    </div>
+                </div>*@
+            <div class="horizontal-vidoeo-list-maininfo">
+                <div class="horizontal-list-title">
+                    <a class="list-article-title" href="@Html.AbsoluteArabicURL(Url.Action("video", "Video", new { id = Model[0].URL }))">@Model[0].Title </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    @foreach (ListVideoViewModel video in Model.Skip(1))
+    {
+
+        <div class="horizontal-list-item horizontal-video-list-item small-video">
+            <div class="col-xs-32 horizontal-list-image horizontal-list-video">
+                <a href="@Html.AbsoluteArabicURL(Url.Action("video", "Video", new { id = video.URL }))"> <img class="article-img" src="@Html.AbsoluteImagePath(Url.Content("~/" + video.ImageURL))" alt="@video.Title" title="@video.Title" width="214" height="185" /></a>
+                <span class="video-time">@video.DurationMinutes:@video.DurationSeconds </span>
+                <div class="video-thumb-overlay"></div>
+                <img class="video-overlay-image" src="@Url.Content("~/Content/images/video-play-overlay.png")" />
+            </div>
+            <div class="horizontal-list-details col-xs-32" style="border:0px;padding-top:5px;">
+                @* <div class="article-info">
+                        <div class="info-like">
+                            @Html.FormatNumbers(Model.LikesCount.ToString())
+                        </div>
+                        <div class="three-dot-separator"></div>
+                        <div class="info-comment">
+                            @Html.FormatNumbers(Model.CommentsCount.ToString())
+                        </div>
+                    </div>*@
+                <div class="horizontal-vidoeo-list-maininfo">
+                    <div class="horizontal-list-title" style="padding-bottom: 0px;">
+                        <a class="list-article-title" href="@Html.AbsoluteArabicURL(Url.Action("video", "Video", new { id = video.URL }))">@video.Title </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

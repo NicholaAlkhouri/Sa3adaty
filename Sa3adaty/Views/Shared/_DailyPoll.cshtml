@@ -1,0 +1,46 @@
+﻿@using Sa3adaty.Core.ViewModels.Polls
+@model PollViewModel
+
+@if(Model != null)
+{
+
+    <div class="poll-wrapper shadow-box" id="Poll_@Model.PollId">
+        @using (Ajax.BeginForm("_SubmitPollAnswer", "Home", null, new AjaxOptions() { OnSuccess = "poll_success", OnBegin = "return poll_begin(" + Model.PollId + ");", LoadingElementId = "loading-img-poll-" + Model.PollId }, new { novalidate = "novalidate" }))
+        {
+            <input type="hidden" value="@Model.PollId" name="poll_id" />
+            <div class="poll-question-div">
+                <h2 class="poll-question">@Model.Question</h2>
+            </div> 
+            <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + Model.ImageURL))" alt="@Model.Question" title="@Model.Question" />
+    
+            <div class="poll-radio-wraper">
+                @foreach (PollAnswerViewModel pa in Model.Answers)
+                {
+                
+                    <div class="radio">
+                        <input type="radio" value="@pa.PollAnswerId" id="@(pa.PollAnswerId.ToString()+"_answer")" name="answer_id"/>
+                        <label for="@(pa.PollAnswerId.ToString()+"_answer")">@pa.PollAnswer</label>
+                    </div>
+                }
+                <div style="display:none;color:red;margin-bottom:5px;text-align:center" id="poll-answer-required-@Model.PollId">الرجاء اختيار إجابة</div>
+                <div style="text-align:center" class="submit-div"><input class="action-btn" type="submit" value="أرسل الإجابة" style="margin-bottom:20px" /></div>
+
+                <img id="loading-img-poll-@Model.PollId" alt="الرجاء الانتظار" class="ajax-loader" src="/Content/images/loading.gif" style="display:none;" />
+            </div>
+       
+           
+            if (Model.Description != null && Model.Description != "")
+            {
+                <div style="background-color:#e8ecec;height:1px;"></div>
+                <div class="poll-answer-area" style="text-align:center">
+                    <span style="color:#888888;font-size:16px;cursor:pointer" class="show_correct_label" onclick="show_correct()">تعرف على الإجابة الصحيحة</span>
+                    <div class="show_correct_answer" style="display:none;">
+                        <span style="color:#888888;font-size:16px;">الإجابة الصحيحة هي:</span><br />
+                        <div style="color:#515c5d;margin-top:10px">@Model.Description</div>
+                    </div>
+            
+                </div>
+            }
+        }
+    </div>
+}

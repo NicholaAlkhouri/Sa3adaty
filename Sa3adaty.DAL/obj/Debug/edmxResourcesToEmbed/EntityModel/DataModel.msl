@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Sa3adatyModelStoreContainer" CdmEntityContainer="Sa3adatyEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="NumberOfViews" ColumnName="NumberOfViews" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleCategories">
+      <EntityTypeMapping TypeName="Sa3adatyModel.ArticleCategory">
+        <MappingFragment StoreEntitySet="ArticleCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleImages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.ArticleImage">
+        <MappingFragment StoreEntitySet="ArticleImages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryImages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.CategoryImage">
+        <MappingFragment StoreEntitySet="CategoryImages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyQuotes">
+      <EntityTypeMapping TypeName="Sa3adatyModel.DailyQuote">
+        <MappingFragment StoreEntitySet="DailyQuote">
+          <ScalarProperty Name="DayDate" ColumnName="DayDate" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Quote" ColumnName="Quote" />
+          <ScalarProperty Name="QuoteId" ColumnName="QuoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailCampagins">
+      <EntityTypeMapping TypeName="Sa3adatyModel.EmailCampagin">
+        <MappingFragment StoreEntitySet="EmailCampagin">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Likes">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Like">
+        <MappingFragment StoreEntitySet="Like">
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserImages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.UserImage">
+        <MappingFragment StoreEntitySet="UserImages">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="Sa3adatyModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="Sa3adatyModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="Sa3adatyModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Subscription">
+        <MappingFragment StoreEntitySet="Subscription">
+          <ScalarProperty Name="UnsubscripeToken" ColumnName="UnsubscripeToken" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="LastSend" ColumnName="LastSend" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdvertiseInfoes">
+      <EntityTypeMapping TypeName="Sa3adatyModel.AdvertiseInfo">
+        <MappingFragment StoreEntitySet="AdvertiseInfo">
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactInfoes">
+      <EntityTypeMapping TypeName="Sa3adatyModel.ContactInfo">
+        <MappingFragment StoreEntitySet="ContactInfo">
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaticPages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.StaticPage">
+        <MappingFragment StoreEntitySet="StaticPages">
+          <ScalarProperty Name="SectionCode" ColumnName="SectionCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="FeatureOrder" ColumnName="FeatureOrder" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Stack" ColumnName="Stack" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorImages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.AuthorImage">
+        <MappingFragment StoreEntitySet="AuthorImages">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campaigns">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Campaign">
+        <MappingFragment StoreEntitySet="Campaign">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tips">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Tip">
+        <MappingFragment StoreEntitySet="Tip">
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="OnlineDate" ColumnName="OnlineDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="TipId" ColumnName="TipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleTags">
+      <EntityTypeMapping TypeName="Sa3adatyModel.ArticleTag">
+        <MappingFragment StoreEntitySet="ArticleTags">
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollAnswers">
+      <EntityTypeMapping TypeName="Sa3adatyModel.PollAnswer">
+        <MappingFragment StoreEntitySet="PollAnswer">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+          <ScalarProperty Name="PollId" ColumnName="PollId" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollUserAnswers">
+      <EntityTypeMapping TypeName="Sa3adatyModel.PollUserAnswer">
+        <MappingFragment StoreEntitySet="PollUserAnswers">
+          <ScalarProperty Name="AnswerDate" ColumnName="AnswerDate" />
+          <ScalarProperty Name="PollAnswerId" ColumnName="PollAnswerId" />
+          <ScalarProperty Name="UserPollAnswerID" ColumnName="UserPollAnswerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="FrontDescription" ColumnName="FrontDescription" />
+          <ScalarProperty Name="FrontTitle" ColumnName="FrontTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polls">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Poll">
+        <MappingFragment StoreEntitySet="Poll">
+          <ScalarProperty Name="OnlineEndDate" ColumnName="OnlineEndDate" />
+          <ScalarProperty Name="OnlineStartDate" ColumnName="OnlineStartDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PollId" ColumnName="PollId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SearchArticles" FunctionName="Sa3adatyModel.Store.SearchArticles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Sa3adatyModel.SearchArticles_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="KEY" ColumnName="KEY" />
+          <ScalarProperty Name="RANK" ColumnName="RANK" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="NumberOfViews" ColumnName="NumberOfViews" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="VideoTags">
+      <EntityTypeMapping TypeName="Sa3adatyModel.VideoTag">
+        <MappingFragment StoreEntitySet="VideoTags">
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagOfVideos">
+      <EntityTypeMapping TypeName="Sa3adatyModel.TagOfVideo">
+        <MappingFragment StoreEntitySet="TagOfVideo">
+          <ScalarProperty Name="FrontDescription" ColumnName="FrontDescription" />
+          <ScalarProperty Name="FrontTitle" ColumnName="FrontTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoImages">
+      <EntityTypeMapping TypeName="Sa3adatyModel.VideoImage">
+        <MappingFragment StoreEntitySet="VideoImages">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="YoutubeId" ColumnName="YoutubeId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="NumberOfViews" ColumnName="NumberOfViews" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoCategories">
+      <EntityTypeMapping TypeName="Sa3adatyModel.VideoCategory">
+        <MappingFragment StoreEntitySet="VideoCategory">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoComments">
+      <EntityTypeMapping TypeName="Sa3adatyModel.VideoComment">
+        <MappingFragment StoreEntitySet="VideoComment">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="Sa3adatyModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="MiscAccessToken" ColumnName="MiscAccessToken" />
+          <ScalarProperty Name="LoginIdExpires" ColumnName="LoginIdExpires" />
+          <ScalarProperty Name="DisableFileUploads" ColumnName="DisableFileUploads" />
+          <ScalarProperty Name="DisablePrivateMessages" ColumnName="DisablePrivateMessages" />
+          <ScalarProperty Name="DisablePosting" ColumnName="DisablePosting" />
+          <ScalarProperty Name="DisableEmailNotifications" ColumnName="DisableEmailNotifications" />
+          <ScalarProperty Name="TwitterShowFeed" ColumnName="TwitterShowFeed" />
+          <ScalarProperty Name="IsExternalAccount" ColumnName="IsExternalAccount" />
+          <ScalarProperty Name="GoogleId" ColumnName="GoogleId" />
+          <ScalarProperty Name="GoogleAccessToken" ColumnName="GoogleAccessToken" />
+          <ScalarProperty Name="TwitterId" ColumnName="TwitterId" />
+          <ScalarProperty Name="TwitterAccessToken" ColumnName="TwitterAccessToken" />
+          <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+          <ScalarProperty Name="FacebookAccessToken" ColumnName="FacebookAccessToken" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="FailedPasswordAnswerAttempt" ColumnName="FailedPasswordAnswerAttempt" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="Sa3adatyModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="Sa3adatyModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="IsProfileEnabled" ColumnName="IsProfileEnabled" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FacebookPage" ColumnName="FacebookPage" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

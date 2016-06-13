@@ -1,0 +1,112 @@
+﻿@model Sa3adaty.Core.ViewModels.Admin.Tips.TipViewModel
+
+@{
+    ViewBag.Title = "Edit Tip";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    <link href="@Url.Content("~/Content/editor.css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/bootstrap/bootstrap-datetimepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap/plugins/dataTables.bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/jquery.tagit.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/tagit.ui-zendesk.css")" rel="stylesheet" />
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit Tip</h1>
+    </div>
+</div>
+ @using (Html.BeginForm("Edit", "AdminTip", FormMethod.Post, new { novalidate = "novalidate" }))
+ {
+     @Html.HiddenFor(a=> a.TipId)
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Tip Basic Info
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Title)
+                    @Html.TextBoxFor(m=> m.Title,new { @class="form-control",style="direction:rtl"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Description)
+                    @Html.TextAreaFor(m=> m.Description,new { @class="form-control",required="required",style="direction:rtl"})
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+         <div class="panel panel-default">
+           
+            <div class="panel-body">
+                 <div class="form-group">
+                     <div class="checkbox">
+                        <label>
+                             @Html.EditorFor(m=> m.IsPublished,new { @class="form-control"})
+                             @Html.DisplayNameFor(m=>m.IsPublished)
+                        </label>
+                     </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m=> m.OnlineDate)
+                    <div class='input-group date' id='datetimepicker1'>
+                        @Html.TextBoxFor(m=> m.OnlineDate,new { @class="form-control",required="required"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                 </div>
+                
+                <input type="submit" class="btn btn-primary" value="Save Changes"  />
+            </div>
+        </div>
+
+         <div class="panel panel-default">
+            <div class="panel-heading">
+                Campaign
+            </div>
+            <div class="panel-body">
+                 <div class="form-group">
+                   @Html.EditorFor(m=> m.CampaignId)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+}
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/dataTables.bootstrap.js")"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+   <!--Rich Text Editor -->
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/tag-it.min.js")" type="text/javascript" charset="utf-8"></script>
+    <script src="@Url.Content("~/Scripts/editor.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/moment.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/bootstrap-datetimepicker.min.js")"></script>
+    <script >
+        var cat_table;
+
+        $(document).ready(function () {
+           
+           
+            $('#datetimepicker1').datetimepicker();
+
+
+
+        });
+      
+       
+
+    </script>
+}
+   

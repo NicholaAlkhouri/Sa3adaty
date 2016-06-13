@@ -1,0 +1,43 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+@model CommentViewModel
+<hr />
+<div class="row" id="comment_@Model.CommentId">
+    <div class="col-md-3 col-xs-7 col-sm-5 comment-img">
+        @if(Model.UserImageURL != null && Model.UserImageURL != "")
+        {
+         <img src="@Html.AbsoluteImagePath(Url.Content("~/"+ Model.UserImageURL ))" alt="@Model.Username " title="@Model.Username" width="45" height="45" />
+        }
+        else
+        {
+            <img src="@Html.AbsoluteImagePath(Url.Content("~//Content/images/small-avatar.png"))" alt="@Model.Username " title="@Model.Username" width="45" height="45" />
+        }
+    </div>
+    <div class="col-md-29 col-xs-25 col-sm-27" >
+        <div style="padding-bottom: 5px;"><label class="comment-username">@Model.Username</label> <label class="comment-date">@Html.FormatDateTime(Model.AddedDate)</label></div>
+        <p class="comment-text">@Html.Raw(Model.Text.Replace("\r\n","<br />"))
+        </p>
+        @if(Model.ParentId == null){
+            <div class="comment-reply">
+                @if(WebSecurity.IsAuthenticated)
+                {
+                    <span class="comment-reply-action" onclick="open_replay_comment(@Model.CommentId);">الرد على التعليق</span>
+                }else
+                {
+                    <a class="comment-reply-action" style="margin-top:20px;text-decoration:none;color:#666666" href="@Html.AbsoluteArabicURL(Url.Action("Login", "Account", new { returnUrl = Request.RawUrl }))" >سجل دخولك للرد على التعليق</a>
+                }
+            </div>
+            <div id="comment_reply_@Model.CommentId"></div>
+        }
+
+        @if(Model.Replies != null)
+        {
+            <div id="comment_replies_@Model.CommentId">
+                @foreach (CommentViewModel comment in Model.Replies)
+                {
+                    @Html.Partial("~/Views/Article/_Comment.cshtml",comment)
+            
+                }
+            </div>
+        }
+    </div>
+</div>

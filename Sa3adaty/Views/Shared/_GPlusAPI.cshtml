@@ -1,0 +1,17 @@
+﻿<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+@*<script>
+    var pageid = '@System.Configuration.ConfigurationManager.AppSettings["GPlusPageID"]';
+    var apikey = '@System.Configuration.ConfigurationManager.AppSettings["GPlusBrowserKey"]';
+    var url = 'https://www.googleapis.com/plus/v1/people/' + pageid + '?key=' + apikey;
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: url,
+        success: function (data) {
+            $(".gplus-page-count").html(data.plusOneCount);
+
+        }
+    });
+   
+</script>*@

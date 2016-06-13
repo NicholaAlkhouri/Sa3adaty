@@ -1,0 +1,8 @@
+﻿@using Sa3adaty.Core.ViewModels.Videos
+
+@model List<ListVideoViewModel>
+
+@foreach (ListVideoViewModel article in Model)
+{
+    @Html.Partial("_HorizontalListVideo",article)
+}

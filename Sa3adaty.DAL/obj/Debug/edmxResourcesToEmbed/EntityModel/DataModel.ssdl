@@ -1,0 +1,1075 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sa3adatyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdvertiseInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="512" />
+    <Property Name="AuthorId" Type="int" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="NumberOfViews" Type="int" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleTags">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="FacebookPage" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsProfileEnabled" Type="bit" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="512" />
+    <Property Name="FacebookId" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <EntityType Name="AuthorImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Name="CampaignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ParentCategoryId" Type="int" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="512" />
+    <Property Name="URL" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FeatureOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="CategoryImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="ContactInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabicName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EnglishName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DailyQuote">
+    <Key>
+      <PropertyRef Name="QuoteId" />
+    </Key>
+    <Property Name="QuoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quote" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Author" Type="nvarchar" MaxLength="255" />
+    <Property Name="DayDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailCampagin">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Name="CampaignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="Caption" Type="nvarchar" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Level" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+    <Property Name="Stack" Type="nvarchar(max)" />
+    <Property Name="Source" Type="nvarchar(max)" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Poll">
+    <Key>
+      <PropertyRef Name="PollId" />
+    </Key>
+    <Property Name="PollId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="CampaignId" Type="int" Nullable="false" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="OnlineStartDate" Type="datetime" Nullable="false" />
+    <Property Name="OnlineEndDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PollAnswer">
+    <Key>
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Name="AnswerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PollId" Type="int" Nullable="false" />
+    <Property Name="IsCorrect" Type="bit" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PollUserAnswers">
+    <Key>
+      <PropertyRef Name="UserPollAnswerID" />
+    </Key>
+    <Property Name="UserPollAnswerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PollAnswerId" Type="int" Nullable="false" />
+    <Property Name="AnswerDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StaticPages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SectionCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="SubscriptionId" />
+    </Key>
+    <Property Name="SubscriptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CampaignId" Type="int" Nullable="false" />
+    <Property Name="LastSend" Type="datetime" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnsubscripeToken" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MetaDescription" Type="nvarchar(max)" />
+    <Property Name="FrontTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="FrontDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TagOfVideo">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MetaTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MetaDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FrontTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="FrontDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tip">
+    <Key>
+      <PropertyRef Name="TipId" />
+    </Key>
+    <Property Name="TipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CampaignId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="OnlineDate" Type="datetime" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" />
+    <Property Name="FailedPasswordAnswerAttempt" Type="int" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="150" />
+    <Property Name="comment" Type="nvarchar(max)" />
+    <Property Name="signature" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="60" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="60" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="500" />
+    <Property Name="FacebookAccessToken" Type="nvarchar" MaxLength="300" />
+    <Property Name="FacebookId" Type="bigint" />
+    <Property Name="TwitterAccessToken" Type="nvarchar" MaxLength="300" />
+    <Property Name="TwitterId" Type="nvarchar" MaxLength="150" />
+    <Property Name="GoogleAccessToken" Type="nvarchar" MaxLength="300" />
+    <Property Name="GoogleId" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsExternalAccount" Type="bit" />
+    <Property Name="TwitterShowFeed" Type="bit" />
+    <Property Name="DisableEmailNotifications" Type="bit" />
+    <Property Name="DisablePosting" Type="bit" />
+    <Property Name="DisablePrivateMessages" Type="bit" />
+    <Property Name="DisableFileUploads" Type="bit" />
+    <Property Name="LoginIdExpires" Type="datetime" />
+    <Property Name="MiscAccessToken" Type="nvarchar" MaxLength="250" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="40" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastActivityDate" Type="datetime" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="512" />
+    <Property Name="AuthorId" Type="int" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="NumberOfViews" Type="int" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="256" />
+    <Property Name="YoutubeId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Duration" Type="int" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VideoCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ParentCategoryId" Type="int" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="512" />
+    <Property Name="URL" Type="nvarchar" MaxLength="256" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="VideoComment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="VideoId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="VideoImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoId" Type="int" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VideoTags">
+    <Key>
+      <PropertyRef Name="VideoId" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Name="VideoId" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Article_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleCategories_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="ArticleCategories" Type="Self.ArticleCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleCategories">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleCategories_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="ArticleCategories" Type="Self.ArticleCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ArticleCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleImages_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="ArticleImages" Type="Self.ArticleImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleImages">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="ArticleImages" Type="Self.ArticleImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="ArticleImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleTags_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="ArticleTags" Type="Self.ArticleTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleTags">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthorImages_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="AuthorImages" Type="Self.AuthorImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="AuthorImages">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthorImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="AuthorImages" Type="Self.AuthorImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="AuthorImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryImages_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="CategoryImages" Type="Self.CategoryImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="CategoryImages">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="CategoryImages" Type="Self.CategoryImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="CategoryImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Comments1">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="Comment1" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentId" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Like_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="Like" Type="Self.Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Like_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="Like" Type="Self.Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poll_Campaign">
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+    <End Role="Poll" Type="Self.Poll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Poll">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PollAnswer_Poll">
+    <End Role="Poll" Type="Self.Poll" Multiplicity="1" />
+    <End Role="PollAnswer" Type="Self.PollAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poll">
+        <PropertyRef Name="PollId" />
+      </Principal>
+      <Dependent Role="PollAnswer">
+        <PropertyRef Name="PollId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PollUserAnswers_PollAnswer">
+    <End Role="PollAnswer" Type="Self.PollAnswer" Multiplicity="1" />
+    <End Role="PollUserAnswers" Type="Self.PollUserAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PollAnswer">
+        <PropertyRef Name="AnswerId" />
+      </Principal>
+      <Dependent Role="PollUserAnswers">
+        <PropertyRef Name="PollAnswerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscription_EmailCampagin">
+    <End Role="EmailCampagin" Type="Self.EmailCampagin" Multiplicity="1" />
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailCampagin">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscription_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tip_Campaign">
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+    <End Role="Tip" Type="Self.Tip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Tip">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="UserImages" Type="Self.UserImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="UserImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserImages_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="UserImages" Type="Self.UserImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserImages">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_VideoCategory">
+    <End Role="VideoCategory" Type="Self.VideoCategory" Multiplicity="1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoCategory_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="VideoCategory" Type="Self.VideoCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="VideoCategory">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoCategory_VideoCategory">
+    <End Role="VideoCategory" Type="Self.VideoCategory" Multiplicity="0..1" />
+    <End Role="VideoCategory1" Type="Self.VideoCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="VideoCategory1">
+        <PropertyRef Name="ParentCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="VideoComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_Video">
+    <End Role="Video" Type="Self.Video" Multiplicity="1" />
+    <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoComment">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_VideoComment">
+    <End Role="VideoComment" Type="Self.VideoComment" Multiplicity="0..1" />
+    <End Role="VideoComment1" Type="Self.VideoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoComment">
+        <PropertyRef Name="CommentId" />
+      </Principal>
+      <Dependent Role="VideoComment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="VideoImages" Type="Self.VideoImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="VideoImages">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoImages_Video">
+    <End Role="Video" Type="Self.Video" Multiplicity="1" />
+    <End Role="VideoImages" Type="Self.VideoImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoImages">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoTags_Video">
+    <End Role="Video" Type="Self.Video" Multiplicity="1" />
+    <End Role="VideoTags" Type="Self.VideoTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoTags">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SearchArticles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="query" Type="nvarchar" Mode="In" />
+    <Parameter Name="page" Type="int" Mode="In" />
+    <Parameter Name="page_size" Type="int" Mode="In" />
+    <Parameter Name="except" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="Sa3adatyModelStoreContainer">
+    <EntitySet Name="AdvertiseInfo" EntityType="Self.AdvertiseInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleCategories" EntityType="Self.ArticleCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleImages" EntityType="Self.ArticleImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleTags" EntityType="Self.ArticleTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuthorImages" EntityType="Self.AuthorImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryImages" EntityType="Self.CategoryImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactInfo" EntityType="Self.ContactInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailyQuote" EntityType="Self.DailyQuote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailCampagin" EntityType="Self.EmailCampagin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Poll" EntityType="Self.Poll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PollAnswer" EntityType="Self.PollAnswer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PollUserAnswers" EntityType="Self.PollUserAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaticPages" EntityType="Self.StaticPages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TagOfVideo" EntityType="Self.TagOfVideo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tip" EntityType="Self.Tip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserImages" EntityType="Self.UserImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoCategory" EntityType="Self.VideoCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoComment" EntityType="Self.VideoComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoImages" EntityType="Self.VideoImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoTags" EntityType="Self.VideoTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Article_Author" Association="Self.FK_Article_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleCategories_Article" Association="Self.FK_ArticleCategories_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleCategories_Category" Association="Self.FK_ArticleCategories_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleImages_Article" Association="Self.FK_ArticleImages_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ArticleImages" EntitySet="ArticleImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleImages_Image" Association="Self.FK_ArticleImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="ArticleImages" EntitySet="ArticleImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleTags_Article" Association="Self.FK_ArticleTags_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ArticleTags" EntitySet="ArticleTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_UserProfile" Association="Self.FK_Author_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthorImages_Author" Association="Self.FK_AuthorImages_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="AuthorImages" EntitySet="AuthorImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthorImages_Image" Association="Self.FK_AuthorImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="AuthorImages" EntitySet="AuthorImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryImages_Category" Association="Self.FK_CategoryImages_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryImages" EntitySet="CategoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryImages_Image" Association="Self.FK_CategoryImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="CategoryImages" EntitySet="CategoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Article" Association="Self.FK_Comments_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Comments1" Association="Self.FK_Comments_Comments1">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Comment1" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_UserProfile" Association="Self.FK_Comments_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Like_Article" Association="Self.FK_Like_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Like" EntitySet="Like" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Like_UserProfile" Association="Self.FK_Like_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Like" EntitySet="Like" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poll_Campaign" Association="Self.FK_Poll_Campaign">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="Poll" EntitySet="Poll" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PollAnswer_Poll" Association="Self.FK_PollAnswer_Poll">
+      <End Role="Poll" EntitySet="Poll" />
+      <End Role="PollAnswer" EntitySet="PollAnswer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PollUserAnswers_PollAnswer" Association="Self.FK_PollUserAnswers_PollAnswer">
+      <End Role="PollAnswer" EntitySet="PollAnswer" />
+      <End Role="PollUserAnswers" EntitySet="PollUserAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscription_EmailCampagin" Association="Self.FK_Subscription_EmailCampagin">
+      <End Role="EmailCampagin" EntitySet="EmailCampagin" />
+      <End Role="Subscription" EntitySet="Subscription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscription_UserProfile" Association="Self.FK_Subscription_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Subscription" EntitySet="Subscription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tip_Campaign" Association="Self.FK_Tip_Campaign">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="Tip" EntitySet="Tip" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserImages_Image" Association="Self.FK_UserImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="UserImages" EntitySet="UserImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserImages_UserProfile" Association="Self.FK_UserImages_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserImages" EntitySet="UserImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Country" Association="Self.FK_UserProfile_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Author" Association="Self.FK_Video_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_VideoCategory" Association="Self.FK_Video_VideoCategory">
+      <End Role="VideoCategory" EntitySet="VideoCategory" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoCategory_Image" Association="Self.FK_VideoCategory_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="VideoCategory" EntitySet="VideoCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoCategory_VideoCategory" Association="Self.FK_VideoCategory_VideoCategory">
+      <End Role="VideoCategory" EntitySet="VideoCategory" />
+      <End Role="VideoCategory1" EntitySet="VideoCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_UserProfile" Association="Self.FK_VideoComment_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="VideoComment" EntitySet="VideoComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_Video" Association="Self.FK_VideoComment_Video">
+      <End Role="Video" EntitySet="Video" />
+      <End Role="VideoComment" EntitySet="VideoComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_VideoComment" Association="Self.FK_VideoComment_VideoComment">
+      <End Role="VideoComment" EntitySet="VideoComment" />
+      <End Role="VideoComment1" EntitySet="VideoComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoImages_Image" Association="Self.FK_VideoImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="VideoImages" EntitySet="VideoImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoImages_Video" Association="Self.FK_VideoImages_Video">
+      <End Role="Video" EntitySet="Video" />
+      <End Role="VideoImages" EntitySet="VideoImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoTags_Video" Association="Self.FK_VideoTags_Video">
+      <End Role="Video" EntitySet="Video" />
+      <End Role="VideoTags" EntitySet="VideoTags" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

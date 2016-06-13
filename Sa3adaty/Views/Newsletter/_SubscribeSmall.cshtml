@@ -1,0 +1,40 @@
+﻿<div style="text-align:center ">
+    <div class="fb-page" data-href="https://www.facebook.com/Sa3adatyCommunity"  data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"></div></div>
+    @*<div class="gplus_bigbox col-xs-16">
+        <span class="gplus-page-count"></span><br />FOLLOWERS
+    </div>
+    <a target="_blank"  rel="nofollow" href="https://www.facebook.com/Sa3adatyCommunity">
+        <div class="facebook_bigbox col-xs-32">
+            <span class="fb-page-count"></span> LIKES
+            <span style="float:right;font-family:'Droid Arabic Kufi', serif">تابعي سعادتي على  فيسبوك</span>
+        </div>
+    </a> *@
+</div>
+<div class="newsletter-box s-box col-md-32 shadow-box">
+    <div class="newsletter-small-wrapper">
+        @using (Ajax.BeginForm("Subscribe", "Newsletter", null, new AjaxOptions() { OnSuccess = "left_subscribe_success", LoadingElementId = "loading-img-newsletter-s" }, new { novalidate = "novalidate" }))
+        {
+            <div  class="subscribe-title-white" id="newsletter_small_title">
+               اشترك في النشرة الإلكترونية
+            </div>
+            <div id="newsletter_small_inputs">
+                <input type="email" name="email" id="newsletter-email"   class="input-newsletter" placeholder="أدخل بريدك الإلكتروني" />
+                <input type="submit" class="submit-newsletter" value=" " onclick="return checkIfNotBlank('#newsletter-email')" />
+            </div>
+            <img id="loading-img-newsletter-s" alt="الرجاء الانتظار" class="ajax-loader" src="/Content/images/loading.gif" style="display:none;" />
+        }
+    </div>
+</div>
+
+<script >
+    function left_subscribe_success(data) {
+        if (data.success == false) {
+            alert(data.message);
+            $('#newsletter-email').focus();
+        }
+        else {
+            $("#newsletter_small_inputs").hide();
+            $("#newsletter_small_title").html("تم تسجيلك، ستصلك النشرة عبر بريدك الالكتروني");
+        }
+    }
+</script>

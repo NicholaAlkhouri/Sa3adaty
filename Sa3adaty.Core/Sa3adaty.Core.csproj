@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB06BF73-2BEE-45CF-8B05-CAF3507A08FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sa3adaty.Core</RootNamespace>
+    <AssemblyName>Sa3adaty.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\AccountFrontService.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesManager.cs" />
+    <Compile Include="Services\AdvertiseInfoFrontService.cs" />
+    <Compile Include="Services\ArticleFrontService.cs" />
+    <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\AuthorFrontService.cs" />
+    <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\ContactInfoFrontService.cs" />
+    <Compile Include="Services\CountryFrontSrevice.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\PollFrontService.cs" />
+    <Compile Include="Services\PollService.cs" />
+    <Compile Include="Services\QuoteService.cs" />
+    <Compile Include="Services\TagOfVideoService.cs" />
+    <Compile Include="Services\TagService.cs" />
+    <Compile Include="Services\SiteMapService.cs" />
+    <Compile Include="Services\StaticPagesFrontService.cs" />
+    <Compile Include="Services\StaticPagesService.cs" />
+    <Compile Include="Services\TipFrontService.cs" />
+    <Compile Include="Services\TipService.cs" />
+    <Compile Include="Services\VideoFrontService.cs" />
+    <Compile Include="Services\VideoService.cs" />
+    <Compile Include="ViewModels\Account\AccountModels.cs" />
+    <Compile Include="ViewModels\Account\ManageAccountViewModel.cs" />
+    <Compile Include="ViewModels\Account\SimpleUserViewModel.cs" />
+    <Compile Include="ViewModels\Account\SubscribeNewsletter.cs" />
+    <Compile Include="ViewModels\Admin\Articles\ListItemArticleCommentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Articles\ArticlesListViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Articles\ArticleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Articles\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Articles\ListItemArticleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Authors\AuthorViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Authors\ListItemAuthorViewModel.cs" />
+    <Compile Include="ViewModels\Admin\DataTableViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ImageViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Poll\ListItemPollViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Poll\PollAnswerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Poll\PollsListViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Poll\PollViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Quotes\QuoteViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Tags\ListItemTagViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Tags\TagViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Tips\ListItemTipViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Tips\TipsListViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Tips\TipViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\ListItemUserViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\SubscriptionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\UserViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Videos\ListItemVideoCommentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Videos\ListItemVideoViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Videos\VideosListViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Videos\VideoViewModel.cs" />
+    <Compile Include="ViewModels\AdvertiseInfoViewModel.cs" />
+    <Compile Include="ViewModels\Articles\ArticleViewModel.cs" />
+    <Compile Include="ViewModels\Articles\AuthorInfoViewModel.cs" />
+    <Compile Include="ViewModels\Articles\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Articles\CommentViewModel.cs" />
+    <Compile Include="ViewModels\Articles\ListArticleViewModel.cs" />
+    <Compile Include="ViewModels\Articles\ListCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Articles\SearchViewModel.cs" />
+    <Compile Include="ViewModels\Author\AuthorViewModel.cs" />
+    <Compile Include="ViewModels\BreadCrumbViewModel.cs" />
+    <Compile Include="ViewModels\ContactInfoViewModel.cs" />
+    <Compile Include="ViewModels\CountryViewModel.cs" />
+    <Compile Include="ViewModels\Polls\PollAnswerResult.cs" />
+    <Compile Include="ViewModels\Polls\PollAnswerViewModel.cs" />
+    <Compile Include="ViewModels\Polls\PollViewModel.cs" />
+    <Compile Include="ViewModels\StaticPageViewModel.cs" />
+    <Compile Include="ViewModels\Tips\TipViewModel.cs" />
+    <Compile Include="ViewModels\Videos\ListVideoViewModel.cs" />
+    <Compile Include="ViewModels\Videos\VideoCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Videos\VideoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sa3adaty.Common\Sa3adaty.Common.csproj">
+      <Project>{7f7f7a2c-0175-4bbc-9e5b-394308b285c1}</Project>
+      <Name>Sa3adaty.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sa3adaty.DAL\Sa3adaty.DAL.csproj">
+      <Project>{d8c4053a-a2d3-4100-a74a-e8bc8c813c36}</Project>
+      <Name>Sa3adaty.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

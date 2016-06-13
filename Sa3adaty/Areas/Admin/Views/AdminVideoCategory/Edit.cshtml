@@ -1,0 +1,257 @@
+﻿@model Sa3adaty.Core.ViewModels.Admin.Articles.CategoryViewModel
+
+@{
+    ViewBag.Title = "Edit Video Category";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit Category <a href="@Url.Action("New","AdminVideoCategory")"  class="btn btn-outline btn-primary btn-xs">Add New</a></h1>
+    </div>
+</div>
+ @using (Html.BeginForm()) {
+     @Html.HiddenFor(m=>m.CategoryId)
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               Basic Info
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Name)
+                    @Html.TextBoxFor(m=> m.Name,new { @class="form-control", required="required"})
+                </div>
+               <div class="form-group">
+                    @Html.LabelFor(m=>m.URL)
+                    @Html.TextBoxFor(m=> m.URL,new { @class="form-control",required="required"})
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Images
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <input type="button" class="btn btn-outline btn-primary btn-xs" data-toggle="modal" data-target="#imageModel" value="Add New Image"/>
+                </div>
+                <div class="form-group" id="Images_div">
+                        @Html.Action("_CategoryImages","AdminVideoCategory", new { CategoryId = Model.CategoryId })
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                SEO
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.MetaTitle)
+                    @Html.TextBoxFor(m=> m.MetaTitle,new { @class="form-control"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.MetaDescription)
+                    @Html.TextBoxFor(m=> m.MetaDescription,new { @class="form-control"})
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+                Publish
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                     <div class="checkbox">
+                        <label>
+                             @Html.EditorFor(m=> m.IsPublished,new { @class="form-control"})
+                             @Html.DisplayNameFor(m=>m.IsPublished)
+                        </label>
+                     </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Save Changes"  />
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+}
+
+ <!-- Modal -->
+    <div class="modal fade" id="imageModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    @using (Html.BeginForm("_NewImageAjax", "AdminVideoCategory", FormMethod.Post, new { enctype = "multipart/form-data", id = "submit_image" }))
+                    {
+                        @Html.HiddenFor(m => m.CategoryId)
+                      
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >Add New Image</h4>
+                    </div>
+                    <div class="modal-body">
+                                   
+                            <div class="form-group">
+                                   
+                                <label for="Images" class="control-label">Image:</label>
+                                <input type="file"  id="Images" name="Images">
+                            </div>
+                            <div class="form-group">
+                                <label for="caption" class="control-label">Caption:</label>
+                                <input type="text" class="form-control"  name="Caption">
+                                </div>
+                                <div class="form-group">
+                                <label for="description" class="control-label">Description:</label>
+                                <textarea class="form-control" name="Description"></textarea>
+                                </div>
+                                 
+                                    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input  type="submit" class="btn btn-primary" value="Save"/>
+                    </div>
+                    }
+                               
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+<!-- Modal -->
+    <div class="modal fade" id="EditimageModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    @using (Html.BeginForm("_UpdateImageAjax", "AdminVideoCategory", FormMethod.Post, new { enctype = "multipart/form-data", id = "update_submit_image" }))
+                    {
+                        @Html.HiddenFor(m => m.CategoryId)
+                        <input type="hidden" name="ImageId" id="ImageId" />
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Image</h4>
+                    </div>
+                    <div class="modal-body">
+                             <div class="form-group">
+                                 <img id="preview_img" src="" width="200" />
+                             </div>
+                            <div class="form-group">
+                                
+                                <label for="Images" class="control-label">Image:</label>
+                                <input type="file"  id="Image" name="Image">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="caption" class="control-label">Caption:</label>
+                                <input type="text" class="form-control" id="ImageCaption" name="Caption">
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="control-label">Description:</label>
+                                <textarea class="form-control" id="ImageDescription" name="Description"></textarea>
+                            </div>    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input  type="submit" class="btn btn-primary" value="Update"/>
+                    </div>
+                    }
+                               
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+@using (Ajax.BeginForm("_CategoryImages", "AdminVideoCategory", new { CategoryId = Model.CategoryId }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Images_div" }, new { id = "images_form" }))
+{
+    
+}
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script >
+        $("#submit_image").submit(function () {
+
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: "@Url.Action("_NewImageAjax", "AdminVideoCategory")",
+                type: 'POST',
+                data: formData,
+                async: false,
+                success: function (data) {
+                    $("#images_form").submit();
+                    $('#imageModel').modal('hide');
+
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            return false;
+        });
+
+        $("#update_submit_image").submit(function () {
+
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: "@Url.Action("_UpdateImageAjax", "AdminVideoCategory")",
+                type: 'POST',
+                data: formData,
+                async: false,
+                success: function (data) {
+                    $("#images_form").submit();
+                    $('#EditimageModel').modal('hide');
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            return false;
+        });
+
+        function removeImage(id) {
+            if (confirm("Are you sure you want to delete this image?")) {
+                $.ajax({
+                    url: "@Url.Action("_DeleteImage", "AdminVideoCategory")",
+                    type: 'POST',
+                    data: { 'image_id': id },
+                    success: function (data) {
+                        if (data.Success)
+                            $("#img_" + id).remove();
+                    },
+                });
+            }
+        }
+
+        function editImage(id) {
+            $.ajax({
+                url: "@Url.Action("_GetImage", "AdminVideoCategory")",
+                 type: 'POST',
+                 data: { 'ImageId': id },
+                 success: function (data) {
+                     if (data.URL != "") {
+                         $("#ImageCaption").val(data.Caption);
+                         $("#ImageDescription").val(data.Description);
+                         $("#preview_img").attr("src", data.URL);
+                         $("#ImageId").val(data.ImageId);
+                         $('#EditimageModel').modal('show');
+                     }
+                 },
+             });
+        }
+    </script>
+}

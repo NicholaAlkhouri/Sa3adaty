@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d026e30712849ee8c2f1cb90719c55b" Name="Diagram1">
+        <EntityTypeShape EntityType="Sa3adatyModel.Article" Width="1.5" PointX="9.4730233612810366" PointY="5.7327545460931741" />
+        <EntityTypeShape EntityType="Sa3adatyModel.ArticleCategory" Width="1.5" PointX="8" PointY="11" />
+        <EntityTypeShape EntityType="Sa3adatyModel.ArticleImage" Width="1.5" PointX="0.073966713656655844" PointY="26.570642737006136" />
+        <EntityTypeShape EntityType="Sa3adatyModel.CategoryImage" Width="1.5" PointX="1.1699572099232847" PointY="27.464592529211469" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Comment" Width="1.5" PointX="0.78418410605945821" PointY="4.0525056440627694" />
+        <EntityTypeShape EntityType="Sa3adatyModel.DailyQuote" Width="1.5" PointX="0.48636084817646108" PointY="9.4384317143999183" />
+        <EntityTypeShape EntityType="Sa3adatyModel.EmailCampagin" Width="1.5" PointX="10.15436862323171" PointY="18.055535369578532" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Like" Width="1.5" PointX="8.75" PointY="26.375" />
+        <EntityTypeShape EntityType="Sa3adatyModel.UserImage" Width="1.5" PointX="7.1220634985352236" PointY="24.815146964422961" />
+        <EntityTypeShape EntityType="Sa3adatyModel.webpages_Membership" Width="1.5" PointX="4.4161920288653072" PointY="21.392170871324918" />
+        <EntityTypeShape EntityType="Sa3adatyModel.webpages_OAuthMembership" Width="1.5" PointX="5.9477068008611473" PointY="31.038553222566168" />
+        <EntityTypeShape EntityType="Sa3adatyModel.webpages_Roles" Width="1.5" PointX="3.5451924836007844" PointY="25.174652826587973" />
+        <AssociationConnector Association="Sa3adatyModel.FK_ArticleCategories_Article" />
+        <AssociationConnector Association="Sa3adatyModel.FK_ArticleImages_Article" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Comments_Article" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Like_Article" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Comments_Comments1" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Country" Width="1.5" PointX="1.2128991415784225" PointY="4.4235679378842789" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Subscription" Width="1.5" PointX="7.6068123614447254" PointY="27.616918114766907" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Subscription_EmailCampagin" />
+        <EntityTypeShape EntityType="Sa3adatyModel.AdvertiseInfo" Width="1.5" PointX="5.506846303821936" PointY="0.57090030637145983" />
+        <EntityTypeShape EntityType="Sa3adatyModel.ContactInfo" Width="1.5" PointX="5.77847765655186" PointY="13.052557414887733" />
+        <EntityTypeShape EntityType="Sa3adatyModel.StaticPage" Width="1.5" PointX="8.5528429209035082" PointY="0.49272736929949718" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Category" Width="1.5" PointX="1.5995823860166512" PointY="0.28724738968873742" />
+        <AssociationConnector Association="Sa3adatyModel.FK_ArticleCategories_Category" />
+        <AssociationConnector Association="Sa3adatyModel.FK_CategoryImages_Category" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Log" Width="1.5" PointX="5.5317313808629907" PointY="2.7918472154028002" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Image" Width="1.5" PointX="2.25" PointY="15.125" />
+        <AssociationConnector Association="Sa3adatyModel.FK_ArticleImages_Image" />
+        <AssociationConnector Association="Sa3adatyModel.FK_CategoryImages_Image" />
+        <AssociationConnector Association="Sa3adatyModel.FK_UserImages_Image" />
+        <EntityTypeShape EntityType="Sa3adatyModel.AuthorImage" Width="1.5" PointX="6.459067854312746" PointY="31.254006579170937" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Campaign" Width="1.5" PointX="9.125" PointY="30.125" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Tip" Width="1.5" PointX="1.8282280926724095" PointY="29.617071701966726" />
+        <AssociationConnector Association="Sa3adatyModel.FK_AuthorImages_Image" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Tip_Campaign" />
+        <EntityTypeShape EntityType="Sa3adatyModel.ArticleTag" Width="1.5" PointX="11.678607361241527" PointY="23.889588441648328" />
+        <AssociationConnector Association="Sa3adatyModel.FK_ArticleTags_Article1" />
+        <EntityTypeShape EntityType="Sa3adatyModel.PollAnswer" Width="1.5" PointX="11.765097359085967" PointY="13.97757742459773" />
+        <EntityTypeShape EntityType="Sa3adatyModel.PollUserAnswer" Width="1.5" PointX="5.34168789225709" PointY="11.211151143168635" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Tag" Width="1.5" PointX="9.9809429561630552" PointY="6.1182907252191985" />
+        <AssociationConnector Association="Sa3adatyModel.FK_PollUserAnswers_PollAnswer" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Poll" Width="1.5" PointX="10.938791406778057" PointY="9.335606028016473" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Poll_Campaign" />
+        <AssociationConnector Association="Sa3adatyModel.FK_PollAnswer_Poll" />
+        <EntityTypeShape EntityType="Sa3adatyModel.VideoTag" Width="1.5" PointX="4.0209641717471953" PointY="30.223856314189664" />
+        <EntityTypeShape EntityType="Sa3adatyModel.TagOfVideo" Width="1.5" PointX="1.671201468292252" PointY="28.9683838621566" />
+        <EntityTypeShape EntityType="Sa3adatyModel.VideoImage" Width="1.5" PointX="4.5" PointY="27.625" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoImages_Image" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Video" Width="1.5" PointX="10.5" PointY="23.375" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoImages_Video" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoTags_Video" />
+        <EntityTypeShape EntityType="Sa3adatyModel.VideoCategory" Width="1.5" PointX="4.5" PointY="16.875" />
+        <EntityTypeShape EntityType="Sa3adatyModel.VideoComment" Width="1.5" PointX="12.75" PointY="17.125" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoCategory_Image" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Video_VideoCategory" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoComment_Video" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoCategory_VideoCategory" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoComment_VideoComment" />
+        <EntityTypeShape EntityType="Sa3adatyModel.UserProfile" Width="1.5" PointX="3.5" PointY="33.625" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Comments_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.FK_UserProfile_Country" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Like_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Subscription_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.FK_UserImages_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.FK_VideoComment_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.webpages_UsersInRoles" />
+        <EntityTypeShape EntityType="Sa3adatyModel.Author" Width="1.5" PointX="5.75" PointY="37.125" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Article_Author" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Author_UserProfile" />
+        <AssociationConnector Association="Sa3adatyModel.FK_AuthorImages_Author" />
+        <AssociationConnector Association="Sa3adatyModel.FK_Video_Author" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

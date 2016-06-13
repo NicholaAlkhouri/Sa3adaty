@@ -1,0 +1,150 @@
+﻿@using Sa3adaty.Core.ViewModels.Account
+@using Sa3adaty.Core.ViewModels.Articles
+        <nav class="navbar navbar-default navbar-fixed-top hidden-lg" >
+            <div class="container">
+            <div class="navbar-header">
+                 
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Html.AbsoluteArabicURL(Url.Action("Index","Home"))" style="padding:0px"><img src="@Url.Content("~/Content/images/logo.png")" alt="سعادتي" title="سعادتي" style="height:50px;"/></a>
+
+                <div class="top-search-wrapper">
+                    @Html.Partial("_SearchTop")
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if(WebSecurity.IsAuthenticated)
+                    {
+                        if (ViewBag.CurrentUser != null && ((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl != null)
+                         {
+                             <li><a href="@Html.AbsoluteArabicURL(Url.Action("Manage", "Account"))" ><img src="@Html.AbsoluteImagePath(Url.Content("~/"+((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl))" title="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" alt="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" style="padding-left:10px"/>التحكم بحسابي</a></li>
+                         }
+                         else
+                         {
+                             <li><a href="@Html.AbsoluteArabicURL(Url.Action("Manage", "Account"))" ><img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" title="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" alt="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" style="padding-left:10px" />التحكم بحسابي</a></li>
+                         }
+                    }else
+                    {
+                        <li><a href="@Html.AbsoluteArabicURL(Url.Action("Login", "Account",new { returnUrl = Request.RawUrl }))" class="action-btn" style="text-align: center;height: 45px;margin: 0px 10px;line-height: 25px;font-size: 16px;background-color: #23af44;">تسجيل الدخول</a></li>
+                    }
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("Index", "Home"))"><img style="padding-left:10px;" src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/header-home.png"))" alt="الرئيسية" title="الرئيسية" />الرئيسية</a></li>
+                    
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-عائلية"  }))">الحياة العائلية</a></li>
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="سعادة-زوجية"  }))">السعادة الزوجية</a></li>
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-شخصية"  }))">الصحة الشخصية</a></li>
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-نفسية" }))">الصحة النفسية</a></li>
+                    <li><a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-اجتماعية"  }))">الحياة الاجتماعية</a></li>
+                    <li><a style="font-family:'Droid Arabic Kufi', sans-serif " href="@Html.AbsoluteArabicURL(Url.Action("Index", "Video"))">سعادتي TV</a></li>
+                   
+                    @if (WebSecurity.IsAuthenticated)
+                    {
+                        <li>
+                              <a style="cursor:pointer;"  onclick="javascript:document.getElementById('logoutFormMobile').submit();" ><img style="padding-left:10px;" src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/logout.png"))" alt="تسجيل خروج من سعادتي" title="تسجيل خروج من سعادتي" />تسجيل خروج </a>
+                         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutFormMobile" })) {
+                                @Html.AntiForgeryToken()
+                              
+                            }
+                           
+                        </li> 
+                    }
+                </ul>
+            </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="header-top visible-lg-block">
+            <div class="container" style="position:relative;">
+                <div class="top-logo-wrapper">
+                    <a href="@Html.AbsoluteArabicURL(Url.Action("Index","Home"))" ><img src="@Url.Content("~/Content/images/sa3adaty-logo.png")" alt="سعادتي" title="سعادتي" class="logo" width="151" height="46"/></a>
+                    
+                </div>
+                <div class="top-search-wrapper">
+                    @Html.Partial("_SearchTop")
+                </div>
+                <div class="top-user-wrapper">
+                    @if (WebSecurity.IsAuthenticated )
+                    {
+                         <div class="menu_profile">
+                             @if (ViewBag.CurrentUser != null && ((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl != null)
+                             {
+                                 <img src="@Html.AbsoluteImagePath(Url.Content("~/"+((SimpleUserViewModel)ViewBag.CurrentUser).ImageUrl))" title="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" alt="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" />
+                             }
+                             else
+                             {
+                                 <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" title="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" alt="@(((SimpleUserViewModel)ViewBag.CurrentUser).Name)" />
+                             }
+                 
+                             <div class="account_menu">
+                                 <div class="settings_item"><a href="@Html.AbsoluteArabicURL(Url.Action("Manage", "Account"))" style="color:#ffffff;text-decoration:none;">التحكم بحسابي</a></div>
+                                 <div class="logout_item" onclick="javascript:document.getElementById('logoutForm').submit();">
+                                      @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+                                            @Html.AntiForgeryToken()
+                                            <span>تسجيل خروج</span>
+                                        }
+                                     </div>
+                             </div>
+                         </div>
+                    }
+                    else
+                    {
+                        <div class="menu_login" >
+                            <div class="menu_login_form login_form login_form_small ">
+                   
+                                <div class="col-xs-32" style="padding:0px 20px">@Html.Action("ExternalLoginsList","Account", new { ReturnUrl = Request.RawUrl })
+                                    </div>
+                                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = Request.RawUrl }, FormMethod.Post, new { @class = "form-signin", role = "form", autocomplete = "off" }))
+                                {
+                                                          @Html.AntiForgeryToken()
+                                 <div class="col-xs-32" style="line-height:20px ;padding:0px 20px"><label >البريد الإلكتروني</label><span class="required-star">*</span></div>
+                                 <div class="col-xs-32" style="padding:0px 20px">
+                                     <div id="header_email_div" style="position:relative;"><input type="text" id="header-email" name="Email" class="login-email" style="background-position: 205px center;height: 38px;line-height: 38px;" /></div>
+                                 </div>
+
+                                <div class="col-xs-32"  style="line-height:20px;padding:0px 20px"><label >كلمة السر</label><span class="required-star">*</span></div>
+                                 <div class="col-xs-32"  style="padding:0px 20px">
+                                    <div id="header_password_div" style="position:relative;"><input type="password" name="Password" id="header-password" class="login-password" style="background-position: 205px center;height: 38px;line-height: 38px;" /></div>
+                                 </div>
+
+                                 <div class="col-xs-12 check" style="height: 35px;line-height: 35px;padding:0px 20px 0px 0px">
+                                     <input type="checkbox" id="header-RememberMe" name="RememberMe" style="display:none" />
+                          
+                                    <label for="header-RememberMe" >تذكرني</label>
+
+                                 </div>
+                                 <div class="col-xs-20" style="text-align:left;padding:0px 20px">
+                                     <input type="submit" class="action-btn" value="تسجيل الدخول" onclick="return validateHeaderLogin()" />
+                                 </div>
+                                <div class="col-xs-32" style="padding-right:20px;">
+                                     <a href="@Html.AbsoluteArabicURL(Url.Action("ForgotPassword","Account"))" class="green-link">هل نسيت كلمة المرور؟</a>
+                                 </div>
+                                <div class="header-new-account col-xs-32" style="padding:0px 20px">
+                                    @if (Request.RawUrl.Contains("/Account/"))
+                                    { <a href="@Html.AbsoluteArabicURL(Url.Action("Register","Account", new { returnUrl =  Request.QueryString["returnUrl"]??"/"}))" class="green-link">إنشاء حساب جديد</a>
+                                    }
+                                    else
+                                    {
+                                    <a href="@Html.AbsoluteArabicURL(Url.Action("Register","Account", new { returnUrl =  Request.RawUrl}))" class="green-link">إنشاء حساب جديد</a>}
+                                </div>
+                                  }
+                            </div>
+                        </div>
+                    } 
+                    @if(!WebSecurity.IsAuthenticated)
+                     {
+                         if (Request.RawUrl.Contains("/Account"))
+                         {
+                             <div style="  border-left: 1px solid #f4f6f6;  float: right;"><a class="action-btn" href="@Html.AbsoluteArabicURL(Url.Action("Login","Account", new { returnUrl =  Request.QueryString["returnUrl"]??"/"}))" style="float:left;   margin-top: 12px;  margin-left: 25px;  margin-bottom: 12px;">سجل الآن</a></div>
+                         }else{
+                             <div style="  border-left: 1px solid #f4f6f6;  float: right;"><a class="action-btn" href="@Html.AbsoluteArabicURL(Url.Action("Login","Account", new { returnUrl =  Request.RawUrl}))" style="float:left;  margin-top: 12px; margin-left: 25px;  margin-bottom: 12px;">سجل الآن</a></div>
+                        }
+                     }
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom visible-lg-block shadow-box">
+            <div class="container">@Html.Partial("_MainMenu")</div>
+        </div>

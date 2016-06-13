@@ -1,0 +1,10 @@
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\Sa3adaty.DAL.dll.config
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\Sa3adaty.DAL.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\Sa3adaty.DAL.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\EntityFramework.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\EntityFramework.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\obj\Release\Sa3adaty.DAL.csprojResolveAssemblyReference.cache
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\obj\Release\Sa3adaty.DAL.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\obj\Release\Sa3adaty.DAL.pdb

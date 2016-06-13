@@ -1,0 +1,18 @@
+﻿@model Sa3adaty.Core.ViewModels.StaticPageViewModel
+@{
+    ViewBag.Title = "شروط استخدام الموقع";
+    ViewBag.MetaDescription = "شروط استخدام موقع سعادتي، الشروط القانونية لاستخدام موقع سعادتيو المواد المنشورة فيه.";
+}
+
+
+ <div class="container">
+    <div class="col-xs-32 white-center-wrapper" style="text-align:left;direction:ltr;">
+        <section>
+            <header><h1>@Model.Section</h1></header>
+        <div style="color:#757575;font-family:Tahoma;">
+            @Html.Raw(Model.Description)
+
+        </div>
+        </section>
+    </div>
+</div>

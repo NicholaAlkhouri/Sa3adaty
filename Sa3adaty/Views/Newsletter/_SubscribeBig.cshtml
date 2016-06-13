@@ -1,0 +1,27 @@
+﻿<div class="newsletter-box-big s-box col-md-12 shadow-box">
+    @using (Ajax.BeginForm("Subscribe", "Newsletter", null, new AjaxOptions() { OnSuccess = "left_subscribe_success_big", LoadingElementId = "loading-img-newsletter-s" }, new { novalidate = "novalidate" }))
+    {
+        <div class="text-center">
+            <label class="subscribe-title-blue" id="newsletter_big_title">اشترك في النشرة الالكترونية</label>
+        </div>
+        <div class="newsletter-input-container">
+            <input type="email" name="email" class="input-newsletter-big" id="newsletter-email-big" placeholder="أدخل بريدك الإلكتروني" />
+            <input type="submit" class="submit-newsletter-big" value=" " onclick="return checkIfNotBlank('#newsletter-email-big')"/>
+        </div>
+        <img id="loading-img-newsletter-b" alt="الرجاء الانتظار" class="ajax-loader" src="/Content/images/loading.gif" style="display:none;" />
+    }
+   
+</div>
+
+<script >
+    function left_subscribe_success_big(data) {
+        if (data.success == false) {
+            alert(data.message);
+            $('#newsletter-email-big').focus();
+        }
+        else {
+            $("#newsletter-input-container").hide();
+            $("#newsletter_big_title").html("تم تسجيلك، ستصلك النشرة عبر بريدك الالكتروني");
+        }
+    }
+</script>

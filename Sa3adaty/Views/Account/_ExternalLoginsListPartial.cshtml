@@ -1,0 +1,28 @@
+﻿@model ICollection<AuthenticationClientData>
+
+@if (Model.Count == 0)
+{
+    
+}
+else
+{
+    using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset id="socialLoginList">
+       
+        @foreach (AuthenticationClientData p in Model)
+        {
+            if(p.DisplayName == "Facebook")
+            {
+                <button class="login-facebook" type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">أدخل عبر فيسبوك</button>
+            }
+            if (p.DisplayName == "Google+")
+            {
+                <button class="login-gplus" type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">أدخل عبر جوجل</button>
+            }
+            
+        }
+        </fieldset>
+    }
+}

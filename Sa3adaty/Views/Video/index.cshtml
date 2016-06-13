@@ -1,0 +1,112 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+@model List<Sa3adaty.Core.ViewModels.Videos.ListVideoViewModel>
+
+@{
+    ViewBag.Title = "نصائح ومعلومات بالفيديو";
+    ViewBag.MetaDescription = "مقالات ونصائح بالفيديو حول مختلف مجالات الحياة الصحية والاجتماعية والعائلية والزوجية، مقدمة من أهم الاختصاصيين.";
+    
+}
+
+@section MetaData
+{
+    <link rel="canonical" href="http://sa3adaty.com" />
+
+    <meta name="keywords" content="سعادتي، مرأة، مجتمع، أسرة، أطفال، سعادة زوجية، حياة عائلية، صحة شخصية،صحة نفسية، حياة اجتماعية،، سعادة، تربية، أمراض،نصائح، مقالات، معلومات مفيدة، عادات، نجاح،ثقة بالنفس، فيديو">
+}
+
+
+<div class="container top-banner-wrapper" >
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Top Responsive -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1771671286404648"
+         data-ad-slot="1247373392"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<div class="container">
+
+    <div class="row" >
+        <div class="col-lg-22 col-xs-32 main-section">
+
+            <div class="white-background bread-crumb-wrapper col-xs-32">
+                @Html.Partial("_BreadCrumb",(Sa3adaty.Core.ViewModels.BreadCrumbViewModel)ViewBag.BreadCrumb)
+            </div>
+            <section>
+                <header>
+                    <div class="tag-header ligh-green col-xs-32 white-background">
+                        نصائح بالفيديو
+                    </div>
+                
+                    <div id="articles_list" class="horizontal-list white-background">
+                        @Html.Partial("_HorizontalVideosList",Model )
+                    </div>
+                </header>
+            </section>
+            
+            <div  class="s-box hidden-sm hidden-xs"></div>
+            <div class="hidden-sm hidden-xs hidden-md">
+                @Html.Partial("~/Views/Newsletter/_SubscribeBig.cshtml")
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-xs-32 left-section">
+            <aside>
+                @Html.Partial("~/Views/Newsletter/_SubscribeSmall.cshtml")
+
+                <div class="s-box" style="float:right;width:100%;height:250px;text-align:center">
+                
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                   <!-- Left Medium Rectangle 1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1771671286404648"
+                         data-ad-slot="5969584599"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <section>
+                    @Html.Partial("_LeftListWide",(List<ListArticleViewModel>)(ViewBag.LatestArticlesLeft))
+                </section>
+
+                <section class="col-xs-32 " style="padding:0px;margin-bottom:20px">
+                    @Html.Action("_DailyPoll","Home")
+                </section>
+        
+            
+           
+
+
+            </aside>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $('#newsletter-email').on('change invalid', function () {
+            var textfield = $(this).get(0);
+
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
+
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('');
+            }
+        });
+
+
+
+</script>
+}
+

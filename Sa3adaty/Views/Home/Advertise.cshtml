@@ -1,0 +1,128 @@
+﻿@model Sa3adaty.Core.ViewModels.AdvertiseInfoViewModel
+
+@{
+    ViewBag.Title = "أعلن معنا";
+    ViewBag.MetaDescription = "أعلن على موقع سعادتي، تواصل مع فريق عمل موقع سعادتي للإعلان على الموقع";
+}
+ <div class="container">
+    <div class="col-xs-32 white-center-wrapper">
+            <section>
+            @if (TempData.ContainsKey("Success") && (bool)TempData["Success"] == true)
+            {
+                <div class="col-xs-12 col-xs-offset-10 forget-tab-content" style="padding:0px;"> 
+                    <div class="title-blue" style="text-align:center;">تم الإرسال بنجاح</div>
+                    <div style="text-align:center;margin-bottom:48px">شكرا لك، سيقوم فريق سعادتي بمراجعة رسالتك والاتصال بك بأسرع وقت ممكن.</div>
+                </div> 
+            }
+            else
+            {
+                <header><h1>أعلن معنا</h1></header>
+                 <div style="color:#757575;font-family:Tahoma;padding:0px">
+                       يعمل فريق التحرير في سعادتي مع العلامات التجارية لصياغة المواد المخصصة التي تم تصميمها. سوف تقدم سعادتي قائمة من المواد لمساعدة العلامة التجارية الخاصة على التواصل مع جمهورنا. يرجى ملء البيانات إذا كنت ترغب في مكان مخصص.<br /><br />
+                      
+                    </div>
+                <div class="col-xs-32 col-md-22" >
+                   
+                    @using (Html.BeginForm("Advertise", "Home", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin", role = "form", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div>@Html.ValidationSummary()</div>
+                        <div><label >الاسم</label><span class="required-star">*</span></div>
+                        <div style="position:relative;">
+                            @Html.TextBoxFor(m => m.Name, new { id = "name_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >البريد الإلكتروني</label><span class="required-star">*</span></div>
+                        <div style="position:relative;">
+                            @Html.TextBoxFor(m => m.Email, new { id = "email_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >الموضوع</label><span class="required-star">*</span></div>
+                        <div  style="position:relative;">
+                            @Html.TextBoxFor(m => m.Subject, new { id = "subject_div", @class = "standard-textbox" })
+                        </div>
+                        
+                        <div><label >اسم الشركة</label><span class="required-star">*</span></div>
+                        <div  style="position:relative;">
+                            @Html.TextBoxFor(m => m.CompanyName, new { id = "company_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >ملاحظات</label><span class="required-star">*</span></div>
+                        <div  style="position:relative;">
+                            @Html.TextAreaFor(m => m.Message, new { id = "message_div", @class = "standard-textarea" })
+                        </div>
+
+                        <div style="text-align:center;"><input tabindex="8" type="submit" class="action-btn" onclick="return validateAdvertiseForm()" value="إرسال"/></div>
+              
+                    }
+                </div>
+            }
+      </section>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#name_div").focus(function () {
+                
+            }).blur(function () {
+                checkIfNotBlank($("#name_div"));
+            });
+
+            $("#email_div").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                }
+            }).blur(function () {
+                validateSignupEmail(this, "#email_div");
+            });
+
+            $("#subject_div").focus(function () {
+               
+            }).blur(function () {
+                checkIfNotBlank($("#subject_div"));
+            });
+            $("#company_div").focus(function () {
+
+            }).blur(function () {
+                checkIfNotBlank($("#company_div"));
+            });
+
+            $("#message_div").focus(function () {
+                
+            }).blur(function () {
+                checkIfNotBlank($("#message_div"));
+            });
+        });
+
+        function validateAdvertiseForm() {
+
+            if ($("#name_div").hasClass("required") || !checkIfNotBlank($("#name_div"))) {
+                $("#name_div").focus();
+                return false;
+            }
+            if ($("#email_div").hasClass("required") || !checkIfNotBlank($("#email_div"))) {
+                $("#email_div").focus();
+                return false;
+            }
+            if ($("#subject_div").hasClass("required") || !checkIfNotBlank($("#subject_div"))) {
+                $("#subject_div").focus();
+                return false;
+            }
+            if ($("#message_div").hasClass("required") || !checkIfNotBlank($("#message_div"))) {
+                $("#message_div").focus();
+                return false;
+            }
+            if ($("#company_div").hasClass("required") || !checkIfNotBlank($("#company_div"))) {
+                $("#company_div").focus();
+                return false;
+            }
+            return true;
+        }
+        
+        </script>
+    }

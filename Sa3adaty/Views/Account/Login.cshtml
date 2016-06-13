@@ -1,0 +1,270 @@
+﻿@using Sa3adaty.Core.ViewModels
+@model Sa3adaty.Core.ViewModels.Account.SignInUpModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+ <div class="container">
+    
+         <div class="login_form col-xs-32">
+             <div class="col-xs-16 login-tab @(Model.tab == 0?"":"login-inactive-tab")" id="login-tab" onclick="showLogin()">تسجيل الدخول</div>
+
+             <div class="col-xs-16 login-tab @(Model.tab == 1?"":"login-inactive-tab")" id="signup-tab" onclick="showSignUp()">إنشاء حساب جديد</div>
+             
+             <div class="col-md-18 col-md-offset-7 col-lg-12 col-lg-offset-10 login-tab-content" style="padding:0px;@(Model.tab == 0?"":"display:none")">
+                  @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+                 
+                  @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin", role = "form", autocomplete = "off" }))
+                  {
+                     @Html.AntiForgeryToken()
+
+                     <div style="text-align:center; margin-top:15px;margin-bottom:35px;color:#6e6e6e">أو<br /> قم بتسجيل الدخول باستخدام البريد الإلكتروني</div>
+                     <div><label >البريد الإلكتروني</label><span class="required-star">*</span></div>
+                     <div id="login_email_div" style="position:relative;">
+                         @Html.TextBoxFor(m => m.Email, new {id="login-email1", @class="login-email" })
+                     </div>
+                     <div><label >كلمة السر</label><span class="required-star">*</span></div>
+                     <div id="login_password_div" style="position:relative;">
+                         @if (Model.InvalidPassword)
+                         {
+                             <input class="login-password required" autofocus data-val="true" data-val-required="The Password field is required." id="login-password1" name="Password" type="text" value="@Model.Password"/>
+                            <div class='invalid_div'></div>
+                             
+                         }
+                         else
+                         {
+                            @Html.PasswordFor(m => m.Password, new { id = "login-password1", @class = "login-password" })
+                         }
+                     </div>
+
+                     <div class="col-xs-10 check" style="padding:0px;height: 35px;line-height: 35px;">
+                          @Html.CheckBoxFor(m => m.RememberMe, new { name = "RememberMe", style = "display:none;", id = "RememberMe" })
+                        <label for="RememberMe" >تذكرني</label>
+
+                     </div>
+                     <div class="col-xs-12">
+                         <input type="submit" class="action-btn" value="تسجيل الدخول" onclick="return validateLogin()" />
+                     </div>
+                      
+                  }
+                 <div class="col-xs-32" style="padding-top:45px;padding-right:0px;padding-bottom:25px;">
+                     <a href="@Html.AbsoluteArabicURL(Url.Action("ForgotPassword"))" class="green-link">نسيت كلمة المرور؟</a>
+                 </div>
+             </div>
+             
+             <div class="col-md-18 col-md-offset-7 col-lg-12 col-lg-offset-10 signup-tab-content" style="@(Model.tab == 1 ? "" : "display:none;")padding:0px;" class="login_form">
+                @using (Html.BeginForm("Register", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signup", role = "form", enctype = "multipart/form-data", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div style="text-align:center;margin-bottom: 35px;">
+                        <img class="profile_img" id="CurrentImage" src="/Content/images/signup-avatar.png" width="88" height="78" style="margin-bottom:10px;cursor:pointer;" onclick="$('.ImageFile').click()">
+                        <input tabindex="0" type="file" name="image_file" id="image_file" class="ImageFile" onchange="document.getElementById('result').value=this.value" style="width:51px;margin-left:138px;display:none">
+                        <br />إضافة صورة للملف الشخصي
+                    </div>
+
+                    <div ><label >الاسم المستعار</label><span class="required-star">*</span></div>
+                    <div id="user_div" style="position:relative;">
+                        @Html.TextBoxFor(m => m.SName, new { id = "login-name", @class = "login-name", tabindex = "1" })
+                    </div>
+
+                    <div><label >البريد الإلكتروني</label><span class="required-star">*</span></div>
+                    <div id="email_div" style="position:relative;">
+                        @Html.TextBoxFor(m => m.SEmail, new { id = "login-email", @class = "login-email", tabindex = "2" })
+                    </div>
+                
+                     <div><label >كلمة السر</label><span class="required-star">*</span></div>
+                    <div id="password_div" style="position:relative;">
+                        @Html.PasswordFor(m => m.SPassword, new { id = "login-password", @class = "login-password", tabindex = "3" })
+                    </div>
+
+                     <div class="col-xs-18" style="padding-right:0px">
+                         <div><label >البلد</label><span class="required-star">*</span></div>
+                         <div>
+                             <span class="dropdown-wrapper" tabindex="4">
+                                 <div class="dropdown-arrow"></div>
+                                 <select style="max-width: 200px;" name="Country">
+                                     @foreach (CountryViewModel c in (List<CountryViewModel>)ViewBag.Countries)
+                                     {
+                                       <option value="@c.CountryId" @(Model.Country == c.CountryId ? "selected='selected'" : "")>@c.ArabicName</option>   
+                                     }
+                                 </select>
+                            </span>
+                         </div>
+                     </div>
+                     <div class="col-xs-14" style="padding-left:0px">
+                         <div><label >الجنس</label><span class="required-star">*</span></div>
+                         <div>
+                             <span class="dropdown-wrapper">
+                                 <div class="dropdown-arrow"></div>
+                                 <select style="max-width: 160px;" tabindex="5" name="Gender">
+                                     <option value="0">أنثى</option>
+                                     <option value="1">ذكر</option>
+                                 </select>
+                            </span>
+                         </div>
+                     </div>
+                     <div class="check col-xs-32" style="margin-top:35px;padding:0px">
+                        @Html.CheckBoxFor(m => m.Subscribe, new { name = "Subscribe", style = "display:none;", id = "subscribe" })
+                        <label for="subscribe" >نعم، أريد الاشتراك في مجلة سعادتي</label>
+                     </div>
+                      <div class="check col-xs-32" style="margin-top:10px;padding:0px">
+                        @Html.CheckBoxFor(m => m.Agree, new { name = "Agree", style = "display:none;", id = "agree" })
+                        <label for="agree" >أوافق على<a class="green-link"> شروط الاستخدام</a></label><br />
+                        <span style="color:#ff0000;padding-right:25px;display:none" id="agree_validation"> الرجاء الموافقة على شروط الاستخدام</span>
+                     </div>
+                     <div class="col-xs-32" style="margin-top: 40px;text-align: center;margin-bottom: 40px;"><input tabindex="8" type="submit" class="action-btn" onclick="return validateSignup()" value="تسجيل"/></div>
+                }
+             </div>
+         </div>
+        
+</div>
+
+
+@section Scripts {
+  
+    <script>
+        $(document).ready(function () {
+            //$("form").attr("autocomplete", "off");
+            $(".ImageFile").change(function () {
+                readImageURL(this);
+            });
+           
+
+            $("#login-name").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                }
+            }).blur(function () {
+                validateUsername(this);
+            });
+
+
+            $("#login-email").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                }
+            }).blur(function () {
+                validateSignupEmail(this, "#email_div");
+            });
+
+            $("#login-password").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                    $(this).attr("type", "password");
+                }
+            }).blur(function () {
+                validatePassword(this,"#password_div");
+            });
+            
+
+            $("#login-password1").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                    $(this).attr("type", "password");
+                    $("#login_password_div").find(".invalid_div").remove();
+                }
+            }).blur(function () {
+                validatePassword(this, "#login_password_div");
+            });
+
+            $("#login-email1").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                    $("#login_email_div").find(".invalid_div").remove();
+                }
+            }).blur(function () {
+                validateLoginEmail(this,"#login_email_div");
+            });
+        });
+
+        function validateLogin() {
+
+            if ($("#login-email1").hasClass("required") || !checkIfNotBlank($("#login-email1"))) {
+                $("#login-email1").focus();
+                return false;
+            }
+            if ($("#login-password1").hasClass("required") || !checkIfNotBlank($("#login-password1"))) {
+                $("#login-password1").focus();
+                return false;
+            }
+            return true;
+        }
+
+        function validateSignup() {
+            if ($("#login-name").hasClass("required") || !checkIfNotBlank($("#login-name")) )
+            {
+                $("#login-name").focus();
+                return false;
+            }
+            if ($("#login-email").hasClass("required") || !checkIfNotBlank($("#login-email")) ) {
+                $("#login-email").focus();
+                return false;
+            }
+            if ( $("#login-password").hasClass("required") || !checkIfNotBlank($("#login-password")))  {
+                $("#login-password").focus();
+                return false;
+            }
+            
+            if (!$('#agree').prop('checked')) {
+                $("#agree_validation").show();
+                return false;
+            }
+            else
+                $("#agree_validation").hide();
+            return true;
+        }
+
+        function readImageURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#CurrentImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+            else {
+
+                $('#CurrentImage').attr('src', '/Content/images/signup-avatar.png');
+            }
+        }
+
+        function showLogin()
+        {
+            $(".signup-tab-content").hide();
+            $(".login-tab-content").show();
+            $("#login-tab").removeClass("login-inactive-tab");
+            $("#signup-tab").addClass("login-inactive-tab");
+        }
+
+        function showSignUp() {
+
+            $(".login-tab-content").hide();
+            $(".signup-tab-content").show();
+            $("#login-tab").addClass("login-inactive-tab");
+            $("#signup-tab").removeClass("login-inactive-tab");
+        }
+
+        function validateUsername(input) {
+            if (checkIfNotBlank(input))
+            {
+                $("#user_div").append(valid_div);
+            }
+            else
+            {
+                $("#user_div").find(".valid_div").remove();
+                $(input).val("الرجاء ادخل الاسم المستعار");
+            }
+        }
+        
+    </script>
+}

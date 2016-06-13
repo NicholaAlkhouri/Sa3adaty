@@ -1,0 +1,6 @@
+@model int?
+@{var fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;}
+<input class="text-box single-line form-control" 
+    data-val="true" data-val-number="The field DurationMinutes must be a number." 
+    data-val-required="This field is required." id="@fieldName"
+     name="@fieldName" type="number" value="@Model">

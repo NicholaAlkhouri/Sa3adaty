@@ -1,0 +1,12 @@
+﻿@model Sa3adaty.Core.ViewModels.Admin.Quotes.QuoteViewModel
+
+<div class="daily-quote-box">
+    <div class="daily-quote-up col-md-32"></div>
+    <div class="col-md-32 daily-quote-middle">
+        @if(Model != null)
+        {
+            @Model.Quote
+        }
+    </div>
+    <div class="daily-quote-down col-md-32"></div>
+</div>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+         
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="icon" type="image/png" href="~/sa3adaty_favicon.png">
+
+    <title>Sa3adaty Admin Panel - @ViewBag.Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="@Url.Content("~/Content/bootstrap/bootstrap.min.css")" rel="stylesheet">
+    
+    <!-- MetisMenu CSS -->
+    <link href="@Url.Content("~/Content/bootstrap/plugins/metisMenu/metisMenu.min.css")" rel="stylesheet">
+
+     <!-- Morris Charts CSS -->
+    <link href="@Url.Content("~/Content/bootstrap/plugins/morris.css")" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="@Url.Content("~/Content/bootstrap/plugins/timeline.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Content/Admin/sb-admin-2.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Content/fonts/font-awesome-4.1.0/css/font-awesome.min.css")" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="@Url.Content("~/Scripts/bootstrap/ie10-viewport-bug-workaround.js")"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="@Url.Content("~/Content/Admin/style_admin.css")" rel="stylesheet">
+
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+  </head>
+
+<body>
+
+    <div id="wrapper">
+        @Html.Partial("_Navigation")
+
+        <div id="page-wrapper">
+            @if(TempData["SuccessMessage"] != null)
+            {
+                <div class="col-xs-12 alert alert-success alert-dismissable" style="margin-top: 20px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="col-xs-12  alert alert-danger alert-dismissable" style="margin-top: 20px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                   @TempData["ErrorMessage"]
+                </div>
+            }
+                @RenderBody()
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="~/Scripts/bootstrap/ie10-viewport-bug-workaround.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Scripts/bootstrap/bootstrap.min.js")"></script>
+    
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/metisMenu/metisMenu.min.js")"></script>
+    
+    <!-- Morris Charts JavaScript -->
+@*    <script src="@Url.Content("~/Scripts/bootstrap/plugins/morris/raphael.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/morris/morris.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/morris/morris-data.js")"></script>*@
+
+    <script src="@Url.Content("~/Scripts/sb-admin-2.js")"></script>
+    <script src="@Url.Content("~/Scripts/admin_utilities.js")"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

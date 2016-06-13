@@ -1,0 +1,26 @@
+﻿@using Sa3adaty.Core.ViewModels.Admin
+@model IEnumerable<ImageViewModel>
+
+@foreach (ImageViewModel img in Model)
+{
+    <div id="img_@img.ImageId" class="col-sm-6" >
+        <div class="panel panel-info">
+            @if(img.Caption != "")
+            {
+                <div class="panel-heading">
+                                @img.Caption
+                </div>
+            }
+            <div class="panel-body">
+                <div><img src="@img.URL" style="width:100%;height:auto" /></div>
+                <div>@img.Description</div>
+                <div style="margin-top:10px;text-align:center;">
+                    <input typte="button" class="btn btn-outline btn-primary btn-sm" style="width:40%;"  onclick="editImage(@img.ImageId)"  value="Edit" />
+                    <input typte="button" class="btn btn-danger btn-xs" style="width:40%;"  onclick="removeImage(@img.ImageId)" value="delete" />
+                </div>
+            </div>
+        </div>
+       
+    </div>
+}
+

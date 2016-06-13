@@ -1,0 +1,162 @@
+﻿@using Sa3adaty.Core.ViewModels.Videos
+@using Sa3adaty.Core.ViewModels.Account
+@model VideoCategoryViewModel
+@{
+    if (Model.PageNumber == 1)
+    {
+        ViewBag.MetaDescription = Model.MetaDescription;
+        ViewBag.Title = Model.MetaTitle;
+    }
+    else
+    {
+        ViewBag.Title = "صفحة "+ Model.PageNumber+ " من " + Model.TotalPages+ " - "+Model.MetaTitle;
+        ViewBag.MetaDescription = " قائمة من " + Model.FirstItem + " إلى " + Model.LastItem + " - " + Model.MetaDescription + " - صفحة " + Model.PageNumber ;
+    }
+    
+    SimpleUserViewModel current_user = null;
+    if (WebSecurity.IsAuthenticated)
+    {
+        current_user = (SimpleUserViewModel)ViewBag.CurrentUser;
+    }
+}
+
+@section MetaData
+{
+    @if(Model.PageNumber == 1)
+    {   
+        <link rel="canonical" href="@Html.AbsoluteArabicURL(Url.Action("ListByVideoTag","Category", new { id = Model.URL }))" />    }
+    else
+    {   
+        <link rel="canonical" href="@Html.AbsoluteArabicURL(Url.Action("ListByVideoTag","Category", new { id = Model.URL,page = Model.PageNumber  }))" />}
+
+    @if(Model.PageNumber > 1 )
+    {
+        if(Model.PageNumber == 2)
+        {<link rel="prev" href="@Html.AbsoluteArabicURL(Url.Action("ListByVideoTag","Category", new { id = Model.URL,page = ""}))" />}
+        else{<link rel="prev" href="@Html.AbsoluteArabicURL(Url.Action("ListByVideoTag","Category", new { id = Model.URL,page = Model.PageNumber - 1 }))" />}
+        
+    }
+    @if(Model.PageNumber < Model.TotalPages)
+    {
+        <link rel="next" href="@Html.AbsoluteArabicURL(Url.Action("ListByVideoTag","Category", new { id = Model.URL,page = Model.PageNumber + 1 }))" />
+    }
+}
+
+<div class="container top-banner-wrapper">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Top Responsive -->
+    <ins class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-1771671286404648"
+        data-ad-slot="1247373392"
+        data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        @*Right Sectinon*@
+        <div class="col-xs-32 col-md-32 col-lg-22 main-section">
+            <div class="white-background bread-crumb-wrapper col-xs-32">
+                @Html.Partial("_BreadCrumb",(Sa3adaty.Core.ViewModels.BreadCrumbViewModel)ViewBag.BreadCrumb)
+            </div>
+            <section>
+                <header>
+                    <div class="tag-header ligh-green col-xs-32 white-background">
+                        @Model.Name بالفيديو
+                    </div>
+
+                    <div id="articles_list" class="horizontal-list horizontal-video-list white-background">
+                        <div class="listing-info">مقالات @Model.FirstItem - @Model.LastItem من أصل @Model.TotalItems </div>
+                        @Html.Partial("_HorizontalArticlesList", Model.Articles)
+                    </div>
+                </header>
+
+                <input type="hidden" value="0" name="page" id="page" />
+
+                <div class="pagination-wrapper">
+                    @Html.Partial("_LinkPagination",Model)
+                </div>
+            </section>
+        </div>
+
+        @*Left Sectinon*@
+        <div class="col-xs-32 col-lg-10 col-md-32 left-section">
+            <aside>
+                @Html.Partial("~/Views/Newsletter/_SubscribeSmall.cshtml")
+
+                <div class="s-box" style="float: right; width: 100%; height: 250px; text-align: center;">
+
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Test1For Approve -->
+                    <ins class="adsbygoogle"
+                        style="display: inline-block; width: 300px; height: 250px"
+                        data-ad-client="ca-pub-1771671286404648"
+                        data-ad-slot="5969584599"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                @*             @Html.Action("_RamadanDailyTip","Ramadan")
+                @Html.Action("_RamadanDailyPoll","Ramadan")*@
+
+                <section>
+                 @Html.Partial("_LeftListWide", (List<ListArticleViewModel>)(ViewBag.LatestArticlesLeft))
+                </section>
+              
+                <section class="col-xs-32 " style="padding:0px;margin-bottom:20px">
+                   @Html.Action("_DailyPoll","Home")
+                </section>
+
+                <div class="s-box" style="float: right; width: 100%; height: 250px; text-align: center">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Left Medium Rectangle 2 -->
+                    <ins class="adsbygoogle"
+                        style="display: inline-block; width: 300px; height: 250px"
+                        data-ad-client="ca-pub-1771671286404648"
+                        data-ad-slot="8096962595"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    @*<a href="http://sa3adaty.com" ><img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/banner.png"))" /></a>*@
+                </div>
+            </aside>
+        </div>
+
+    </div>
+</div>
+
+@*@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+ 
+        function LoadMore() {
+            $("#loadMore").hide();
+            $("#loading-img").show();
+            $("#page").val(parseInt($("#page").val()) + 1);
+            $.post("@Url.Action("_LoadMoreByTag","Category")", { tag: '@Model.URL' ,page : $("#page").val() })
+              .done(function (data) {
+                  $(data).hide().appendTo("#articles_list").fadeIn(1000);
+                  
+                  
+                  if($(data).filter(".horizontal-list-item").size() == 15)
+                  {
+                      $("#loadMore").show();
+                      $("#loading-img").hide();
+                  }
+                  else
+                  {
+                      $("#loading-img").hide();
+                  }
+              })
+              .fail(function () {
+              })
+              .always(function () {
+
+              });
+        }
+    </script>
+}*@

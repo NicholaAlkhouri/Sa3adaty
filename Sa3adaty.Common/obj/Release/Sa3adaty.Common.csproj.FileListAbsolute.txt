@@ -1,0 +1,8 @@
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\bin\Release\Sa3adaty.Common.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\bin\Release\Sa3adaty.Common.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\bin\Release\HtmlAgilityPack.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\bin\Release\HtmlAgilityPack.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\bin\Release\HtmlAgilityPack.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\obj\Release\Sa3adaty.Common.csprojResolveAssemblyReference.cache
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\obj\Release\Sa3adaty.Common.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Sa3adaty.Common\obj\Release\Sa3adaty.Common.pdb

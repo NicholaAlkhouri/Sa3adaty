@@ -1,0 +1,32 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+
+@model ListArticleViewModel 
+
+<div class="horizontal-list-item">
+    <div class="col-xs-32 horizontal-list-image">
+        <a href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = Model.URL }))"> <img class="article-img" src="@Html.AbsoluteImagePath(Url.Content("~/"+Model.ImageURL))" alt="@Model.Title" title="@Model.Title" width="214" height="185" /></a>
+    </div>
+    <div class="horizontal-list-details col-xs-32">
+       @* <div class="article-info">
+            <div class="info-like">
+                @Html.FormatNumbers(Model.LikesCount.ToString())
+            </div>
+            <div class="three-dot-separator"></div>
+            <div class="info-comment">
+                @Html.FormatNumbers(Model.CommentsCount.ToString())
+            </div>
+        </div>*@
+        <div class="horizontal-list-maininfo">
+            <div class="horizontal-list-title">
+                <a class="list-article-title" href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = Model.URL }))">@Model.Title </a>
+            </div>
+            <div class="horizontal-list-text">
+                @Html.Raw(Model.Description) ...
+            </div>
+        </div>
+        <div class="read-more-wrapper">
+            <a href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = Model.URL }))">أكمل القراءة</a>
+        </div>
+    </div>
+   
+</div>

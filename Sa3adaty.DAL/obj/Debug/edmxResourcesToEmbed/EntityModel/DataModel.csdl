@@ -1,0 +1,1131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sa3adatyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Sa3adatyEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="Sa3adatyModel.Article" />
+    <EntitySet Name="ArticleCategories" EntityType="Sa3adatyModel.ArticleCategory" />
+    <EntitySet Name="ArticleImages" EntityType="Sa3adatyModel.ArticleImage" />
+    <EntitySet Name="CategoryImages" EntityType="Sa3adatyModel.CategoryImage" />
+    <EntitySet Name="Comments" EntityType="Sa3adatyModel.Comment" />
+    <EntitySet Name="DailyQuotes" EntityType="Sa3adatyModel.DailyQuote" />
+    <EntitySet Name="EmailCampagins" EntityType="Sa3adatyModel.EmailCampagin" />
+    <EntitySet Name="Likes" EntityType="Sa3adatyModel.Like" />
+    <EntitySet Name="UserImages" EntityType="Sa3adatyModel.UserImage" />
+    <EntitySet Name="webpages_Membership" EntityType="Sa3adatyModel.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Sa3adatyModel.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="Sa3adatyModel.webpages_Roles" />
+    <AssociationSet Name="FK_ArticleCategories_Article" Association="Sa3adatyModel.FK_ArticleCategories_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ArticleCategory" EntitySet="ArticleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleImages_Article" Association="Sa3adatyModel.FK_ArticleImages_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ArticleImage" EntitySet="ArticleImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Article" Association="Sa3adatyModel.FK_Comments_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Like_Article" Association="Sa3adatyModel.FK_Like_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Like" EntitySet="Likes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Comments1" Association="Sa3adatyModel.FK_Comments_Comments1">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Comment1" EntitySet="Comments" />
+    </AssociationSet>
+    <EntitySet Name="Countries" EntityType="Sa3adatyModel.Country" />
+    <EntitySet Name="Subscriptions" EntityType="Sa3adatyModel.Subscription" />
+    <AssociationSet Name="FK_Subscription_EmailCampagin" Association="Sa3adatyModel.FK_Subscription_EmailCampagin">
+      <End Role="EmailCampagin" EntitySet="EmailCampagins" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <EntitySet Name="AdvertiseInfoes" EntityType="Sa3adatyModel.AdvertiseInfo" />
+    <EntitySet Name="ContactInfoes" EntityType="Sa3adatyModel.ContactInfo" />
+    <EntitySet Name="StaticPages" EntityType="Sa3adatyModel.StaticPage" />
+    <EntitySet Name="Categories" EntityType="Sa3adatyModel.Category" />
+    <AssociationSet Name="FK_ArticleCategories_Category" Association="Sa3adatyModel.FK_ArticleCategories_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ArticleCategory" EntitySet="ArticleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryImages_Category" Association="Sa3adatyModel.FK_CategoryImages_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CategoryImage" EntitySet="CategoryImages" />
+    </AssociationSet>
+    <EntitySet Name="Logs" EntityType="Sa3adatyModel.Log" />
+    <EntitySet Name="Images" EntityType="Sa3adatyModel.Image" />
+    <AssociationSet Name="FK_ArticleImages_Image" Association="Sa3adatyModel.FK_ArticleImages_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="ArticleImage" EntitySet="ArticleImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryImages_Image" Association="Sa3adatyModel.FK_CategoryImages_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="CategoryImage" EntitySet="CategoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserImages_Image" Association="Sa3adatyModel.FK_UserImages_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="UserImage" EntitySet="UserImages" />
+    </AssociationSet>
+    <EntitySet Name="AuthorImages" EntityType="Sa3adatyModel.AuthorImage" />
+    <EntitySet Name="Campaigns" EntityType="Sa3adatyModel.Campaign" />
+    <EntitySet Name="Tips" EntityType="Sa3adatyModel.Tip" />
+    <AssociationSet Name="FK_AuthorImages_Image" Association="Sa3adatyModel.FK_AuthorImages_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="AuthorImage" EntitySet="AuthorImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tip_Campaign" Association="Sa3adatyModel.FK_Tip_Campaign">
+      <End Role="Campaign" EntitySet="Campaigns" />
+      <End Role="Tip" EntitySet="Tips" />
+    </AssociationSet>
+    <EntitySet Name="ArticleTags" EntityType="Sa3adatyModel.ArticleTag" />
+    <AssociationSet Name="FK_ArticleTags_Article1" Association="Sa3adatyModel.FK_ArticleTags_Article1">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ArticleTag" EntitySet="ArticleTags" />
+    </AssociationSet>
+    <EntitySet Name="PollAnswers" EntityType="Sa3adatyModel.PollAnswer" />
+    <EntitySet Name="PollUserAnswers" EntityType="Sa3adatyModel.PollUserAnswer" />
+    <EntitySet Name="Tags" EntityType="Sa3adatyModel.Tag" />
+    <AssociationSet Name="FK_PollUserAnswers_PollAnswer" Association="Sa3adatyModel.FK_PollUserAnswers_PollAnswer">
+      <End Role="PollAnswer" EntitySet="PollAnswers" />
+      <End Role="PollUserAnswer" EntitySet="PollUserAnswers" />
+    </AssociationSet>
+    <EntitySet Name="Polls" EntityType="Sa3adatyModel.Poll" />
+    <AssociationSet Name="FK_Poll_Campaign" Association="Sa3adatyModel.FK_Poll_Campaign">
+      <End Role="Campaign" EntitySet="Campaigns" />
+      <End Role="Poll" EntitySet="Polls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PollAnswer_Poll" Association="Sa3adatyModel.FK_PollAnswer_Poll">
+      <End Role="Poll" EntitySet="Polls" />
+      <End Role="PollAnswer" EntitySet="PollAnswers" />
+    </AssociationSet>
+    <FunctionImport Name="SearchArticles" ReturnType="Collection(Sa3adatyModel.SearchArticles_Result)">
+      <Parameter Name="query" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="page_size" Mode="In" Type="Int32" />
+      <Parameter Name="except" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="VideoTags" EntityType="Sa3adatyModel.VideoTag" />
+    <EntitySet Name="TagOfVideos" EntityType="Sa3adatyModel.TagOfVideo" />
+    <EntitySet Name="VideoImages" EntityType="Sa3adatyModel.VideoImage" />
+    <AssociationSet Name="FK_VideoImages_Image" Association="Sa3adatyModel.FK_VideoImages_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="VideoImage" EntitySet="VideoImages" />
+    </AssociationSet>
+    <EntitySet Name="Videos" EntityType="Sa3adatyModel.Video" />
+    <AssociationSet Name="FK_VideoImages_Video" Association="Sa3adatyModel.FK_VideoImages_Video">
+      <End Role="Video" EntitySet="Videos" />
+      <End Role="VideoImage" EntitySet="VideoImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoTags_Video" Association="Sa3adatyModel.FK_VideoTags_Video">
+      <End Role="Video" EntitySet="Videos" />
+      <End Role="VideoTag" EntitySet="VideoTags" />
+    </AssociationSet>
+    <EntitySet Name="VideoCategories" EntityType="Sa3adatyModel.VideoCategory" />
+    <EntitySet Name="VideoComments" EntityType="Sa3adatyModel.VideoComment" />
+    <AssociationSet Name="FK_VideoCategory_Image" Association="Sa3adatyModel.FK_VideoCategory_Image">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="VideoCategory" EntitySet="VideoCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_VideoCategory" Association="Sa3adatyModel.FK_Video_VideoCategory">
+      <End Role="VideoCategory" EntitySet="VideoCategories" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_Video" Association="Sa3adatyModel.FK_VideoComment_Video">
+      <End Role="Video" EntitySet="Videos" />
+      <End Role="VideoComment" EntitySet="VideoComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoCategory_VideoCategory" Association="Sa3adatyModel.FK_VideoCategory_VideoCategory">
+      <End Role="VideoCategory" EntitySet="VideoCategories" />
+      <End Role="VideoCategory1" EntitySet="VideoCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_VideoComment" Association="Sa3adatyModel.FK_VideoComment_VideoComment">
+      <End Role="VideoComment" EntitySet="VideoComments" />
+      <End Role="VideoComment1" EntitySet="VideoComments" />
+    </AssociationSet>
+    <EntitySet Name="UserProfiles" EntityType="Sa3adatyModel.UserProfile" />
+    <AssociationSet Name="FK_Comments_UserProfile" Association="Sa3adatyModel.FK_Comments_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Country" Association="Sa3adatyModel.FK_UserProfile_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Like_UserProfile" Association="Sa3adatyModel.FK_Like_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Like" EntitySet="Likes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscription_UserProfile" Association="Sa3adatyModel.FK_Subscription_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserImages_UserProfile" Association="Sa3adatyModel.FK_UserImages_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="UserImage" EntitySet="UserImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoComment_UserProfile" Association="Sa3adatyModel.FK_VideoComment_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="VideoComment" EntitySet="VideoComments" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="Sa3adatyModel.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <EntitySet Name="Authors" EntityType="Sa3adatyModel.Author" />
+    <AssociationSet Name="FK_Article_Author" Association="Sa3adatyModel.FK_Article_Author">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_UserProfile" Association="Sa3adatyModel.FK_Author_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Author" EntitySet="Authors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthorImages_Author" Association="Sa3adatyModel.FK_AuthorImages_Author">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="AuthorImage" EntitySet="AuthorImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Author" Association="Sa3adatyModel.FK_Video_Author">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Type="Int32" Name="ArticleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaTitle" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaDescription" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AuthorId" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="PublishDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="NumberOfViews" Nullable="false" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleCategories" Relationship="Sa3adatyModel.FK_ArticleCategories_Article" FromRole="Article" ToRole="ArticleCategory" />
+    <NavigationProperty Name="ArticleImages" Relationship="Sa3adatyModel.FK_ArticleImages_Article" FromRole="Article" ToRole="ArticleImage" />
+    <NavigationProperty Name="Comments" Relationship="Sa3adatyModel.FK_Comments_Article" FromRole="Article" ToRole="Comment" />
+    <NavigationProperty Name="Likes" Relationship="Sa3adatyModel.FK_Like_Article" FromRole="Article" ToRole="Like" />
+    <NavigationProperty Name="ArticleTags" Relationship="Sa3adatyModel.FK_ArticleTags_Article1" FromRole="Article" ToRole="ArticleTag" />
+    <NavigationProperty Name="Author" Relationship="Sa3adatyModel.FK_Article_Author" FromRole="Article" ToRole="Author" />
+  </EntityType>
+  <EntityType Name="ArticleCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Article" Relationship="Sa3adatyModel.FK_ArticleCategories_Article" FromRole="ArticleCategory" ToRole="Article" />
+    <NavigationProperty Name="Category" Relationship="Sa3adatyModel.FK_ArticleCategories_Category" FromRole="ArticleCategory" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="ArticleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Article" Relationship="Sa3adatyModel.FK_ArticleImages_Article" FromRole="ArticleImage" ToRole="Article" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_ArticleImages_Image" FromRole="ArticleImage" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="CategoryImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Category" Relationship="Sa3adatyModel.FK_CategoryImages_Category" FromRole="CategoryImage" ToRole="Category" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_CategoryImages_Image" FromRole="CategoryImage" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Type="Int32" Name="CommentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="ParentId" />
+    <NavigationProperty Name="Article" Relationship="Sa3adatyModel.FK_Comments_Article" FromRole="Comment" ToRole="Article" />
+    <NavigationProperty Name="Comment1" Relationship="Sa3adatyModel.FK_Comments_Comments1" FromRole="Comment" ToRole="Comment1" />
+    <NavigationProperty Name="Comment2" Relationship="Sa3adatyModel.FK_Comments_Comments1" FromRole="Comment1" ToRole="Comment" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_Comments_UserProfile" FromRole="Comment" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="DailyQuote">
+    <Key>
+      <PropertyRef Name="QuoteId" />
+    </Key>
+    <Property Type="Int32" Name="QuoteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Quote" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Author" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DayDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmailCampagin">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Type="Int32" Name="CampaignId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subscriptions" Relationship="Sa3adatyModel.FK_Subscription_EmailCampagin" FromRole="EmailCampagin" ToRole="Subscription" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Article" Relationship="Sa3adatyModel.FK_Like_Article" FromRole="Like" ToRole="Article" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_Like_UserProfile" FromRole="Like" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="UserImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_UserImages_Image" FromRole="UserImage" ToRole="Image" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_UserImages_UserProfile" FromRole="UserImage" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="String" Name="ConfirmationToken" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsConfirmed" />
+    <Property Type="DateTime" Name="LastPasswordFailureDate" Precision="3" />
+    <Property Type="Int32" Name="PasswordFailuresSinceLastSuccess" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PasswordChangedDate" Precision="3" />
+    <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordVerificationToken" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PasswordVerificationTokenExpirationDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Type="String" Name="Provider" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProviderUserId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Type="Int32" Name="RoleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfiles" Relationship="Sa3adatyModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_ArticleCategories_Article">
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="Sa3adatyModel.ArticleCategory" Role="ArticleCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleCategory">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleImages_Article">
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="Sa3adatyModel.ArticleImage" Role="ArticleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleImage">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Article">
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Like_Article">
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Like" Role="Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Comments1">
+    <End Type="Sa3adatyModel.Comment" Role="Comment" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.Comment" Role="Comment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentId" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Type="Int32" Name="CountryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ArabicName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EnglishName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Code" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <NavigationProperty Name="UserProfiles" Relationship="Sa3adatyModel.FK_UserProfile_Country" FromRole="Country" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="SubscriptionId" />
+    </Key>
+    <Property Type="Int32" Name="SubscriptionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="CampaignId" Nullable="false" />
+    <Property Type="DateTime" Name="LastSend" Precision="3" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UnsubscripeToken" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EmailCampagin" Relationship="Sa3adatyModel.FK_Subscription_EmailCampagin" FromRole="Subscription" ToRole="EmailCampagin" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_Subscription_UserProfile" FromRole="Subscription" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_Subscription_EmailCampagin">
+    <End Type="Sa3adatyModel.EmailCampagin" Role="EmailCampagin" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailCampagin">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AdvertiseInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Subject" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ContactInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Subject" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="StaticPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SectionCode" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentCategoryId" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="MetaTitle" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaDescription" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FeatureOrder" />
+    <NavigationProperty Name="ArticleCategories" Relationship="Sa3adatyModel.FK_ArticleCategories_Category" FromRole="Category" ToRole="ArticleCategory" />
+    <NavigationProperty Name="CategoryImages" Relationship="Sa3adatyModel.FK_CategoryImages_Category" FromRole="Category" ToRole="CategoryImage" />
+  </EntityType>
+  <Association Name="FK_ArticleCategories_Category">
+    <End Type="Sa3adatyModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="Sa3adatyModel.ArticleCategory" Role="ArticleCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ArticleCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryImages_Category">
+    <End Type="Sa3adatyModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="Sa3adatyModel.CategoryImage" Role="CategoryImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="CategoryImage">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Type="Int32" Name="LogId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Level" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Exception" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Stack" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Source" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LogDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Type="Int32" Name="ImageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Caption" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleImages" Relationship="Sa3adatyModel.FK_ArticleImages_Image" FromRole="Image" ToRole="ArticleImage" />
+    <NavigationProperty Name="CategoryImages" Relationship="Sa3adatyModel.FK_CategoryImages_Image" FromRole="Image" ToRole="CategoryImage" />
+    <NavigationProperty Name="UserImages" Relationship="Sa3adatyModel.FK_UserImages_Image" FromRole="Image" ToRole="UserImage" />
+    <NavigationProperty Name="AuthorImages" Relationship="Sa3adatyModel.FK_AuthorImages_Image" FromRole="Image" ToRole="AuthorImage" />
+    <NavigationProperty Name="VideoImages" Relationship="Sa3adatyModel.FK_VideoImages_Image" FromRole="Image" ToRole="VideoImage" />
+    <NavigationProperty Name="VideoCategories" Relationship="Sa3adatyModel.FK_VideoCategory_Image" FromRole="Image" ToRole="VideoCategory" />
+  </EntityType>
+  <Association Name="FK_ArticleImages_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="Sa3adatyModel.ArticleImage" Role="ArticleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="ArticleImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryImages_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="Sa3adatyModel.CategoryImage" Role="CategoryImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="CategoryImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserImages_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="Sa3adatyModel.UserImage" Role="UserImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="UserImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AuthorImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="AuthorId" Nullable="false" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_AuthorImages_Image" FromRole="AuthorImage" ToRole="Image" />
+    <NavigationProperty Name="Author" Relationship="Sa3adatyModel.FK_AuthorImages_Author" FromRole="AuthorImage" ToRole="Author" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Type="Int32" Name="CampaignId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tips" Relationship="Sa3adatyModel.FK_Tip_Campaign" FromRole="Campaign" ToRole="Tip" />
+    <NavigationProperty Name="Polls" Relationship="Sa3adatyModel.FK_Poll_Campaign" FromRole="Campaign" ToRole="Poll" />
+  </EntityType>
+  <EntityType Name="Tip">
+    <Key>
+      <PropertyRef Name="TipId" />
+    </Key>
+    <Property Type="Int32" Name="TipId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CampaignId" Nullable="false" />
+    <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="OnlineDate" Precision="3" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Campaign" Relationship="Sa3adatyModel.FK_Tip_Campaign" FromRole="Tip" ToRole="Campaign" />
+  </EntityType>
+  <Association Name="FK_AuthorImages_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="Sa3adatyModel.AuthorImage" Role="AuthorImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="AuthorImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tip_Campaign">
+    <End Type="Sa3adatyModel.Campaign" Role="Campaign" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Tip" Role="Tip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Tip">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ArticleTag">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Article" Relationship="Sa3adatyModel.FK_ArticleTags_Article1" FromRole="ArticleTag" ToRole="Article" />
+  </EntityType>
+  <Association Name="FK_ArticleTags_Article1">
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="Sa3adatyModel.ArticleTag" Role="ArticleTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleId" />
+      </Principal>
+      <Dependent Role="ArticleTag">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PollAnswer">
+    <Key>
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Type="Int32" Name="AnswerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PollId" Nullable="false" />
+    <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
+    <Property Type="String" Name="Answer" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PollUserAnswers" Relationship="Sa3adatyModel.FK_PollUserAnswers_PollAnswer" FromRole="PollAnswer" ToRole="PollUserAnswer" />
+    <NavigationProperty Name="Poll" Relationship="Sa3adatyModel.FK_PollAnswer_Poll" FromRole="PollAnswer" ToRole="Poll" />
+  </EntityType>
+  <EntityType Name="PollUserAnswer">
+    <Key>
+      <PropertyRef Name="UserPollAnswerID" />
+    </Key>
+    <Property Type="Int32" Name="UserPollAnswerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PollAnswerId" Nullable="false" />
+    <Property Type="DateTime" Name="AnswerDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PollAnswer" Relationship="Sa3adatyModel.FK_PollUserAnswers_PollAnswer" FromRole="PollUserAnswer" ToRole="PollAnswer" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Type="Int32" Name="TagId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TagName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaTitle" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontTitle" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_PollUserAnswers_PollAnswer">
+    <End Type="Sa3adatyModel.PollAnswer" Role="PollAnswer" Multiplicity="1" />
+    <End Type="Sa3adatyModel.PollUserAnswer" Role="PollUserAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PollAnswer">
+        <PropertyRef Name="AnswerId" />
+      </Principal>
+      <Dependent Role="PollUserAnswer">
+        <PropertyRef Name="PollAnswerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Poll">
+    <Key>
+      <PropertyRef Name="PollId" />
+    </Key>
+    <Property Type="Int32" Name="PollId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+    <Property Type="Int32" Name="CampaignId" Nullable="false" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Question" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImageURL" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="OnlineStartDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="OnlineEndDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Campaign" Relationship="Sa3adatyModel.FK_Poll_Campaign" FromRole="Poll" ToRole="Campaign" />
+    <NavigationProperty Name="PollAnswers" Relationship="Sa3adatyModel.FK_PollAnswer_Poll" FromRole="Poll" ToRole="PollAnswer" />
+  </EntityType>
+  <Association Name="FK_Poll_Campaign">
+    <End Type="Sa3adatyModel.Campaign" Role="Campaign" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Poll" Role="Poll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Poll">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PollAnswer_Poll">
+    <End Type="Sa3adatyModel.Poll" Role="Poll" Multiplicity="1" />
+    <End Type="Sa3adatyModel.PollAnswer" Role="PollAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poll">
+        <PropertyRef Name="PollId" />
+      </Principal>
+      <Dependent Role="PollAnswer">
+        <PropertyRef Name="PollId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SearchArticles_Result">
+    <Property Type="Int64" Name="RowNum" Nullable="true" />
+    <Property Type="Int32" Name="KEY" Nullable="false" />
+    <Property Type="Int32" Name="RANK" Nullable="true" />
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="512" />
+    <Property Type="Int32" Name="AuthorId" Nullable="true" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="PublishDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="NumberOfViews" Nullable="false" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="ImageURL" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="VideoTag">
+    <Key>
+      <PropertyRef Name="VideoId" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Type="Int32" Name="VideoId" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Video" Relationship="Sa3adatyModel.FK_VideoTags_Video" FromRole="VideoTag" ToRole="Video" />
+  </EntityType>
+  <EntityType Name="TagOfVideo">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Type="Int32" Name="TagId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TagName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaTitle" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaDescription" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontTitle" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VideoImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="VideoId" Nullable="false" />
+    <Property Type="Int32" Name="ImageId" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_VideoImages_Image" FromRole="VideoImage" ToRole="Image" />
+    <NavigationProperty Name="Video" Relationship="Sa3adatyModel.FK_VideoImages_Video" FromRole="VideoImage" ToRole="Video" />
+  </EntityType>
+  <Association Name="FK_VideoImages_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="1" />
+    <End Type="Sa3adatyModel.VideoImage" Role="VideoImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="VideoImage">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Type="Int32" Name="VideoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaTitle" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MetaDescription" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AuthorId" />
+    <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="PublishDate" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfViews" Nullable="false" />
+    <Property Type="String" Name="URL" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YoutubeId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Duration" />
+    <NavigationProperty Name="VideoImages" Relationship="Sa3adatyModel.FK_VideoImages_Video" FromRole="Video" ToRole="VideoImage" />
+    <NavigationProperty Name="VideoTags" Relationship="Sa3adatyModel.FK_VideoTags_Video" FromRole="Video" ToRole="VideoTag" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VideoCategory" Relationship="Sa3adatyModel.FK_Video_VideoCategory" FromRole="Video" ToRole="VideoCategory" />
+    <NavigationProperty Name="VideoComments" Relationship="Sa3adatyModel.FK_VideoComment_Video" FromRole="Video" ToRole="VideoComment" />
+    <NavigationProperty Name="Author" Relationship="Sa3adatyModel.FK_Video_Author" FromRole="Video" ToRole="Author" />
+  </EntityType>
+  <Association Name="FK_VideoImages_Video">
+    <End Type="Sa3adatyModel.Video" Role="Video" Multiplicity="1" />
+    <End Type="Sa3adatyModel.VideoImage" Role="VideoImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoImage">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoTags_Video">
+    <End Type="Sa3adatyModel.Video" Role="Video" Multiplicity="1" />
+    <End Type="Sa3adatyModel.VideoTag" Role="VideoTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoTag">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VideoCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ParentCategoryId" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MetaTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageId" Type="Int32" />
+    <NavigationProperty Name="Image" Relationship="Sa3adatyModel.FK_VideoCategory_Image" FromRole="VideoCategory" ToRole="Image" />
+    <NavigationProperty Name="Videos" Relationship="Sa3adatyModel.FK_Video_VideoCategory" FromRole="VideoCategory" ToRole="Video" />
+    <NavigationProperty Name="VideoCategory1" Relationship="Sa3adatyModel.FK_VideoCategory_VideoCategory" FromRole="VideoCategory" ToRole="VideoCategory1" />
+    <NavigationProperty Name="VideoCategory2" Relationship="Sa3adatyModel.FK_VideoCategory_VideoCategory" FromRole="VideoCategory1" ToRole="VideoCategory" />
+  </EntityType>
+  <EntityType Name="VideoComment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="VideoId" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ParentId" Type="Int32" />
+    <NavigationProperty Name="Video" Relationship="Sa3adatyModel.FK_VideoComment_Video" FromRole="VideoComment" ToRole="Video" />
+    <NavigationProperty Name="VideoComment1" Relationship="Sa3adatyModel.FK_VideoComment_VideoComment" FromRole="VideoComment" ToRole="VideoComment1" />
+    <NavigationProperty Name="VideoComment2" Relationship="Sa3adatyModel.FK_VideoComment_VideoComment" FromRole="VideoComment1" ToRole="VideoComment" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_VideoComment_UserProfile" FromRole="VideoComment" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_VideoCategory_Image">
+    <End Type="Sa3adatyModel.Image" Role="Image" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.VideoCategory" Role="VideoCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="VideoCategory">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_VideoCategory">
+    <End Type="Sa3adatyModel.VideoCategory" Role="VideoCategory" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_Video">
+    <End Type="Sa3adatyModel.Video" Role="Video" Multiplicity="1" />
+    <End Type="Sa3adatyModel.VideoComment" Role="VideoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="VideoComment">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoCategory_VideoCategory">
+    <End Type="Sa3adatyModel.VideoCategory" Role="VideoCategory" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.VideoCategory" Role="VideoCategory1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="VideoCategory1">
+        <PropertyRef Name="ParentCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_VideoComment">
+    <End Type="Sa3adatyModel.VideoComment" Role="VideoComment" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.VideoComment" Role="VideoComment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoComment">
+        <PropertyRef Name="CommentId" />
+      </Principal>
+      <Dependent Role="VideoComment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" />
+    <Property Name="FailedPasswordAnswerAttempt" Type="Int32" />
+    <Property Name="Slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="signature" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FacebookAccessToken" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="FacebookId" Type="Int64" />
+    <Property Name="TwitterAccessToken" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TwitterId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleAccessToken" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsExternalAccount" Type="Boolean" />
+    <Property Name="TwitterShowFeed" Type="Boolean" />
+    <Property Name="DisableEmailNotifications" Type="Boolean" />
+    <Property Name="DisablePosting" Type="Boolean" />
+    <Property Name="DisablePrivateMessages" Type="Boolean" />
+    <Property Name="DisableFileUploads" Type="Boolean" />
+    <Property Name="LoginIdExpires" Type="DateTime" Precision="3" />
+    <Property Name="MiscAccessToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="LastActivityDate" Type="DateTime" Precision="3" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="Sa3adatyModel.FK_Comments_UserProfile" FromRole="UserProfile" ToRole="Comment" />
+    <NavigationProperty Name="Country" Relationship="Sa3adatyModel.FK_UserProfile_Country" FromRole="UserProfile" ToRole="Country" />
+    <NavigationProperty Name="Likes" Relationship="Sa3adatyModel.FK_Like_UserProfile" FromRole="UserProfile" ToRole="Like" />
+    <NavigationProperty Name="Subscriptions" Relationship="Sa3adatyModel.FK_Subscription_UserProfile" FromRole="UserProfile" ToRole="Subscription" />
+    <NavigationProperty Name="UserImages" Relationship="Sa3adatyModel.FK_UserImages_UserProfile" FromRole="UserProfile" ToRole="UserImage" />
+    <NavigationProperty Name="VideoComments" Relationship="Sa3adatyModel.FK_VideoComment_UserProfile" FromRole="UserProfile" ToRole="VideoComment" />
+    <NavigationProperty Name="webpages_Roles" Relationship="Sa3adatyModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+    <NavigationProperty Name="Authors" Relationship="Sa3adatyModel.FK_Author_UserProfile" FromRole="UserProfile" ToRole="Author" />
+  </EntityType>
+  <Association Name="FK_Comments_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Country">
+    <End Type="Sa3adatyModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Like_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="Sa3adatyModel.Like" Role="Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscription_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserImages_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="Sa3adatyModel.UserImage" Role="UserImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserImage">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoComment_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="Sa3adatyModel.VideoComment" Role="VideoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="VideoComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="Sa3adatyModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacebookPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsProfileEnabled" Type="Boolean" />
+    <Property Name="MetaTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="FacebookId" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articles" Relationship="Sa3adatyModel.FK_Article_Author" FromRole="Author" ToRole="Article" />
+    <NavigationProperty Name="UserProfile" Relationship="Sa3adatyModel.FK_Author_UserProfile" FromRole="Author" ToRole="UserProfile" />
+    <NavigationProperty Name="AuthorImages" Relationship="Sa3adatyModel.FK_AuthorImages_Author" FromRole="Author" ToRole="AuthorImage" />
+    <NavigationProperty Name="Videos" Relationship="Sa3adatyModel.FK_Video_Author" FromRole="Author" ToRole="Video" />
+  </EntityType>
+  <Association Name="FK_Article_Author">
+    <End Type="Sa3adatyModel.Author" Role="Author" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_UserProfile">
+    <End Type="Sa3adatyModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.Author" Role="Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthorImages_Author">
+    <End Type="Sa3adatyModel.Author" Role="Author" Multiplicity="1" />
+    <End Type="Sa3adatyModel.AuthorImage" Role="AuthorImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="AuthorImage">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Author">
+    <End Type="Sa3adatyModel.Author" Role="Author" Multiplicity="0..1" />
+    <End Type="Sa3adatyModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

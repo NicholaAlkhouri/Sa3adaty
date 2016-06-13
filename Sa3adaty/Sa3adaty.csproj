@@ -1,0 +1,2028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA507A85-4CE3-43A8-AAB4-FCBF16333175}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sa3adaty</RootNamespace>
+    <AssemblyName>Sa3adaty</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\packages\DataAnnotationsExtensions.MVC3.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="LowercaseRoutesMVC">
+      <HintPath>..\packages\LowercaseRoutesMVC.1.0.3\lib\LowercaseRoutesMVC.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.3\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.3\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.4.5\lib\45\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Quartz, Version=2.3.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Social">
+      <HintPath>..\packages\Skybrud.Social.0.9.0-alpha1\lib\Skybrud.Social.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Framework">
+      <HintPath>..\packages\SquishIt.0.9.7\lib\SquishIt.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Mvc">
+      <HintPath>..\packages\SquishIt.0.9.7\optional\SquishIt.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.5.1\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\GooglePlusClient.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAuthorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminArticleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminPollController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminTagController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminTagOfVideoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminTipController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminVideoCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminVideoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscribersController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\ForumAccountController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\AdminBadgeController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\AdminCategoryController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\AdminLanguageController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\AdminTagController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\BannedEmailController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\BannedWordController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\BatchController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\ImportExportController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\LogController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\ModerateController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\PermissionsController.cs" />
+    <Compile Include="Areas\ForumAdmin\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\ForumAdmin\ForumAdminAreaRegistration.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AdminBadgeViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AdminCategoryViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AdminLanguageViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AdminTagViewModel.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AdminViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\AjaxAdminViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\BannedEmailViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\BannedWordViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\BatchViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\DashboardViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\GenericMessageViewModel.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\LogViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\ModerateViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\PermissionsViewModels.cs" />
+    <Compile Include="Areas\ForumAdmin\ViewModels\SettingsViewModels.cs" />
+    <Compile Include="Areas\Forum\Akismet.NET\Comment.cs" />
+    <Compile Include="Areas\Forum\Akismet.NET\IValidator.cs" />
+    <Compile Include="Areas\Forum\Akismet.NET\Validator.cs" />
+    <Compile Include="Areas\Forum\Application\AkismetHelper.cs" />
+    <Compile Include="Areas\Forum\Application\AppHelpers.cs" />
+    <Compile Include="Areas\Forum\Application\CsvFileResult.cs" />
+    <Compile Include="Areas\Forum\Application\DatesUI.cs" />
+    <Compile Include="Areas\Forum\Application\ExtensionMethods\HtmlLabelExtensions.cs" />
+    <Compile Include="Areas\Forum\Application\Extensions.cs" />
+    <Compile Include="Areas\Forum\Application\ForumMVCResourceDisplayName.cs" />
+    <Compile Include="Areas\Forum\Application\ForumViewEngine.cs" />
+    <Compile Include="Areas\Forum\Application\GoogleSitemapResult.cs" />
+    <Compile Include="Areas\Forum\Application\Localization\Localizer.cs" />
+    <Compile Include="Areas\Forum\Application\MemoryFile.cs" />
+    <Compile Include="Areas\Forum\Application\MobileExtensions.cs" />
+    <Compile Include="Areas\Forum\Application\RssResult.cs" />
+    <Compile Include="Areas\Forum\Application\ServiceFactory.cs" />
+    <Compile Include="Areas\Forum\Application\SiteConstants.cs" />
+    <Compile Include="Areas\Forum\Application\WrappedJSonResult.cs" />
+    <Compile Include="Areas\Forum\Controllers\BadgeController.cs" />
+    <Compile Include="Areas\Forum\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Forum\Controllers\BaseInstallController.cs" />
+    <Compile Include="Areas\Forum\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Forum\Controllers\ClosedController.cs" />
+    <Compile Include="Areas\Forum\Controllers\EmailController.cs" />
+    <Compile Include="Areas\Forum\Controllers\FavouriteController.cs" />
+    <Compile Include="Areas\Forum\Controllers\ForumHomeController.cs" />
+    <Compile Include="Areas\Forum\Controllers\InstallController.cs" />
+    <Compile Include="Areas\Forum\Controllers\LanguageController.cs" />
+    <Compile Include="Areas\Forum\Controllers\MembersController.cs" />
+    <Compile Include="Areas\Forum\Controllers\OAuthControllers\FacebookOAuthController.cs" />
+    <Compile Include="Areas\Forum\Controllers\OAuthControllers\GoogleOAuthController.cs" />
+    <Compile Include="Areas\Forum\Controllers\PointController.cs" />
+    <Compile Include="Areas\Forum\Controllers\PollController.cs" />
+    <Compile Include="Areas\Forum\Controllers\PostController.cs" />
+    <Compile Include="Areas\Forum\Controllers\PrivateMessageController.cs" />
+    <Compile Include="Areas\Forum\Controllers\SearchController.cs" />
+    <Compile Include="Areas\Forum\Controllers\SnippetsController.cs" />
+    <Compile Include="Areas\Forum\Controllers\StatsController.cs" />
+    <Compile Include="Areas\Forum\Controllers\TagController.cs" />
+    <Compile Include="Areas\Forum\Controllers\TopicController.cs" />
+    <Compile Include="Areas\Forum\Controllers\UploadController.cs" />
+    <Compile Include="Areas\Forum\Controllers\VoteController.cs" />
+    <Compile Include="Areas\Forum\ForumAreaRegistration.cs" />
+    <Compile Include="Areas\Forum\Membership\MembershipProvider.cs" />
+    <Compile Include="Areas\Forum\Membership\RoleProvider.cs" />
+    <Compile Include="Areas\Forum\ScheduledJobs\EmailJob.cs" />
+    <Compile Include="Areas\Forum\ScheduledJobs\KepAliveJob.cs" />
+    <Compile Include="Areas\Forum\ScheduledJobs\ScheduledRunner.cs" />
+    <Compile Include="Areas\Forum\ViewModels\BadgeViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\CategoryViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\EmailViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\FavouriteViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\HomeViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\InstallViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\LanguageViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\Mapping\ViewModelMapping.cs" />
+    <Compile Include="Areas\Forum\ViewModels\MemberViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\OAuth\FacebookOAuthData.cs" />
+    <Compile Include="Areas\Forum\ViewModels\OAuth\GoogleOAuthData.cs" />
+    <Compile Include="Areas\Forum\ViewModels\PointViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\PostViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\PrivateMessageViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\SearchViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\StatsViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\TagViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\TopicViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\UploadViewModels.cs" />
+    <Compile Include="Areas\Forum\ViewModels\VoteViewModels.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\AuthorController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\NewsletterController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminQuoteController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\Navigator.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
+    <Compile Include="Controllers\RamadanController.cs" />
+    <Compile Include="Controllers\SiteMapController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\MaintenanceFilterAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\FBHelper.cs" />
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Helpers\FrontHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Forum\Content\admin\Admin.css" />
+    <Content Include="Areas\Forum\Content\admin\Images\admin-n3o-logo.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\ajax-loader.gif" />
+    <Content Include="Areas\Forum\Content\admin\Images\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\delete.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\edit.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\favicon.ico" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\address-book-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\address-book.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\alarm-clock-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\alarm-clock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application-sidebar-list.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application-sidebar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\application.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle-135.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle-225.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle-315.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle-double-135.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle-double.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-curve-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-curve-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-curve-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-curve.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-join-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-join-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-join-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-join.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-merge-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-merge-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-merge-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-merge.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-repeat-once.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-repeat.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-retweet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-split-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-split-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-split-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow-split.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\arrow.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\balloon-facebook.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\balloon-twitter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\balloon.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery-charge.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery-empty.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery-full.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery-low.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery-plug.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\battery.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bell.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bin-metal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bin.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document-text-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder-horizontal-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\blue-folder.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\book-brown.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\book.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bookmark-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bookmark-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\bookmark.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\box-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\box.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\briefcase.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calculator.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar-day.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar-month.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\calendar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\camera-lens.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\camera.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\card-address.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\card-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\card-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\card.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\clock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\color-swatch.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\color.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\counter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\credit-card-green.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\credit-card.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\cross-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\cross.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\database-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\database-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\database.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\disc-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\disc.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\disk-black.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\disk.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document-text-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\drive.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\e-book-reader.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\edit.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\equalizer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\eraser.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\exclamation.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\eye.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\feed.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\film.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\fire.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder-horizontal-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\folder.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\gear.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\globe-green.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\globe.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\home.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\image-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\image-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\image-sunset.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-document-music-playlist.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-document-music.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-film.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-slide.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox-table.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\inbox.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\information.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\jar-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\jar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\keyboard-command.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\keyboard-enter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\keyboard-space.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\keyboard.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\layer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\lifebuoy.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\light-bulb-off.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\light-bulb.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\lock-ssl.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\lock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-left.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom-actual-equal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom-actual.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom-fit.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom-in.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom-out.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier-zoom.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\magnifier.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\mail-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\mail.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\map.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\marker.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\media-player-black.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\media-player.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\megaphone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\microphone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\minus-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\minus.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\mobile-phone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\monitor-sidebar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\monitor.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\navigation-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\navigation-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\navigation-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\navigation.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\newspaper.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\notebook.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\paper-bag-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\paper-bag.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\pencil.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\photo-album-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\photo-album.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\plus-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\plus.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\point.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\printer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\prohibition.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\question.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\receipt-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\receipt-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\receipt-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\receipt.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ruler.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\scissors-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\scissors.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\script-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\script-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\script-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\script.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\server.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\service-bell.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\sitemap.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\smiley-lol.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\smiley.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\soap.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\socket.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\sofa.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\sort.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\stamp.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\star-empty.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\star-half.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\star.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\sticky-note.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\store-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\store.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\switch.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\system-monitor.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\table-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\table-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\table-sheet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\table.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\tag-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\tag-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\tag-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\tag.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\target.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\television.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\terminal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\thumb-up.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\thumb.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\tick.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ticket.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ui-color-picker-default.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ui-color-picker-transparent.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ui-color-picker.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ui-tab.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\ui-toolbar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\universal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\user-business-boss.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\user-business.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\user-female.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\user.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\vise.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\wall.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\wand-hat.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\wand.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\water.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\webcam.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\wooden-box-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\wooden-box.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\yin-yang.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\zone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\address-book-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\address-book.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\alarm-clock-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\alarm-clock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application-sidebar-list.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application-sidebar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\application.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle-135.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle-225.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle-315.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle-double-135.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle-double.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-curve-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-curve-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-curve-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-curve.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-join-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-join-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-join-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-join.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-merge-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-merge-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-merge-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-merge.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-repeat-once.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-repeat.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-retweet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-split-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-split-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-split-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow-split.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\arrow.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\balloon-facebook.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\balloon-twitter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\balloon.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery-charge.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery-empty.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery-full.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery-low.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery-plug.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\battery.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bell.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bin-metal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bin.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document-text-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder-horizontal-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\blue-folder.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\book-brown.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\book.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bookmark-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bookmark-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\bookmark.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\box-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\box.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\briefcase.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calculator.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar-day.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar-month.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\calendar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\camera-lens.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\camera.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\card-address.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\card-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\card-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\card.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\clock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\color-swatch.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\color.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\counter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\credit-card-green.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\credit-card.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\cross-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\cross.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\database-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\database-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\database.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\disc-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\disc.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\disk-black.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\disk.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document-text-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\drive.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\e-book-reader.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\edit.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\equalizer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\eraser.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\exclamation.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\eye.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\feed.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\film.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\fire.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder-horizontal-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder-horizontal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\folder.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\gear.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\globe-green.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\globe.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\home.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\image-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\image-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\image-sunset.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-document-music-playlist.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-document-music.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-document-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-document.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-film.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-image.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-slide.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox-table.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\inbox.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\information.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\jar-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\jar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\keyboard-command.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\keyboard-enter.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\keyboard-space.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\keyboard.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\layer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\lifebuoy.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\light-bulb-off.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\light-bulb.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\lock-ssl.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\lock.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-left.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom-actual-equal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom-actual.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom-fit.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom-in.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom-out.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier-zoom.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\magnifier.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\mail-open.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\mail.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\map.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\marker.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\media-player-black.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\media-player.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\megaphone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\microphone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\minus-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\minus.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\mobile-phone.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\monitor-sidebar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\monitor.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\navigation-090.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\navigation-180.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\navigation-270.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\navigation.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\newspaper.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\notebook.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\paper-bag-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\paper-bag.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\pencil.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\photo-album-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\photo-album.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\plus-circle.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\plus.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\point.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\printer.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\prohibition.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\question.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\receipt-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\receipt-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\receipt-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\receipt.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ruler.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\scissors-blue.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\scissors.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\script-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\script-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\script-text.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\script.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\server.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\service-bell.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\sitemap.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\smiley-lol.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\smiley.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\soap.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\socket.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\sofa.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\sort.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\stamp.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\star-empty.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\star-half.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\star.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\sticky-note.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\store-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\store.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\switch.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\system-monitor.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\table-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\table-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\table-sheet.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\table.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\tag-export.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\tag-import.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\tag-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\tag.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\target.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\television.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\terminal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\thumb-up.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\thumb.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\tick.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ticket.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ui-color-picker-default.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ui-color-picker-transparent.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ui-color-picker.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ui-tab.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\ui-toolbar.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\universal.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\user-business-boss.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\user-business.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\user-female.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\user.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\vise.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\wall.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\wand-hat.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\wand.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\water.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\webcam.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\wooden-box-label.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\wooden-box.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\yin-yang.png" />
+    <Content Include="Areas\Forum\Content\admin\Images\icons\[Originals]\zone.png" />
+    <Content Include="Areas\Forum\Content\badges\jedi.png" />
+    <Content Include="Areas\Forum\Content\badges\MemberForAYearBadge.png" />
+    <Content Include="Areas\Forum\Content\badges\MentionsUmbracoBadge.png" />
+    <Content Include="Areas\Forum\Content\badges\OneThousandPoints.png" />
+    <Content Include="Areas\Forum\Content\badges\padawan.png" />
+    <Content Include="Areas\Forum\Content\badges\photogenic.png" />
+    <Content Include="Areas\Forum\Content\badges\PosterMarkAsSolutionBadge.png" />
+    <Content Include="Areas\Forum\Content\badges\PosterVoteUpBadge.png" />
+    <Content Include="Areas\Forum\Content\badges\TheGrouch.png" />
+    <Content Include="Areas\Forum\Content\badges\UserMarkAsSolutionBadge.png" />
+    <Content Include="Areas\Forum\Content\badges\UserVoteUpBadge.png" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap-arabic.min.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap-prettify.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Forum\Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Forum\Content\bootstrap\js\bootstrap-prettify.js" />
+    <Content Include="Areas\Forum\Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Forum\Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Forum\Content\bootstrap\js\npm.js" />
+    <Content Include="Areas\Forum\Content\cache\Cache.txt" />
+    <Content Include="Areas\Forum\Content\Emails\EmailNotification.htm" />
+    <Content Include="Areas\Forum\Content\Images\arrow-spinner-blue.gif" />
+    <Content Include="Areas\Forum\Content\Images\icon-poll.png" />
+    <Content Include="Areas\Forum\Content\Images\icon-sticky.png" />
+    <Content Include="Areas\Forum\Content\Images\mail-add.png" />
+    <Content Include="Areas\Forum\Content\Images\mail-delete.png" />
+    <Content Include="Areas\Forum\Content\Images\rss-icon.png" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Images\sa3adaty-logo-forum.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\aim.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\ask.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\bebo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\betvibes.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\blinklist.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\blogger.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\buzz.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\delicious.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\deviantart.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\digg.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\diigo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\everynote.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\facebook.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\flickr.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\friendfeed.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\friendster.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\furl.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\google.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\lastfm.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\linkedin.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\livejournal.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\mixx.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\myspace.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\newsvine.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\orkut.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\plaxo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\plurk.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\posterous.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\reddit.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\rss.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\shoutwire.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\spurl.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\squidoo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\stumbleupon.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\technorati.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\tumblr.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\twitter.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\vimeo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\wordpress.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\xanga.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\yahoo.png" />
+    <Content Include="Areas\Forum\Content\Images\social-icons\youtube.png" />
+    <Content Include="Areas\Forum\Content\jstree\jstree.js" />
+    <Content Include="Areas\Forum\Content\jstree\jstree.min.js" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\30px.png" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\32px.png" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\40px.png" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\style.css" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\style.min.css" />
+    <Content Include="Areas\Forum\Content\jstree\themes\default\throbber.gif" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\30px.png" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\32px.png" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.svg" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.svg" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.svg" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\style.css" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\style.min.css" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\throbber.gif" />
+    <Content Include="Areas\Forum\Content\Prettify\prettify.css" />
+    <Content Include="Areas\Forum\Content\Prettify\Themes\desert.css" />
+    <Content Include="Areas\Forum\Content\Prettify\Themes\doxy.css" />
+    <Content Include="Areas\Forum\Content\Prettify\Themes\sons-of-obsidian.css" />
+    <Content Include="Areas\Forum\Content\Prettify\Themes\sunburst.css" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-de.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-dk.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-es.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-fa.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-fi.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-fr.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-he.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-it.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-ja.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-nl.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-pt-br.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-ru.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-sv.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-tr.js" />
+    <Content Include="Areas\Forum\Content\spectrum\i18n\jquery.spectrum-zh-cn.js" />
+    <Content Include="Areas\Forum\Content\spectrum\spectrum.css" />
+    <Content Include="Areas\Forum\Content\spectrum\spectrum.js" />
+    <Content Include="Areas\Forum\Content\tinymce.css" />
+    <Content Include="Areas\Forum\Content\uploads\64c83089-7baf-4742-aa97-a1a900b6c212\ae9102bf-f03f-45f0-adb6-a1a900b9ee9a_capture.jpg" />
+    <Content Include="Areas\Forum\Content\uploads\76c8576b-210f-49b0-9a40-a238011e105b\0740b836-796a-477e-9ec2-a23801226d98_albert-einstein-head.jpg" />
+    <Content Include="Areas\Forum\Content\uploads\afe9517a-2139-40ca-a7f4-a02800e572a4\244f02d5-d01e-406d-bb4f-a1a500aebffd_file-two.txt" />
+    <Content Include="Areas\Forum\Content\uploads\afe9517a-2139-40ca-a7f4-a02800e572a4\3764aa15-f68a-430f-9327-a1a500aeb350_file-one.txt" />
+    <Content Include="Areas\Forum\Content\uploads\afe9517a-2139-40ca-a7f4-a02800e572a4\aa8e9292-383b-4930-ad66-a1a50129b3e2_capture.jpg" />
+    <Content Include="Areas\Forum\Content\uploads\afe9517a-2139-40ca-a7f4-a02800e572a4\bbb42d4d-cd4e-4f37-9d75-a1a500aebffc_file-three.txt" />
+    <Content Include="Areas\Forum\Content\uploads\afe9517a-2139-40ca-a7f4-a02800e572a4\e7928396-d57a-404a-be5d-a1a501287fbd_capture.jpg" />
+    <Content Include="Areas\Forum\Content\uploads\readme.txt" />
+    <Content Include="Areas\Forum\Scripts\admin\Admin.js" />
+    <Content Include="Areas\Forum\Scripts\admin\FadeOutMessage.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\alien.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\angel.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\angry.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\blink.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\blush.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\cheerful.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\cool.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\credits.txt" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\cwy.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\devil.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\dizzy.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\ermm.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\face.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\getlost.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\grin.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\happy.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\heart.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\kissing.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\laughing.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\ninja.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\pinch.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\pouty.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\sad.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\shocked.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\sick.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\sideways.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\silly.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\sleeping.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\smile.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\tongue.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\unsure.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\w00t.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\wassat.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\whistling.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\wink.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\emoticons\wub.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.bbcode.min.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.default.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.min.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.min.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\jquery.sceditor.xhtml.min.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\plugins\bbcode.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\plugins\format.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\plugins\xhtml.js" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\default.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\famfamfam.png" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\modern.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\office-toolbar.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\office.min.css" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\square.min.css" />
+    <Content Include="Areas\Forum\Scripts\cache\Cache.txt" />
+    <Content Include="Areas\Forum\Scripts\dashboard.js" />
+    <Content Include="Areas\Forum\Scripts\fancybox\blank.gif" />
+    <Content Include="Areas\Forum\Scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="Areas\Forum\Scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Areas\Forum\Scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Areas\Forum\Scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="Areas\Forum\Scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="Areas\Forum\Scripts\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Areas\Forum\Scripts\general.js" />
+    <Content Include="Areas\Admin\Views\AdminAuthor\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAuthor\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAuthor\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideo\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideo\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideoCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideoCategory\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminVideoCategory\New.cshtml" />
+    <None Include="Areas\Forum\Scripts\jquery-1.11.1.intellisense.js" />
+    <Content Include="Areas\Forum\Scripts\jquery-1.11.1.js" />
+    <Content Include="Areas\Forum\Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.placeholder.min.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.tagsinput.min.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Areas\Forum\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.validate.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\Forum\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\Forum\Scripts\json2.js" />
+    <Content Include="Areas\Forum\Scripts\json3.js" />
+    <Content Include="Areas\Forum\Scripts\leaderboard.js" />
+    <Content Include="Areas\Forum\Scripts\markdown\Markdown.Converter.js" />
+    <Content Include="Areas\Forum\Scripts\markdown\markdown.css" />
+    <Content Include="Areas\Forum\Scripts\markdown\Markdown.Editor.js" />
+    <Content Include="Areas\Forum\Scripts\markdown\Markdown.Sanitizer.js" />
+    <Content Include="Areas\Forum\Scripts\markdown\node-pagedown.js" />
+    <Content Include="Areas\Forum\Scripts\markdown\wmd-buttons.png" />
+    <Content Include="Areas\Forum\Scripts\memberprofiles.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftAjax.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Areas\Forum\Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-apollo.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-basic.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-clj.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-css.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-dart.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-erlang.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-go.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-hs.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-lisp.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-llvm.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-lua.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-matlab.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-ml.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-mumps.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-n.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-pascal.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-proto.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-r.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-rd.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-scala.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-sql.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-tcl.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-tex.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-vb.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-vhdl.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-wiki.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-xq.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\lang-yaml.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\prettify.js" />
+    <Content Include="Areas\Forum\Scripts\Prettify\run_prettify.js" />
+    <Content Include="Areas\Forum\Scripts\pushy\pushy.css" />
+    <Content Include="Areas\Forum\Scripts\pushy\pushy.js" />
+    <Content Include="Areas\Forum\Scripts\tags.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\license.txt" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\example\dialog.html" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\example\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\example_dependency\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\layer\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\address.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\article.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\aside.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\blockquote.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\div.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\dl.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\figure.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h1.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h2.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h3.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h4.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h5.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\h6.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\hgroup.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\ol.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\p.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\pre.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\section.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\img\ul.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Areas\Forum\Scripts\tinymce\themes\modern\theme.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\tinymce.js" />
+    <Content Include="Areas\Forum\Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Areas\Forum\Scripts\topic.js" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumli.svg" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumsb.svg" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Images\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Images\arrow-spinner-blue.gif" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Images\favicon.ico" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Images\logo.png" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Scripts\general.js" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Styles\Theme.css" />
+    <Content Include="Content\Admin\jquery.tagit.css" />
+    <Content Include="Content\Admin\sb-admin-2.css" />
+    <Content Include="Content\Admin\sb-admin.css" />
+    <Content Include="Content\Admin\tagit.ui-zendesk.css" />
+    <Content Include="Content\bootstrap\bootstrap-arabic.css" />
+    <Content Include="Content\bootstrap\bootstrap-arabic.min.css" />
+    <Content Include="Content\Emails\EmailNotification.htm" />
+    <Content Include="Content\images\big-logo.png" />
+    <Content Include="Content\images\blue-arrow-left.png" />
+    <Content Include="Content\images\header-user-gray.png" />
+    <Content Include="Content\images\ramadan\poll-ramadan-background.jpg" />
+    <Content Include="Content\images\radio-selected.png" />
+    <Content Include="Content\images\radio-unselected.png" />
+    <Content Include="Content\images\ramadan\ramadan-background.png" />
+    <Content Include="Content\images\ramadan\ramadan-sunset.png" />
+    <Content Include="Content\images\ramadan\ramadan-tip-background.jpg" />
+    <Content Include="Content\images\sa3adaty-logo.png" />
+    <Content Include="Content\images\user-header-blue.png" />
+    <Content Include="Content\images\video-play-overlay.png" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\tinymce.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="EmailTemplates\DailyEmail.html" />
+    <Content Include="EmailTemplates\DailyEmailArticle.html" />
+    <Content Include="EmailTemplates\Layout.html" />
+    <Content Include="Images\default-avatar-20x20.png" />
+    <Content Include="Images\default-avatar-44x44.png" />
+    <Content Include="Images\default-avatar-85x85.png" />
+    <Content Include="Scripts\bootstrap-wysiwyg.min.js" />
+    <Content Include="Scripts\google-code-prettify\lang-apollo.js" />
+    <Content Include="Scripts\google-code-prettify\lang-basic.js" />
+    <Content Include="Scripts\google-code-prettify\lang-clj.js" />
+    <Content Include="Scripts\google-code-prettify\lang-css.js" />
+    <Content Include="Scripts\google-code-prettify\lang-dart.js" />
+    <Content Include="Scripts\google-code-prettify\lang-erlang.js" />
+    <Content Include="Scripts\google-code-prettify\lang-go.js" />
+    <Content Include="Scripts\google-code-prettify\lang-hs.js" />
+    <Content Include="Scripts\google-code-prettify\lang-lisp.js" />
+    <Content Include="Scripts\google-code-prettify\lang-llvm.js" />
+    <Content Include="Scripts\google-code-prettify\lang-lua.js" />
+    <Content Include="Scripts\google-code-prettify\lang-matlab.js" />
+    <Content Include="Scripts\google-code-prettify\lang-ml.js" />
+    <Content Include="Scripts\google-code-prettify\lang-mumps.js" />
+    <Content Include="Scripts\google-code-prettify\lang-n.js" />
+    <Content Include="Scripts\google-code-prettify\lang-pascal.js" />
+    <Content Include="Scripts\google-code-prettify\lang-proto.js" />
+    <Content Include="Scripts\google-code-prettify\lang-r.js" />
+    <Content Include="Scripts\google-code-prettify\lang-rd.js" />
+    <Content Include="Scripts\google-code-prettify\lang-scala.js" />
+    <Content Include="Scripts\google-code-prettify\lang-sql.js" />
+    <Content Include="Scripts\google-code-prettify\lang-tcl.js" />
+    <Content Include="Scripts\google-code-prettify\lang-tex.js" />
+    <Content Include="Scripts\google-code-prettify\lang-vb.js" />
+    <Content Include="Scripts\google-code-prettify\lang-vhdl.js" />
+    <Content Include="Scripts\google-code-prettify\lang-wiki.js" />
+    <Content Include="Scripts\google-code-prettify\lang-xq.js" />
+    <Content Include="Scripts\google-code-prettify\lang-yaml.js" />
+    <Content Include="Scripts\google-code-prettify\prettify.css" />
+    <Content Include="Scripts\google-code-prettify\prettify.js" />
+    <Content Include="Scripts\google-code-prettify\run_prettify.js" />
+    <Content Include="Areas\Forum\Views\Stats\GetNewMembers.cshtml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.3.0.debug.js" />
+    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\tag-it.js" />
+    <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\plugins\dataTables.bootstrap.css" />
+    <Content Include="Content\bootstrap\plugins\metisMenu\metisMenu.css" />
+    <Content Include="Content\bootstrap\plugins\metisMenu\metisMenu.min.css" />
+    <Content Include="Content\bootstrap\plugins\morris.css" />
+    <Content Include="Content\bootstrap\plugins\social-buttons.css" />
+    <Content Include="Content\bootstrap\plugins\timeline.css" />
+    <Content Include="Content\editor.css" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\css\font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\banner.png" />
+    <Content Include="Content\images\blue-mail.png" />
+    <Content Include="Content\images\breadcrumb-arrow.png" />
+    <Content Include="Content\images\checked.png" />
+    <Content Include="Content\images\clock-small.png" />
+    <Content Include="Content\images\comment-small.png" />
+    <Content Include="Content\images\dot-separator-white.png" />
+    <Content Include="Content\images\dot-separator.png" />
+    <Content Include="Content\images\double-quote-down.png" />
+    <Content Include="Content\images\double-quote-up.png" />
+    <Content Include="Content\images\dropdown-arrow.png" />
+    <Content Include="Content\images\facebook-bigbox-icon.png" />
+    <Content Include="Content\images\facebook-circle.png" />
+    <Content Include="Content\images\facebook-footer.png" />
+    <Content Include="Content\images\facebook-login.png" />
+    <Content Include="Content\images\facebook-share-icon.png" />
+    <Content Include="Content\images\gplus-bigbox-icon.png" />
+    <Content Include="Content\images\gplus-circle.png" />
+    <Content Include="Content\images\gplus-footer.png" />
+    <Content Include="Content\images\gplus-login.png" />
+    <Content Include="Content\images\gplus-share-icon.png" />
+    <Content Include="Content\images\gray-gradient.png" />
+    <Content Include="Content\images\header-facebook.png" />
+    <Content Include="Content\images\header-gplus.png" />
+    <Content Include="Content\images\header-home.png" />
+    <Content Include="Content\images\header-twitter.png" />
+    <Content Include="Content\images\header-user.png" />
+    <Content Include="Content\images\invalid.png" />
+    <Content Include="Content\images\Landing_Page.jpg" />
+    <Content Include="Content\images\like-article-btn.png" />
+    <Content Include="Content\images\like-check-gray.png" />
+    <Content Include="Content\images\like-heart.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\login-email.png" />
+    <Content Include="Content\images\login-name.png" />
+    <Content Include="Content\images\login-password.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logout.png" />
+    <Content Include="Content\images\more-arrow.png" />
+    <Content Include="Content\images\newsletter-facebook.png" />
+    <Content Include="Content\images\newsletter-gplus.png" />
+    <Content Include="Content\images\newsletter-left-arrow.png" />
+    <Content Include="Content\images\reply-small.png" />
+    <Content Include="Content\images\search-magnify.png" />
+    <Content Include="Content\images\separator-three-dots.png" />
+    <Content Include="Content\images\settings-gear.png" />
+    <Content Include="Content\images\signup-avatar.png" />
+    <Content Include="Content\images\slider-left-arrow.png" />
+    <Content Include="Content\images\slider-right-arrow.png" />
+    <Content Include="Content\images\small-avatar.png" />
+    <Content Include="Content\images\social-count.png" />
+    <Content Include="Content\images\social-fb.png" />
+    <Content Include="Content\images\social-gplus.png" />
+    <Content Include="Content\images\socila-twitter.png" />
+    <Content Include="Content\images\Temp\article150x150.jpg" />
+    <Content Include="Content\images\Temp\article220x120.jpg" />
+    <Content Include="Content\images\Temp\HomePage4.png" />
+    <Content Include="Content\images\Temp\HomePage_motherday_final.png" />
+    <Content Include="Content\images\Temp\user-43-43.jpg" />
+    <Content Include="Content\images\twitter-bigbox-icon.png" />
+    <Content Include="Content\images\unchecked.png" />
+    <Content Include="Content\images\user-blue.png" />
+    <Content Include="Content\images\valid.png" />
+    <Content Include="Content\images\white-heart.png" />
+    <Content Include="Content\images\white-mail.png" />
+    <Content Include="Content\Admin\style_admin.css" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\core.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\list.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\path.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\spinning.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_spinning.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome-4.1.0\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\AdminAccount\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\ForeignKey.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\List.cshtml" />
+    <Content Include="Global.asax" />
+    <Content Include="robots.txt" />
+    <Content Include="sa3adaty_favicon.png" />
+    <Content Include="Scripts\admin_utilities.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-arabic.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-arabic.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-custom.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\ie10-viewport-bug-workaround.js" />
+    <Content Include="Scripts\bootstrap\moment.min.js" />
+    <Content Include="Scripts\bootstrap\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\bootstrap\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\excanvas.min.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\flot-data.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\jquery.flot.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\bootstrap\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\bootstrap\plugins\metisMenu\metisMenu.js" />
+    <Content Include="Scripts\bootstrap\plugins\metisMenu\metisMenu.min.js" />
+    <Content Include="Scripts\bootstrap\plugins\morris\morris-data.js" />
+    <Content Include="Scripts\bootstrap\plugins\morris\morris.js" />
+    <Content Include="Scripts\bootstrap\plugins\morris\morris.min.js" />
+    <Content Include="Scripts\bootstrap\plugins\morris\raphael.min.js" />
+    <Content Include="Scripts\editor.js" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ImagesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\ItemsList.cshtml" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\User\List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\New.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminQuote\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminQuote\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminQuote\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\SendEmailTest.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminArticle\CommentsList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminArticle\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminArticle\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminArticle\New.cshtml" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Bold %281%29.eot" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Bold.eot" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Bold.ttf" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Bold.woff" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Bold.woff2" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Regular %281%29.eot" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Regular.eot" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Regular.ttf" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Regular.woff" />
+    <Content Include="Content\fonts\DroidKufi\DroidKufi-Regular.woff2" />
+    <Content Include="Areas\Admin\Views\AdminTip\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTip\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTip\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTag\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTag\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTag\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPoll\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPoll\New.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPoll\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagOfVideo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagOfVideo\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagOfVideo\New.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ForumAccount\AddRole.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ForumAccount\Edit.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ForumAccount\EditRole.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ForumAccount\List.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ForumAccount\ListAllRoles.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminBadge\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\CreateCategory.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\DeleteCategoryConfirmation.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\EditCategory.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\GetMainCategories.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\ListAllCategories.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\_CategoryFields.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminCategory\_CategoryNavButtons.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\AddResourceKey.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\Create.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\CreateLanguage.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\DeleteLanguageConfirmation.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\DeleteResourceConfirmation.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\GetLanguages.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\ListAllValues.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\ListKeys.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminLanguage\ListValues.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\AdminTag\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\BannedEmail\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\BannedWord\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Batch\BatchDeleteMembers.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Batch\BatchMoveTopics.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Batch\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\HighestViewedTopics.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\LatestUsers.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\LowestPointPosts.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\LowestPointUsers.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\MvcForumLatestNews.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Dashboard\TodaysTopics.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ImportExport\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ImportExport\Languages.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\ImportExport\Members.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Log\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Moderate\GetMorePosts.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Moderate\GetMoreTopics.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Moderate\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Permissions\AddType.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Permissions\EditPermissions.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Permissions\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Permissions\PermissionTypes.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Settings\TestEmail.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminBlankLayout.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminFullWidthLayout.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminScripts.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminSideNav.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_AdminTopNav.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_GenericMessage.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_GetCurrentVersion.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Shared\_LanguageOptions.cshtml" />
+    <Content Include="Areas\ForumAdmin\Views\Web.config" />
+    <Content Include="Areas\ForumAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Forum\Views\Badge\AllBadges.cshtml" />
+    <Content Include="Areas\Forum\Views\Category\GetSubscribedCategories.cshtml" />
+    <Content Include="Areas\Forum\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\Category\ListCategorySideMenu.cshtml" />
+    <Content Include="Areas\Forum\Views\Category\ListMainCategories.cshtml" />
+    <Content Include="Areas\Forum\Views\Category\Show.cshtml" />
+    <Content Include="Areas\Forum\Views\Closed\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\Favourite\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\ForumHome\Activity.cshtml" />
+    <Content Include="Areas\Forum\Views\ForumHome\Following.cshtml" />
+    <Content Include="Areas\Forum\Views\ForumHome\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\ForumHome\Leaderboard.cshtml" />
+    <Content Include="Areas\Forum\Views\ForumHome\PostedIn.cshtml" />
+    <Content Include="Areas\Forum\Views\Install\Complete.cshtml" />
+    <Content Include="Areas\Forum\Views\Install\CreateDb.cshtml" />
+    <Content Include="Areas\Forum\Views\Install\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\Install\ManualUpgradeNeeded.cshtml" />
+    <Content Include="Areas\Forum\Views\Install\UpgradeDb.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\AdminMemberProfileTools.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\ChangePassword.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\Edit.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\ForgotPassword.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\GetByName.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\GetCurrentActiveMembers.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\GetMemberDiscussions.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\LatestMembersJoined.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\LogOn.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\Register.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\Report.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\Search.cshtml" />
+    <Content Include="Areas\Forum\Views\Members\SideAdminPanel.cshtml" />
+    <Content Include="Areas\Forum\Views\Point\CurrentWeekHighPointUsers.cshtml" />
+    <Content Include="Areas\Forum\Views\Post\Report.cshtml" />
+    <Content Include="Areas\Forum\Views\PrivateMessage\Create.cshtml" />
+    <Content Include="Areas\Forum\Views\PrivateMessage\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\PrivateMessage\View.cshtml" />
+    <Content Include="Areas\Forum\Views\Search\Index.cshtml" />
+    <Content Include="Areas\Forum\Views\Search\SideSearch.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\customeditors\bbeditor.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\customeditors\markdowneditor.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\customeditors\tinymceeditor.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\EditorTemplates\colourpicker.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\EditorTemplates\forumeditor.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\GetCategoryBreadcrumb.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\SubNavigation.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Badge.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Category.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_CommonSideNav.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_CreateEdit_TopicPost.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_CreateNewPost.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_DocumentationBlock.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_EmailConfirmationNotice.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_GenericMessage.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Install.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_LanguagePartial.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_LayoutFullWidth.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_LayoutRightSideBar.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_ModeratePost.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_ModerateTopic.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_NoScript.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Poll.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Post.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_PostModeration.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_PostSearch.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_PrivateMessage.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_SocialLoginButtons.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_SubCategories.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_Topic.cshtml" />
+    <Content Include="Areas\Forum\Views\Shared\_TopicSlim.cshtml" />
+    <Content Include="Areas\Forum\Views\Snippets\GetThisWeeksTopEarners.cshtml" />
+    <Content Include="Areas\Forum\Views\Snippets\GetThisYearsTopEarners.cshtml" />
+    <Content Include="Areas\Forum\Views\Stats\GetMainStats.cshtml" />
+    <Content Include="Areas\Forum\Views\Tag\PopularTags.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\AjaxMorePosts.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\Create.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\CreateTopicButton.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\EditPostTopic.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\GetSimilarTopics.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\GetSubscribedTopics.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\HotTopics.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\LatestTopics.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\Show.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\TopicsByTag.cshtml" />
+    <Content Include="Areas\Forum\Views\Topic\TopicsMemberHasPostedIn.cshtml" />
+    <Content Include="Areas\Forum\Views\Vote\GetVoters.cshtml" />
+    <Content Include="Areas\Forum\Views\Vote\GetVotes.cshtml" />
+    <Content Include="Areas\Forum\Views\Web.config" />
+    <Content Include="Areas\Forum\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\Forum\Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Forum\Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Forum\Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Forum\Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.eot" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.ttf" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.woff" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.eot" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.ttf" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.woff" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.eot" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.ttf" />
+    <Content Include="Areas\Forum\Content\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.woff" />
+    <Content Include="Areas\Forum\Content\languagepacks\de-DE.csv" />
+    <Content Include="Areas\Forum\Content\languagepacks\fa-IR.csv" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\monocons\monocons.eot" />
+    <Content Include="Areas\Forum\Scripts\bbeditor\themes\monocons\monocons.ttf" />
+    <Content Include="Areas\Forum\Scripts\jquery-1.11.1.min.map" />
+    <Content Include="Areas\Forum\Scripts\tinymce\langs\readme.md" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Areas\Forum\Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumli.eot" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumli.ttf" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumli.woff" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumsb.eot" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumsb.ttf" />
+    <Content Include="Areas\Forum\Themes\Metro\Content\Fonts\mvcforumsb.woff" />
+    <None Include="Properties\PublishProfiles\Sa3adaty.pubxml" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\sb-admin-2.js" />
+    <Content Include="Scripts\tag-it.min.js" />
+    <Content Include="Scripts\utilities.js" />
+    <Content Include="Views\UserMailer\_NewsletterLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\UserMailer\_EmailLayout.cshtml" />
+    <Content Include="Views\UserMailer\Welcome.cshtml" />
+    <Content Include="Views\UserMailer\PasswordReset.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\UserMailer\DailyEmail.cshtml" />
+    <Content Include="Views\Newsletter\Daily.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\IndexOld.cshtml" />
+    <Content Include="Views\Newsletter\_SubscribeSmall.cshtml" />
+    <Content Include="Views\Shared\_FeaturedSlider.cshtml" />
+    <Content Include="Views\Newsletter\_SubscribeBig.cshtml" />
+    <Content Include="Views\Quote\_DailyQuote.cshtml" />
+    <Content Include="Views\Article\Article.cshtml" />
+    <Content Include="Views\Shared\_LeftList.cshtml" />
+    <Content Include="Views\Shared\_RelatedBottomList.cshtml" />
+    <Content Include="Views\Shared\_LeftListWide.cshtml" />
+    <Content Include="Views\Article\_Comment.cshtml" />
+    <Content Include="Views\Article\_CommentsList.cshtml" />
+    <Content Include="Views\Shared\_RelatedTopList.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\Shared\_HorizontalArticlesList.cshtml" />
+    <Content Include="Views\Shared\_HorizontalListArticle.cshtml" />
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Views\Account\PasswordSent.cshtml" />
+    <Content Include="Views\Shared\_HorizontalBigList.cshtml" />
+    <Content Include="Views\Shared\_BreadCrumb.cshtml" />
+    <Content Include="Views\Newsletter\Unsubscribe.cshtml" />
+    <Content Include="Views\Shared\_FacebookAPI.cshtml" />
+    <Content Include="Views\Shared\_GPlusAPI.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\Advertise.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Error\antiforgery.cshtml" />
+    <Content Include="Views\Article\Search.cshtml" />
+    <Content Include="Views\Shared\_SearchTop.cshtml" />
+    <Content Include="Views\Shared\_GATrackingCode.cshtml" />
+    <Content Include="Views\SiteMap\Generate.cshtml" />
+    <Content Include="Views\Error\notfound.cshtml" />
+    <Content Include="Views\Ads\_LeftMediumRectangle.cshtml" />
+    <Content Include="Views\Ads\_InitDFP.cshtml" />
+    <Content Include="Views\Ads\_LeftMediumRectangle2.cshtml" />
+    <Content Include="Scripts\tag-it.min.js.map">
+      <DependentUpon>tag-it.js</DependentUpon>
+    </Content>
+    <Content Include="Views\Category\ListByTag.cshtml" />
+    <Content Include="Views\Shared\_AuthorInfo.cshtml" />
+    <Content Include="Views\Ramadan\_RamadanDailyTip.cshtml" />
+    <Content Include="Views\Ramadan\_RamadanDailyPoll.cshtml" />
+    <Content Include="Views\Ramadan\_IftarTime.cshtml" />
+    <Content Include="Views\Shared\_DailyPoll.cshtml" />
+    <Content Include="Views\Shared\_LinkPagination.cshtml" />
+    <Content Include="Views\Video\index.cshtml" />
+    <Content Include="Views\Video\video.cshtml" />
+    <Content Include="Views\Video\_FeaturedVideos.cshtml" />
+    <Content Include="Views\Shared\_HorizontalListVideo.cshtml" />
+    <Content Include="Views\Shared\_HorizontalVideosList.cshtml" />
+    <Content Include="Views\Shared\_RelatedVideos.cshtml" />
+    <Content Include="Views\Category\ListByVideoTag.cshtml" />
+    <Content Include="Views\Shared\_Hotjar.cshtml" />
+    <Content Include="Views\Author\author.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Subscribers\" />
+    <Folder Include="Areas\Forum\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Forum\MVCForum.Core\MVCForum.Domain.csproj">
+      <Project>{20ad3d3c-153e-47ac-ba9c-3e4db876990e}</Project>
+      <Name>MVCForum.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum\MVCForum.IOC\MVCForum.IOC.csproj">
+      <Project>{b3a94898-2420-4fc0-8774-147fde3b13b2}</Project>
+      <Name>MVCForum.IOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum\MVCForum.Utilities\MVCForum.Utilities.csproj">
+      <Project>{d0ce5e27-041d-4f1e-8c8c-5f4888c72155}</Project>
+      <Name>MVCForum.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sa3adaty.Common\Sa3adaty.Common.csproj">
+      <Project>{7f7f7a2c-0175-4bbc-9e5b-394308b285c1}</Project>
+      <Name>Sa3adaty.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sa3adaty.Core\Sa3adaty.Core.csproj">
+      <Project>{bb06bf73-2bee-45cf-8b05-caf3507a08fb}</Project>
+      <Name>Sa3adaty.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sa3adaty.DAL\Sa3adaty.DAL.csproj">
+      <Project>{d8c4053a-a2d3-4100-a74a-e8bc8c813c36}</Project>
+      <Name>Sa3adaty.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2740</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19799/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

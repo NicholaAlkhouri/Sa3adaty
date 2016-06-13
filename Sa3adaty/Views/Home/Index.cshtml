@@ -1,0 +1,221 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+
+@{
+    ViewBag.Title = "";
+    ViewBag.MetaDescription = "سعادتي موقع مختص بالنصائح والمقالات لتحسين جوانب حياتك. سعادتي يعرفك على السعادة ومصدر السعادة في الحياة. نتحدث عن حياة العائلة المجتمع الزواج والصحة.";
+}
+
+@section MetaData
+{
+    <link rel="canonical" href="http://sa3adaty.com" />
+
+    <meta name="keywords" content="سعادتي، مرأة، مجتمع، أسرة، أطفال، سعادة زوجية، حياة عائلية، صحة شخصية،صحة نفسية، حياة اجتماعية،، سعادة، تربية، أمراض،نصائح، مقالات، معلومات مفيدة، عادات، نجاح،ثقة بالنفس">
+    @*verifying ownership Google & Bing*@
+    <meta name="google-site-verification" content="lQQ3ZY2oaWJfYgG1QOW4xrZqZEyhgDwUVHhdp5SE_S8" />
+    <meta name="msvalidate.01" content="333C70316FF798F2C65D80E2AB3931BA" />
+}
+@section Snippets
+{
+     <script type="application/ld+json">
+        {
+          "@@context": "http://schema.org",
+          "@@type": "Organization",
+         "legalName":"سعادتي",
+          "url": "http://sa3adaty.com",
+          "logo": "http://sa3adaty.com/Content/images/official-logo.png",
+          "sameAs" : [ "https://www.facebook.com/Sa3adatyCommunity","https://plus.google.com/+Sa3adaty","https://twitter.com/Sa3adatyME","http://www.youtube.com/channel/UCEumk1ywZSJHDGc339PQi5g"] 
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+           "@@context" : "http://schema.org",
+           "@@type" : "WebSite",
+           "name" : "سعادتي",
+           "url" : "http://sa3adaty.com",
+            "potentialAction": {
+             "@@type": "SearchAction",
+             "target": "http://sa3adaty.com/Article/Search?q={search_term_string}",
+             "query-input": "required name=search_term_string"
+           }
+        }
+    </script>
+   
+}
+
+<div class="container top-banner-wrapper" >
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Top Responsive -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1771671286404648"
+         data-ad-slot="1247373392"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<div class="container">
+
+    <div class="row" >
+        <div class="col-lg-22 col-xs-32 main-section">
+            <section>
+                @Html.Partial("_FeaturedSlider",(List<ListArticleViewModel>)(ViewBag.SliderArticles))
+            </section>
+
+            <div  class="s-box hidden-sm hidden-xs"></div>
+
+            <div class="shadow-box white-background horizontal-list">
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="red">الحياة العائلية</h1>
+                         <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/حياة-عائلية")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png"  alt="المزيد من حياة عائلية"/>
+                            </a>
+                        </div>
+                    </div>
+                    @Html.Partial("_HorizontalArticlesList",((List<ListArticleViewModel>)(ViewBag.ArticlesPerCategory)).Where(a=> a.CategoryId == 4).ToList())
+                </section>
+
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="purple ">السعادة الزوجية</h1>
+                         <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/سعادة-زوجية")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png" alt="المزيد من سعادة زوجية" />
+                            </a>
+                        </div>
+                    </div>
+                    @Html.Partial("_HorizontalArticlesList",((List<ListArticleViewModel>)(ViewBag.ArticlesPerCategory)).Where(a=> a.CategoryId == 2).ToList())
+                </section>
+
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="ligh-green" style="    font-family: 'Droid Arabic Kufi', sans-serif;">سعادتي TV</h1>
+                        <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/فيديو")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png" alt="المزيد من الفيديو" />
+                            </a>
+                        </div>
+                        
+                    </div>
+                    @Html.Partial("~/Views/Video/_FeaturedVideos.cshtml", (List<Sa3adaty.Core.ViewModels.Videos.ListVideoViewModel>)(ViewBag.FeaturedVideos))
+                </section>
+
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="orange ">الصحة الشخصية</h1>
+                         <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/صحة-شخصية")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png" alt="المزيد من صحة شخصية" />
+                            </a>
+                        </div>
+                    </div>
+                    @Html.Partial("_HorizontalArticlesList",((List<ListArticleViewModel>)(ViewBag.ArticlesPerCategory)).Where(a=> a.CategoryId == 1).ToList())
+                </section>
+
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="green">الصحة النفسية</h1>
+                        <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/صحة-نفسية")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png" alt="المزيد من صحة نفسية" />
+                            </a>
+                        </div>
+                    </div>
+                    @Html.Partial("_HorizontalArticlesList",((List<ListArticleViewModel>)(ViewBag.ArticlesPerCategory)).Where(a=> a.CategoryId == 3).ToList())
+                </section>
+
+                <section>
+                    <div class="home-category-title">
+                        <h1 class="blue">الحياة الاجتماعية</h1>
+                         <div class="category-more-wrapper">
+                            <a href="@Html.AbsoluteArabicURL("/حياة-اجتماعية")" class="category-more-link">
+                                المزيد
+                                <img src="/Content/images/blue-arrow-left.png" alt="المزيد من حياة اجتماعية" />
+                            </a>
+                        </div>
+                    </div>
+                    @Html.Partial("_HorizontalArticlesList",((List<ListArticleViewModel>)(ViewBag.ArticlesPerCategory)).Where(a=> a.CategoryId == 1002).ToList())
+                </section>
+            </div>
+            
+            <div  class="s-box hidden-sm hidden-xs"></div>
+            <div class="hidden-sm hidden-xs hidden-md">
+                @Html.Partial("~/Views/Newsletter/_SubscribeBig.cshtml")
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-xs-32 left-section">
+            <aside>
+                @Html.Partial("~/Views/Newsletter/_SubscribeSmall.cshtml")
+
+                <div class="s-box" style="float:right;width:100%;height:250px;text-align:center">
+                
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                   <!-- Left Medium Rectangle 1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1771671286404648"
+                         data-ad-slot="5969584599"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <section>
+                    @Html.Partial("_LeftListWide",(List<ListArticleViewModel>)(ViewBag.LatestArticlesLeft))
+                </section>
+
+                <section class="col-xs-32 " style="padding:0px;margin-bottom:20px">
+                    @Html.Action("_DailyPoll","Home")
+                </section>
+        
+            
+           
+
+                <div class="s-box" style="float:right;width:100%;height:250px;text-align:center ">
+                   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Left Medium Rectangle 2 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-1771671286404648"
+                         data-ad-slot="8096962595"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                     @*<a href="http://sa3adaty.com" ><img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/banner.png"))" /></a>*@
+                </div>
+            </aside>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $('#newsletter-email').on('change invalid', function () {
+            var textfield = $(this).get(0);
+
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
+
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('');
+            }
+        });
+
+       
+
+</script>
+}
+

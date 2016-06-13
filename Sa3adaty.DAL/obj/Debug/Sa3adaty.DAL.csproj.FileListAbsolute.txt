@@ -1,0 +1,9 @@
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\Sa3adaty.DAL.dll.config
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\Sa3adaty.DAL.dll
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\Sa3adaty.DAL.pdb
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\EntityFramework.dll
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\EntityFramework.xml
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\obj\Debug\Sa3adaty.DAL.dll
+D:\Work\Projects\Sa3adaty\Solution\Sa3adaty\Sa3adaty.DAL\obj\Debug\Sa3adaty.DAL.pdb

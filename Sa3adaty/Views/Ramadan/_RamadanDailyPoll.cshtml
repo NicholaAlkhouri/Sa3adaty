@@ -1,0 +1,80 @@
+﻿@using Sa3adaty.Core.ViewModels.Polls
+@model PollViewModel
+@{
+    bool is_first = true;
+}
+@if(Model != null)
+{
+ <div class="col-xs-32  col-sm-16 col-md-32" style="padding:0px;margin-bottom:20px">
+<div class="ramadan-poll">
+    @using (Ajax.BeginForm("_SubmitPollAnswer", "Ramadan", null, new AjaxOptions() { OnSuccess = "ramadan_poll_success",OnBegin="ramadan_poll_begin", LoadingElementId = "loading-img-ramadan-poll" }, new { novalidate = "novalidate" }))
+    {
+        <input type="hidden" value="@Model.PollId" name="poll_id" />
+        <div class="question-div">
+            <div class="ramadan-poll-header"><span>سؤال اليوم من سعادتي</span></div>
+            <div class="continues-dot-separator-white" style="height:5px;"></div>
+            <h2> <span class="ramadan-poll-question">@Model.Question</span></h2>
+
+        </div> 
+        <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + Model.ImageURL))" alt="@Model.Question" title="@Model.Question" width="300" height="170" />
+    
+        <div class="poll-radio-wraper">
+            @foreach (PollAnswerViewModel pa in Model.Answers)
+            {
+                
+                <div class="radio">
+                <input type="radio" value="@pa.PollAnswerId" id="@(pa.PollAnswerId.ToString()+"_answer")" name="answer_id" @(is_first?"checked=checked":"") />
+                <label for="@(pa.PollAnswerId.ToString()+"_answer")">@pa.PollAnswer</label>
+                </div>
+                is_first = false;
+            }
+           
+            <div style="text-align:center" class="submit-div"><input class="action-btn" type="submit" value="أرسل الإجابة" style="margin-bottom:20px" /></div>
+
+            <img id="loading-img-ramadan-poll" alt="الرجاء الانتظار" class="ajax-loader" src="/Content/images/loading.gif" style="display:none;" />
+        </div>
+       
+        <div style="background-color:#e8ecec;height:1px;"></div>
+        if (Model.Description != null && Model.Description != "")
+        {
+            <div class="poll-answer-area" style="text-align:center">
+                <span style="color:#888888;font-size:16px;cursor:pointer" class="show_correct_label" onclick="ramadan_show_correct()">تعرف على الإجابة الصحيحة</span>
+                <div class="show_correct_answer" style="display:none;">
+                    <span style="color:#888888;font-size:16px;">الإجابة الصحيحة هي:</span><br />
+                    <div style="color:#515c5d;margin-top:10px">@Model.Description</div>
+                </div>
+            
+            </div>
+        }
+    }
+</div>
+     </div>   
+}
+
+
+
+<script >
+    function ramadan_show_correct() {
+        $(".show_correct_label").hide();
+        $(".show_correct_answer").show();
+    }
+    function ramadan_poll_begin() {
+        $(".poll-radio-wraper input[type=radio]").attr('disabled', true);
+        $(".poll-radio-wraper .action-btn").attr('disabled', true);
+    }
+    function ramadan_poll_success(data) {
+        if (data.success == false) {
+            $(".poll-radio-wraper input[type=radio]").attr('disabled', false);
+            $(".poll-radio-wraper .action-btn").attr('disabled', false);
+            alert("حدث خطأ أثناء إرسال طلبك، الرجاء المحاولة لاحقا");
+        }
+        else {
+            $(".poll-radio-wraper .radio").hide();
+            $(".poll-radio-wraper .submit-div").hide();
+            console.log(data);
+            for (i = 0; i < data.data.length; i++) {
+                $(".poll-radio-wraper").append("<span>" + data.data[i].Answer + "</span><div style='width:100%;height:35px;text-align:right; margin-top: 3px;'><div style='background-color:#23af44;height:10px;width:" + data.data[i].Percentage + "%'></div><span style='font-size:11px;color:#23af44'>" + data.data[i].Percentage + "%</span></div>");
+            }
+        }
+    }
+</script>

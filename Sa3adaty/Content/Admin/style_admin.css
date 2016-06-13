@@ -1,0 +1,41 @@
+﻿@font-face
+{
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/Content/fonts/DroidKufi/DroidKufi-Regular.eot);
+    src: url(/Content/fonts/DroidKufi/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'), url(/Content/fonts/DroidKufi/DroidKufi-Regular.woff2) format('woff2'), url(/Content/fonts/DroidKufi/DroidKufi-Regular.woff) format('woff'), url(/Content/fonts/DroidKufi/DroidKufi-Regular.ttf) format('truetype');
+}
+
+@font-face
+{
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 700;
+    src: url(/Content/fonts/DroidKufi/DroidKufi-Bold.eot);
+    src: url(/Content/fonts/DroidKufi/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'), url(/Content/fonts/DroidKufi/DroidKufi-Bold.woff2) format('woff2'), url(/Content/fonts/DroidKufi/DroidKufi-Bold.woff) format('woff'), url(/Content/fonts/DroidKufi/DroidKufi-Bold.ttf) format('truetype');
+}
+input[type="text"]{
+    direction:rtl;
+    text-align:right;
+}
+
+#contentarea{
+    text-align:right;
+    direction:rtl;
+}
+
+ .preview,  .wysiwygeditor {overflow:scroll ; max-height:300px;min-height:150px;border: 1px solid #dddddd;direction:rtl;padding:5px; font-size:14px; font-family:'Droid Arabic Kufi',serif; line-height:28px;}
+ .preview h2, .wysiwygeditor h2{font-size:15px;font-weight:bold;}  
+ .btn-toolbar .btn
+        {
+            margin-bottom: 10px;
+        }
+
+.hint-icon
+{
+    font-size:19px;
+    vertical-align:middle;
+    color:green;
+    cursor:pointer;
+}

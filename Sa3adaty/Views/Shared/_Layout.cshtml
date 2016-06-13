@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ar" @Html.Raw(ViewBag.HTMLAttributes)>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+
+    <meta name="description" content="@ViewBag.MetaDescription">
+    @RenderSection("MetaData", required: false)
+
+     <link rel="icon" type="image/png" href="~/sa3adaty_favicon.png">
+
+    <title>@Html.PageTitle((string)ViewBag.Title)</title>
+
+    
+     @Scripts.Render("~/bundles/ie10-viewport-bug")
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="@Url.Content("~/Content/bootstrap/bootstrap-arabic.css")" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Styles", required: false)
+
+    @Html.Partial("_GATrackingCode")
+    @*@Html.Partial("~/Views/Ads/_InitDFP.cshtml")*@
+      
+    @Html.Partial("_Hotjar")
+  </head>
+
+  <body>
+      @RenderSection("BodyScripts",required:false)
+
+    <header>
+       @Html.Action("_Header","Home")
+    </header>
+    
+    <div class="main_content">
+        @RenderBody()
+    </div>
+    
+    <footer>
+         @Html.Action("_Footer","Home")
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+     
+    @Scripts.Render("~/bundles/utilities")
+    @RenderSection("scripts", required: false)
+      
+    @RenderSection("Snippets",required:false)
+
+    @Html.Partial("_FacebookAPI")
+    @Html.Partial("_GPlusAPI")
+  </body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model Sa3adaty.Core.ViewModels.Admin.Articles.CategoryViewModel
+
+@{
+    ViewBag.Title = "New Video Category";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add New Category</h1>
+    </div>
+</div>
+ @using (Html.BeginForm("New", "AdminVideoCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ {
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Article Basic Info
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", required = "required" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.URL)
+                    @Html.TextBoxFor(m=> m.URL,new { @class="form-control",required="required"})
+                </div>
+                <div class="form-group">
+                    <label for="Images" class="control-label">Image:</label>
+                    <input type="file"  id="Images" name="Images">
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                SEO
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.MetaTitle)
+                    @Html.TextBoxFor(m=> m.MetaTitle,new { @class="form-control"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.MetaDescription)
+                    @Html.TextBoxFor(m=> m.MetaDescription,new { @class="form-control"})
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="col-lg-4">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+                Publish
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                             @Html.EditorFor(m=> m.IsPublished,new { @class="form-control"})
+                             @Html.DisplayNameFor(m=>m.IsPublished)
+                        </label>
+                     </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Save Changes"  />
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+ }

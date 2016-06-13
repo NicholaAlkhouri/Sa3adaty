@@ -1,0 +1,59 @@
+﻿@model Sa3adaty.Common.Interfaces.ILinkPagenation 
+
+@if (Model.TotalPages > 0)
+{
+    <nav>
+      <ul class="pagination">
+        @if(Model.PageNumber > 1)
+        {
+            <li>
+              <a href="@Html.AbsoluteArabicURL(Model.LinkTemplate.Replace("{page}","1"))" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li>
+              <a href="@Html.AbsoluteArabicURL(Model.LinkTemplate.Replace("{page}",(Model.PageNumber - 1).ToString()))" aria-label="Previous">
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+        }
+        @{
+            int start_from = 1;
+            int end_at = Model.TotalPages;
+
+            if (Model.PageNumber > 10)
+            {
+                start_from = Model.PageNumber - 4;
+                if (Model.TotalPages > Model.PageNumber + 4)
+                {
+                    end_at = Model.PageNumber + 4;
+                }
+                else
+                {
+                    end_at = Model.TotalPages;
+                }
+            }
+        }
+        @for (int i = start_from; i <= end_at; i++)
+        {
+            
+            <li @(Model.PageNumber==i?"class=active":"")><a href="@Html.AbsoluteArabicURL(Model.LinkTemplate.Replace("{page}",i.ToString()))">@i</a></li>
+        }
+        
+          @if(Model.PageNumber < Model.TotalPages)
+          {
+              <li>
+              <a href="@Html.AbsoluteArabicURL(Model.LinkTemplate.Replace("{page}",(Model.PageNumber + 1 ).ToString()))" aria-label="Next">
+                <span aria-hidden="true">&larr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="@Html.AbsoluteArabicURL(Model.LinkTemplate.Replace("{page}",Model.TotalPages.ToString()))" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            
+          }
+      </ul>
+    </nav>
+}

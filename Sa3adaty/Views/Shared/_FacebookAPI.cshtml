@@ -1,0 +1,46 @@
+﻿<div id="fb-root"></div>
+<script>
+    var fbAppId = @System.Configuration.ConfigurationManager.AppSettings["FacebookAppId"];
+    @* var fbpage_access_token = "@FBHelper.AccessToken";
+    window.fbAsyncInit = function () {
+        FB.api(
+            "/@System.Configuration.ConfigurationManager.AppSettings["FacebookPageID"]?fields=likes", { access_token: fbpage_access_token },
+        function (response) {
+            if (response && !response.error) {
+                /* handle the result */
+                $(".fb-page-count").html(response.likes);
+            }
+        }
+        );
+
+        @if (ViewBag.OnFacebookAPIReady != null)
+         {
+            @Html.Raw(ViewBag.OnFacebookAPIReady)
+         }
+    };*@
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId="+fbAppId+"&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+
+    @*function GetPageLikes() {
+        FB.api(
+            "/?id=@Html.AbsoluteArabicURL(Request.RawUrl)",{ access_token: fbpage_access_token },
+            function (response) {
+                if (response && !response.error) {
+                    if (response.share) {
+                        $(".fb-page-shares").html(response.share.share_count);
+                        return;
+                    }
+                }
+                $(".fb-page-shares").html("0");
+            }
+        );
+    }*@
+</script>

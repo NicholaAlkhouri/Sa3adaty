@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/UserMailer/_NewsletterLayout.cshtml";
+    ViewBag.Title = "Edit Author";
+}
+@using Sa3adaty.Core.ViewModels.Articles
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-top:1px solid #e5e5e5">
+    <tr>
+        <td align="center" valign="top" style="padding-top:20px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody><tr>
+                    <td align="center" valign="top" style="color:#606060;font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:150%;padding-right:20px;padding-bottom:5px;padding-left:20px;text-align:center">
+                       <a href="https://www.facebook.com/Sa3adatyCommunity" style="background-color: #287cb4;
+                  height: 55px;
+                  color: #fff;
+                  line-height: 55px;
+                  -moz-border-radius: 5px;
+                  -webkit-border-radius: 5px;
+                  border-radius: 5px;
+                  padding:0px 10px;
+                  margin-bottom: 20px;
+                  font-size: 18px;
+                  background-position: 15px center;
+                    display: inline-block;
+                  margin: auto;
+                  cursor: pointer;
+                  width: 250px;
+                  text-align: center;
+                  direction:rtl;
+                  border: 0;text-decoration:none;">انضموا إلى صفحتنا على الـ <img src="http://sa3adaty.com/Content/images/facebook-login.png" width="14" height="28" style="padding-right:10px;vertical-align:middle"/></a>
+                           
+
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</table>
+
+  <!-- BODY -->
+    <table class="body-wrap" bgcolor="" style="width:100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="height:20px" > </td>
+        </tr>
+        <tr>
+            <td class="container" align="" bgcolor="#FFFFFF" style="display: block!important;max-width: 580px!important;margin: 0 auto!important;clear: both!important;padding:0px 10px">
+
+                @foreach (ListArticleViewModel article in (List<ListArticleViewModel>)ViewBag.Articles)
+                {
+                    <!-- content -->
+                    <div class="content">
+                        <table bgcolor="" style="direction:rtl;text-align:right;padding-bottom: 20px;padding-top:20px;border-bottom: 1px dotted #000001;width:100%">
+                            <tr>
+                                <td class="image_td" width="40%" style="vertical-align: top;text-align:center">
+                                   <a href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = article.URL }))?utm_source=newsletter&utm_medium=email&utm_campaign=dailynewsletter"> <img src="@Html.AbsoluteImagePath(Url.Content("~/"+article.ImageURL))" alt="@article.Title" title="@article.Title" style="width:100%;max-width:233px;" /></a>
+                                     
+                                <td class="text_td" width="60%" style="vertical-align:top;padding-top:10px;padding-right:10px">
+                                    <div style="color:#999999;font-size:12px">@Html.FormatDate(article.PublishDate)</div>
+                                    <div style="color:#000001; font-size:16px;font-weight:bold;">
+                                        <a   style="color:#000001; font-size:16px;font-weight:bold;text-decoration:none;" href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = article.URL }))?utm_source=dailynewsletter&utm_medium=email&utm_campaign=dailynewsletter">@article.Title </a>
+                                    </div>
+                                    <p class="" style="color:#757575;font-size:14px">@Html.Raw(article.Description) ...<a style="color:#757575"  href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = article.URL }))?utm_source=dailynewsletter&utm_medium=email&utm_campaign=dailynewsletter">المزيد</a></p>
+                                
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /content -->
+                }
+                           
+
+            </td>
+         
+        </tr>
+    
+         <tr>
+            <td style="height:20px" colspan="3"> </td>
+        </tr>
+    </table>
+
+    <img src="http://www.google-analytics.com/collect?v=1&tid=UA-60729854-1&cid=@(ViewBag.Email + DateTime.Now.ToString("yyyy-MM-dd"))&t=event&ec=email&ea=open&el=@(ViewBag.Email)&cs=newsletter&cm=email&cn=dailynewsletter"/>
+    <!-- /BODY -->

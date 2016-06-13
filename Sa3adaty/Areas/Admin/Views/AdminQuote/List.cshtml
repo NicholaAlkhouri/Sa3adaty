@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "List Of Quotes";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <link href="@Url.Content("~/Content/bootstrap/plugins/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Quotes<a href="@Url.Action("New","AdminQuote")"  class="btn btn-outline btn-primary btn-xs">Add New Quote</a></h1>
+    </div>
+</div>
+
+@using (Html.BeginForm()) {
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-quotes">
+                        <thead>
+                            <tr>
+                                <th>Quote</th>
+                                <th>Auther</th>
+                                <th>Online Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                   
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="col-lg-4">
+        
+    </div>
+</div>
+}
+
+
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/dataTables.bootstrap.js")"></script>
+<script>
+    var cat_table;
+    $(document).ready(function() {
+        cat_table = $('#dataTables-quotes').DataTable({
+            serverSide: true,
+            "ajax":
+            {
+                url: "/Admin/AdminQuote/_QuotesList",
+                type: 'POST',
+                
+            },
+            "columns": [
+                         { "data": "Quote" },
+                         { "data": "Author" },
+                         { "data": "DayDateString" },
+                   {
+                       "data": "QuoteId",
+                       "render": function (data, type, full, meta) {
+                           return '<a href="@(Url.Action("Edit","AdminQuote"))/' + data + '" class="btn btn-outline btn-primary btn-sm">Edit</a> <a  class="btn btn-danger btn-xs" onclick="DeleteQuote(' + data + ');">Delete</a>';
+                        },
+                        "sortable": false
+                   }
+            ],
+            "lengthMenu": [[10, 20, 50], [10, 25, 50]]
+        
+        });
+
+        
+    });
+
+    function DeleteQuote(id) {
+        if (confirm("Are you sure you want to delete this Quote?")) {
+            $.ajax({
+                url: "@Url.Action("_Delete", "AdminQuote")",
+                type: 'POST',
+                data: { 'quote_id': id },
+                success: function (data) {
+                    cat_table.ajax.reload(null, false);
+                },
+            });
+        }
+    }
+       
+    </script>
+}

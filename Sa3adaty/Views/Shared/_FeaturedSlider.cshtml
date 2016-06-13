@@ -1,0 +1,42 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+@model List<ListArticleViewModel>
+@{
+    bool is_first = true;
+}
+
+<div id="carousel-feature" class="carousel slide shadow-box" data-ride="carousel" data-interval="3000">
+
+  <!-- Indicators -->
+@*  <ol class="carousel-indicators">
+    <li data-target="#carousel-feature" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-feature" data-slide-to="1"></li>
+    <li data-target="#carousel-feature" data-slide-to="2"></li>
+  </ol>*@
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+       @foreach (ListArticleViewModel article in Model)
+       {
+          <div class="item @(is_first ? "active" : "")">
+              @if (article.ImageURL != null && article.ImageURL != "")
+              {
+                 <a href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = article.URL }))"><img src="@Html.AbsoluteImagePath(Url.Content("~/" + article.ImageURL))" alt="@article.Title" title="@article.Title" /></a>
+              }
+              
+              <div class="slider-caption">
+                  <a  href="@Html.AbsoluteArabicURL(Url.Action("Article","Article", new { id = article.URL }))">@article.Title </a>
+              </div>
+            </div>
+           if (is_first) { is_first = false; } 
+      }
+    
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control slider-left-arrow" href="#carousel-feature" role="button" data-slide="prev">
+    @*<span class="glyphicon glyphicon-chevron-left"></span>*@
+  </a>
+  <a class="right carousel-control slider-right-arrow" href="#carousel-feature" role="button" data-slide="next">
+  @*  <span class="glyphicon glyphicon-chevron-right"></span>*@
+  </a>
+</div> <!-- Carousel -->

@@ -1,0 +1,58 @@
+﻿@{
+    var day = DateTime.Now.AddHours(11).Day;
+    string time = "";
+    
+    switch (day )
+    {
+        
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+            time = "7:06";
+            break;
+        
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+        case 28:
+        case 29:
+        case 30:
+            time = "7:07";
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+            time = "7:08";
+            break;
+        
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+            time = "7:07";
+            break;
+       
+        case 16:
+        case 17:
+            time = "7:06";
+            break;
+    }
+            
+}
+<div class="ramadan-iftar-time">
+    <div>وقت الإفطار</div>
+    <div style="  margin: 3px;  font-size: 20px;"><img src="/Content/images/ramadan/ramadan-sunset.png" width="40" height="28" title="إفطار رمضاني" style="margin-left:10px" alt="إفطار رمضان"/>@time</div>
+    <div>حسب توقيت مدينة مكة المكرمة</div>
+</div>

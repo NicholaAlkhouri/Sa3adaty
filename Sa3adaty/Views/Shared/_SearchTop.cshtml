@@ -1,0 +1,9 @@
+﻿@using (Html.BeginForm("Search", "Article", new { q="",page=""}, FormMethod.Get, new { novalidate = "novalidate" }))
+{
+    <div>
+        <input type="email" name="q"  class="input-search" placeholder="" required />
+        <input type="submit" class="submit-search"  style="display:none" onclick="return checkIfNotBlank($(this).prev()); return false;" />
+        <input type="hidden" name="page" value="1" />
+    </div>
+   
+}

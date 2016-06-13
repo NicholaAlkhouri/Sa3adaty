@@ -1,0 +1,8 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+@model List<CommentViewModel>
+
+@foreach (CommentViewModel comment in Model)
+{
+    @Html.Partial("~/Views/Article/_Comment.cshtml",comment)
+    
+}

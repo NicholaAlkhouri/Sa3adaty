@@ -1,0 +1,17 @@
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\Badge.Grouch.dll.config
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\Badge.Grouch.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\Badge.Grouch.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\MVCForum.Domain.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\MVCForum.Utilities.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\HtmlAgilityPack.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\AntiXssLibrary.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\MVCForum.Domain.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\Microsoft.Web.Infrastructure.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\MVCForum.Utilities.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\HtmlAgilityPack.pdb
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\HtmlAgilityPack.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\bin\Release\AntiXssLibrary.xml
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\obj\Release\Badge.Grouch.csprojResolveAssemblyReference.cache
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\obj\Release\Badge.Grouch.dll
+D:\Work\Projects\Saa3adaty\Solution\Sa3adaty\Forum\MVCForum.Badges\Badge.Grouch\obj\Release\Badge.Grouch.pdb

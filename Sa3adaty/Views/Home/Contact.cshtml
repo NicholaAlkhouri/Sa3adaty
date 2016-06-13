@@ -1,0 +1,118 @@
+﻿@model Sa3adaty.Core.ViewModels.ContactInfoViewModel
+
+@{
+    ViewBag.Title = "اتصل بنا";
+    ViewBag.MetaDescription = "صفحة للاتصال بفريق عمل موقع سعادتي، تقديم اقتراحات ونصائح عن الموقع، الابلاغ عن الأخطاء في موقع سعادتي";
+}
+ <div class="container">
+    <div class="col-xs-32 white-center-wrapper">
+        <section>
+            @if (TempData.ContainsKey("Success") && (bool)TempData["Success"] == true)
+            {
+                <div class="col-xs-12 col-xs-offset-10 forget-tab-content" style="padding:0px;"> 
+                    <div class="title-blue" style="text-align:center;">تم الإرسال بنجاح</div>
+                    <div style="text-align:center;margin-bottom:48px">شكرا لك، رأيك يهمنا و سيتم مراجعته من قبل فريق سعادتي بأسرع وقت ممكن، كما سيقوم فريق سعادتي بالتواصل معك إن تطلب الأمر.</div>
+                </div> 
+            }
+            else
+            {
+                <header><h1>اتصل بنا</h1></header>
+                <div class="col-xs-32 col-md-22" >
+                    <div style="color:#757575;font-family:Tahoma;padding:0px">
+                        يرجى ملء النموذج التالي إذا كنت ترغب في:<br /><br />
+                        <span style="color:#000001;">الشراكات:</span> هل لديك اقتراح عمل أو رعاية على موقع سعادتي؟<br />
+                        <span style="color:#000001;">تقديم نصيحة:</span> هل لديك معلومات مفيدة يمكننا أن نذكرها بالكامل؟<br />
+                        <span style="color:#000001;">تقديم خطأ تقني:</span> هل تجد مشكلة على موقع سعادتي؟<br />
+                         <span style="color:#000001;">ردود فعل و تعليقات:</span> هل لديك أي اقتراحات أو ردود فعل؟<br /><br />
+                
+                
+                    </div>
+                    @using (Html.BeginForm("Contact", "Home", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin", role = "form", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div>@Html.ValidationSummary()</div>
+                        <div><label >الاسم</label><span class="required-star">*</span></div>
+                        <div style="position:relative;">
+                            @Html.TextBoxFor(m => m.Name, new { id = "name_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >البريد الإلكتروني</label><span class="required-star">*</span></div>
+                        <div style="position:relative;">
+                            @Html.TextBoxFor(m => m.Email, new { id = "email_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >الموضوع</label><span class="required-star">*</span></div>
+                        <div  style="position:relative;">
+                            @Html.TextBoxFor(m => m.Subject, new { id = "subject_div", @class = "standard-textbox" })
+                        </div>
+
+                        <div><label >الرسالة</label><span class="required-star">*</span></div>
+                        <div  style="position:relative;">
+                            @Html.TextAreaFor(m => m.Message, new { id = "message_div", @class = "standard-textarea" })
+                        </div>
+
+                        <div style="text-align:center;"><input tabindex="8" type="submit" class="action-btn" onclick="return validateContactForm()" value="إرسال"/></div>
+              
+                    }
+                </div>
+            }
+      </section>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#name_div").focus(function () {
+                
+            }).blur(function () {
+                checkIfNotBlank($("#name_div"));
+            });
+
+            $("#email_div").focus(function () {
+                if ($(this).hasClass("required")) {
+                    $(this).val("");
+                    $(this).removeClass("required");
+                }
+            }).blur(function () {
+                validateSignupEmail(this, "#email_div");
+            });
+
+            $("#subject_div").focus(function () {
+               
+            }).blur(function () {
+                checkIfNotBlank($("#subject_div"));
+            });
+
+            $("#message_div").focus(function () {
+                
+            }).blur(function () {
+                checkIfNotBlank($("#message_div"));
+            });
+        });
+
+        function validateContactForm() {
+
+            if ($("#name_div").hasClass("required") || !checkIfNotBlank($("#name_div"))) {
+                $("#name_div").focus();
+                return false;
+            }
+            if ($("#email_div").hasClass("required") || !checkIfNotBlank($("#email_div"))) {
+                $("#email_div").focus();
+                return false;
+            }
+            if ($("#subject_div").hasClass("required") || !checkIfNotBlank($("#subject_div"))) {
+                $("#subject_div").focus();
+                return false;
+            }
+            if ($("#message_div").hasClass("required") || !checkIfNotBlank($("#message_div"))) {
+                $("#message_div").focus();
+                return false;
+            }
+            return true;
+        }
+        
+        </script>
+    }

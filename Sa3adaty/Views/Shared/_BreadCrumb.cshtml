@@ -1,0 +1,27 @@
+﻿@using Sa3adaty.Core.ViewModels
+@model BreadCrumbViewModel
+@{ 
+   //var is_first = true;
+   var bread_counter = 1;
+   }
+
+
+    <div class="breadcrumb-box" itemscope itemtype="http://schema.org/BreadcrumbList">
+    @foreach (BreadCrumbItemViewModel item in Model.Items)
+    {
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            @if (item.URL != null && item.URL != "")
+            { 
+                <a itemprop="item" href="@Html.AbsoluteArabicURL(item.URL)" class="breadcrumb-item" > <span itemprop="name">@item.Text</span></a>
+                if(bread_counter < Model.Items.Count())
+                {
+                    <span class="bread-crumb-arrow"></span>
+                }
+            }
+            <meta itemprop="position" content="@bread_counter" />
+        </span>
+        
+            //{ is_first = false; }
+            { bread_counter++; }
+    }
+    </div>

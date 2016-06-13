@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "List Of Authors";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <link href="@Url.Content("~/Content/bootstrap/plugins/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Authors <a href="@Url.Action("New","AdminAuthor")"  class="btn btn-outline btn-primary btn-xs">Add New Author</a></h1>
+    </div>
+</div>
+
+@using (Html.BeginForm()) {
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-authors">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                   
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="col-lg-4">
+        
+    </div>
+</div>
+}
+
+
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap/plugins/dataTables/dataTables.bootstrap.js")"></script>
+<script>
+    var cat_table;
+    $(document).ready(function() {
+        cat_table = $('#dataTables-authors').DataTable({
+            serverSide: true,
+            "ajax":
+            {
+                url: "/Admin/AdminAuthor/_AuthorsList",
+                type: 'POST',
+                
+            },
+            "columns": [
+                         { "data": "Name" },
+                        
+                   {
+                       "data": "AuthorId",
+                       "render": function (data, type, full, meta) {
+                           return '<a href="@(Url.Action("Edit","AdminAuthor"))/' + data + '" class="btn btn-outline btn-primary btn-sm">Edit</a> <a  class="btn btn-danger btn-xs" onclick="DeleteAuthor(' + data + ');">Delete</a>';
+                        },
+                        "sortable": false
+                   }
+            ],
+            "lengthMenu": [[10, 20, 50], [10, 25, 50]]
+        
+        });
+
+        
+    });
+
+    function DeleteAuthor(id) {
+        if (confirm("Are you sure you want to delete this Author?")) {
+            $.ajax({
+                url: "@Url.Action("_Delete", "AdminAuthor")",
+                type: 'POST',
+                data: { 'author_id': id },
+                success: function (data) {
+                    cat_table.ajax.reload(null, false);
+                },
+            });
+        }
+    }
+       
+    </script>
+}

@@ -1,0 +1,11 @@
+User-agent: *
+
+Disallow: /%D8%A8%D8%AD%D8%AB
+Disallow: /Admin
+Disallow: /admin
+Disallow: /Error
+Disallow: /error
+Disallow: /Account
+Disallow: /account
+Disallow: /SiteMap
+Disallow: /sitemap

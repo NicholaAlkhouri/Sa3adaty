@@ -1,0 +1,23 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+@model AuthorInfoViewModel
+
+<div>
+    @if (Model.ImageURL != null)
+    {
+        <img src="@Html.AbsoluteArabicURL(Url.Content("~/" + Model.ImageURL))" class="author-image" alt="@Model.FullName" title="@Model.FullName" width="45" height="45" />
+    }
+    else
+    {
+        <img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/small-avatar.png"))" width="45" height="45" />
+    }
+
+    @if (Model.IsProfileEnabled)
+    {
+        <a href="@Url.Action("author","Author",new {id = Model.URL } )"<span class="author_name">@Model.FullName</span>
+    }
+    else
+    {
+        <span class="author_name">@Model.FullName</span>
+    }
+
+</div>

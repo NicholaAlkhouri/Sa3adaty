@@ -1,0 +1,34 @@
+﻿@using Sa3adaty.Core.ViewModels.Account
+@using Sa3adaty.Core.ViewModels.Articles
+<nav  style="text-align:center">
+    <div style="margin-left:15px;display:inline-block;">
+        <a href="@Html.AbsoluteArabicURL(Url.Action("Index","Home"))" style="" ><img src="@Html.AbsoluteImagePath(Url.Content("~/Content/images/header-home.png"))" alt="الرئيسية" title="الرئيسية" /></a>
+    </div><div class=" main-menu-item menu-item-red" >
+        <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-عائلية"  }))" class="menu-title">الحياة العائلية</a>
+        
+    </div><div class="main-menu-item menu-item-purple" >
+        <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="سعادة-زوجية"  }))" class="menu-title">السعادة الزوجية</a>
+    </div><div class="main-menu-item menu-item-orange">
+        <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-شخصية"  }))" class="menu-title">الصحة الشخصية</a>
+    </div><div class="main-menu-item menu-item-green" >
+        <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="صحة-نفسية" }))" class="menu-title">الصحة النفسية</a>
+    </div><div class="main-menu-item menu-item-blue">
+        <a href="@Html.AbsoluteArabicURL(Url.Action("ListByTag", "Category", new { id="حياة-اجتماعية"  }))" class="menu-title">الحياة الاجتماعية</a>
+    </div><div class="main-menu-item menu-item-blue">
+        <a  style="font-family:'Droid Arabic Kufi', sans-serif " href="@Html.AbsoluteArabicURL(Url.Action("Index", "Video"))" class="menu-title">سعادتي TV</a>
+    </div>
+</nav>
+<script>
+    function validateHeaderLogin()
+    {
+        if ($("#header-email").hasClass("required") || !checkIfNotBlank($("#header-email"))) {
+            $("#header-email").focus();
+            return false;
+        }
+        if ($("#header-password").hasClass("required") || !checkIfNotBlank($("#header-password"))) {
+            $("#header-password").focus();
+            return false;
+        }
+        return true;
+    }
+</script>

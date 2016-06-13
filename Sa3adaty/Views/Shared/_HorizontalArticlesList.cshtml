@@ -1,0 +1,8 @@
+﻿@using Sa3adaty.Core.ViewModels.Articles
+
+@model List<ListArticleViewModel>
+
+@foreach (ListArticleViewModel article in Model)
+{
+    @Html.Partial("_HorizontalListArticle",article)
+}

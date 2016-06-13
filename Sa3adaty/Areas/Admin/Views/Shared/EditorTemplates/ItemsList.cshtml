@@ -1,0 +1,5 @@
+﻿@model int?
+
+@Html.DropDownList("",
+ViewData[ViewData.TemplateInfo.GetFullHtmlFieldName("") + "_Data"] == null ? new SelectList(new List<SelectListItem>()):
+(SelectList)ViewData[ViewData.TemplateInfo.GetFullHtmlFieldName("") + "_Data"],"All",new { @class="form-control"})
